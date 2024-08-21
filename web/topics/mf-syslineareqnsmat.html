@@ -1,0 +1,485 @@
+
+<h1>
+    Systems of Linear Equations and Matrices
+</h1>
+
+<p>A system of linear equations consists of a set of equations with a number of unknown variables such that the values of the unknown variables that satisfy all the equations is a solution to the system of linear equations. Consider the set of equations below
+\begin{align*}
+4x_1 + 4x_2 = 5 \tag{1}\\ 
+2x_1 - 4x_2 = 1 \tag{2}
+\end{align*}
+</p>
+<p>
+    This is a system of linear equations having 2 unknowns, \(x_1\) and \(x_2\). The solution to this system is; 
+    \[x_1 =1,  x_2 = 0.25\]</p>
+    
+<p> It can be observed that these values satisfy both equations (1) and (2) upon substitution. i.e </p>
+\begin{align*}
+4(1) + 4(0.25) = 4 + 1 = 5 \\
+2(1) - 4(0.25) = 2 - 1 = 1
+\end{align*}
+</p>
+
+<h3>1. General form of a system of linear equations</h3>
+<p>
+The general form of a system of linear equations is 
+</p>
+
+\begin{align*}
+a_{11}x_1 + a_{12}x_2 + &… + a_{1n}x_n  = b_1\\
+a_{21}x_1 + a_{22}x_2 + &… + a_{2n}x_n  = b_2\\
+	&\vdots \\
+a_{n1}x_1 + a_{n2}x_2 + &… + a_{nn}x_n  = b_n
+\end{align*}
+
+<p>
+    where \(x_i\)  are the unknowns and \(a_{ij}\) and \(b_i\) are numerical coefficients for \(i,j \in \{1,2,...,n\}\).</p> 
+<p>In the previous example above, there are 2 unknowns (i.e n = 2) and the numerical coefficients  are \(a_{11} = 4, a_{12} = 4, b_1 = 5, a_{21} = 2, a_{22} = -4, b_2 = 1, \)
+</p>
+
+<h3>2. Geometric Interpretations</h3>
+<p>
+In two dimensions (2 equations, 2 unknowns), each equation describes a line on the x-y plane. Since the unknowns are \(x_1\) and \(x_2\), we can conveniently work with an \(x_1-x_2\) plane. The point where the lines for each equation intersect gives the values of the unknowns that satisfy both equations. In three dimensions (3 equations, 3 unknowns), each equation describes a plane in 3d space with x-y-z coordinates, and a solution is the point where all planes intersect. 
+</p>
+
+<!-- <p>[Include Interactive Visualization]</p> -->
+<mf-geom-interp></mf-geom-interp>
+
+<h3>3. Row and column pictures</h3>
+<p>We can view a system of linear equations in two ways. In the row picture, we consider each individual equation and try to find the point of intersection by drawing a line(2d case) or plane(3d case) as explained above. In the column picture, we view the system of equations as an addition of scaled vectors where the scaling factors are the unknowns. The example presented earlier can be observed using the column picture as;
+</p>
+
+\begin{align*}
+    x_1 
+    \begin{bmatrix}
+    4\\
+   2
+   \end{bmatrix} +
+    x_2 
+    \begin{bmatrix}
+   4\\
+  -4 
+  \end{bmatrix} = 
+  
+  \begin{bmatrix}
+    5\\
+   1
+   \end{bmatrix}
+\end{align*}
+
+<!-- <p>
+    [Include interactive Visualization]
+
+
+</p> -->
+<!-- <mf-column-picture></mf-column-picture> -->
+<h3>
+    4. Matrix representation of a system of linear equations</h3>
+<p>
+    A compact notation for solving a system of linear equations can be obtained from the column picture to include a matrix-vector multiplication. For our system of linear equations, we can go from the column picture to a compact matrix representation as follows;
+
+    $$ 
+    x_1 
+    \begin{bmatrix}
+    4\\
+   2
+   \end{bmatrix} +
+    x_2 
+    \begin{bmatrix}
+   4\\
+  -4 
+  \end{bmatrix} = 
+  
+  \begin{bmatrix}
+    5\\
+   1
+   \end{bmatrix}
+   $$
+
+   $$
+   \begin{bmatrix}
+   4 & 4\\
+  2 & -4
+  \end{bmatrix}
+  \begin{bmatrix}
+   x_1 \\
+   x_2
+  \end{bmatrix} =
+  \begin{bmatrix}
+   5 \\
+   1
+  \end{bmatrix}
+   $$
+
+   
+</p>
+<!-- <p>
+    [Include Animation]
+</p> -->
+
+<p>In order to obtain a solution from this compact matrix form, we need to employ some computational rules designed for matrices
+</p>
+
+<h3>5. Matrices</h3>
+<p>
+    A matrix can be seen as a two-dimensional array of numbers, having m rows and n columns. An m x n matrix, A, can be written as;
+</p>
+    \begin{align*}
+A = \begin{bmatrix}
+a_{11} &a_{12} & \cdots  &a_{1n}  \\
+a_{21} &a_{22} & \cdots  &a_{2n}  \\
+\vdots & \vdots &   & \vdots\\
+a_{m1} &a_{m2} & \cdots &a_{mn}  \\
+\end{bmatrix}
+\end{align*}
+
+<h4>5.1 Matrix Addition</h4>
+<p>
+    The sum of two matrices A, and B is the element wise sum of corresponding elements in both matrices. For this to be possible, they both must have m rows and n columns.
+
+</p>
+\begin{align*}
+\text{If } \mathbf{A} &= \begin{bmatrix}
+    a_{11} & a_{12} & \cdots  & a_{1n}  \\
+    a_{21} & a_{22} & \cdots  & a_{2n}  \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \cdots & a_{mn}  \\
+\end{bmatrix}, 
+\text{and } \mathbf{B} = \begin{bmatrix}
+    b_{11} & b_{12} & \cdots  & b_{1n}  \\
+    b_{21} & b_{22} & \cdots  & b_{2n}  \\
+    \vdots & \vdots & \ddots & \vdots \\
+    b_{m1} & b_{m2} & \cdots & b_{mn}  \\
+\end{bmatrix}, \\
+\text{then,} \mathbf{A}+\mathbf{B} &= \begin{bmatrix}
+a_{11} + b_{11} &a_{12} + b_{12} & \cdots  &a_{1n} + b_{1n}  \\
+a_{21} + b_{21} &a_{22} + b_{22} & \cdots  &a_{2n} + b_{2n}  \\
+\vdots & \vdots &   & \vdots\\
+a_{m1} + b_{m1} &a_{m2} + b_{m2} & \cdots &a_{mn} + b_{mn}  \\
+\end{bmatrix}
+\end{align*}
+<!-- <p>If \(A = \begin{bmatrix}
+    a_{11} &a_{12} & \cdots  &a_{1n}  \\
+    a_{21} &a_{22} & \cdots  &a_{2n}  \\
+    \vdots & \vdots &   & \vdots\\
+    a_{m1} &a_{m2} & \cdots &a_{mn}  \\
+    \end{bmatrix}\) and \(B = \begin{bmatrix}
+    b_{11} &b_{12} & \cdots  &b_{1n}  \\
+    b_{21} &b_{22} & \cdots  &b_{2n}  \\
+    \vdots & \vdots &   & \vdots\\
+    b_{m1} &b_{m2} & \cdots &b_{mn}  \\
+    \end{bmatrix}\)</p>
+<p style="display: flex; flex-direction: row; align-items: center;">
+    <span>If</span> 
+    <span style="margin-left: 10px;">$$
+A = \begin{bmatrix}
+a_{11} &a_{12} & \cdots  &a_{1n}  \\
+a_{21} &a_{22} & \cdots  &a_{2n}  \\
+\vdots & \vdots &   & \vdots\\
+a_{m1} &a_{m2} & \cdots &a_{mn}  \\
+\end{bmatrix}
+$$</span>
+<span>and</span>
+<span style="margin-left: 10px;">$$
+    B = \begin{bmatrix}
+    b_{11} &b_{12} & \cdots  &b_{1n}  \\
+    b_{21} &b_{22} & \cdots  &b_{2n}  \\
+    \vdots & \vdots &   & \vdots\\
+    b_{m1} &b_{m2} & \cdots &b_{mn}  \\
+    \end{bmatrix}
+    $$</span>
+</p>
+<p style="display: flex; flex-direction: row; align-items: center;">
+    <span>Then</span> 
+    <span style="margin-left: 10px;">$$
+A + B = \begin{bmatrix}
+a_{11} + b_{11} &a_{12} + b_{12} & \cdots  &a_{1n} + b_{1n}  \\
+a_{21} + b_{21} &a_{22} + b_{22} & \cdots  &a_{2n} + b_{2n}  \\
+\vdots & \vdots &   & \vdots\\
+a_{m1} + b_{m1} &a_{m2} + b_{m2} & \cdots &a_{mn} + b_{mn}  \\
+\end{bmatrix}
+$$
+</span>
+</p>
+<p>
+    [Include Animation / Interactive Visualization]
+
+</p> -->
+
+<h4>5.2 Matrix-vector Multiplication</h4>
+<p>
+    A matrix can be multiplied by a vector. A matrix-vector multiplication is a linear combination of the columns or rows of the matrix, depending on whether we use a column or row vector. 
+
+</p>
+
+<p>
+Let’s briefly explain what linear combination means with regards to vectors;
+</p>
+<p>
+<strong>Linear combination of vectors</strong>: The linear combination of two vectors involves scalar multiplication and addition. Consider two vectors \(\mathbf{u}\) and \(\mathbf{v}\), and two scalars \(a\) and \(b\);
+</p>
+\begin{align*}
+\mathbf{u} = \begin{bmatrix}
+u_1 \\ u_2 \\ u_3
+\end{bmatrix}, 
+\mathbf{v} = \begin{bmatrix}
+v_1 \\ v_2 \\ v_3
+\end{bmatrix} 
+\end{align*}
+
+<p>The linear combination of \(\mathbf{u}\) and \(\mathbf{v}\) can be expressed as </p>
+
+\begin{align*}
+a\mathbf{u} + b\mathbf{v} &= a\begin{bmatrix} 
+u_1 \\ u_2 \\ u_3
+\end{bmatrix} + b\begin{bmatrix}
+v_1 \\ v_2 \\ v_3
+\end{bmatrix} \\ 
+&= \begin{bmatrix}
+au_1 \\ au_2 \\ au_3
+\end{bmatrix} + \begin{bmatrix}
+bv_1 \\ bv_2 \\ bv_3
+\end{bmatrix} \\ 
+&= \begin{bmatrix}
+au_1 + bv_1 \\ au_2 + bv_2 \\ au_3 + bv_3
+\end{bmatrix}
+\end{align*}
+
+</p>
+
+
+<p>
+    <strong>Linear combination of column vectors of a matrix</strong>: Now let’s view matrix-vector multiplication as the linear combination of the columns of a matrix. Consider the matrix \(\mathbf{A}\) and vector \(\mathbf{v}\)
+
+</p>
+
+<p>
+    \begin{align*}
+    \text{If } \mathbf{A} = \begin{bmatrix}
+    a_{11}  &a_{12}  & a_{13} \\
+    a_{21} &a_{22}  & a_{23} \\
+    a_{31} &a_{32}  &a_{33}  \\
+    \end{bmatrix}, \text{and }
+    \mathbf{v} = \begin{bmatrix}
+    v_1 \\ v_2 \\ v_3
+    \end{bmatrix}
+    \end{align*}
+</p>
+
+<p>
+    \begin{align*}
+    \text{Then } \mathbf{A}\mathbf{v} &= \begin{bmatrix}
+    a_{11}  &a_{12}  & a_{13} \\
+    a_{21} &a_{22}  & a_{23} \\
+    a_{31} &a_{32}  &a_{33}  \\
+    \end{bmatrix} \begin{bmatrix}
+    v_1 \\ v_2 \\ v_3
+    \end{bmatrix} \\ &= v_1 \begin{bmatrix}
+    a_{11} \\ a_{21} \\ a_{31} 
+    \end{bmatrix}+ v_2 \begin{bmatrix}
+    a_{12} \\ a_{22} \\ a_{32}
+    \end{bmatrix} + v_3 \begin{bmatrix}
+    a_{13} \\ a_{23} \\ a_{33}
+    \end{bmatrix} \\ &= \begin{bmatrix}
+    v_1a_{11} + v_2a_{12} + v_3a_{13} \\
+    v_1a_{21} + v_2a_{22} + v_3a_{23} \\
+    v_1a_{31} + v_2a_{32} + v_3a_{33}
+    \end{bmatrix}
+    \end{align*}
+</p>
+
+<p>
+    <strong>Linear combination of the row vectors of a matrix</strong>: Matrix-vector multiplication can also be seen as the linear combination of the rows of a matrix when a row vector is involved.
+</p>
+
+<p>
+    \begin{align*}
+    \text{Let } \mathbf{w} &= \begin{bmatrix}
+    w_1 & w_2 & w_3
+    \end{bmatrix} \\
+    \text{then  }  \mathbf{w}\mathbf{A} &= \begin{bmatrix}
+    w_1 & w_2 & w_3
+    \end{bmatrix} \begin{bmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+    \end{bmatrix} \\
+    &= w_1\begin{bmatrix}
+    a_{11} & a_{12} & a_{13}
+    \end{bmatrix} + w_2\begin{bmatrix}
+    a_{21} & a_{22} & a_{32}
+    \end{bmatrix} + w_3\begin{bmatrix}
+    a_{31} & a_{32} & a_{33} 
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+    w_1a_{11} & w_1a_{12} & w_1a_{13}
+    \end{bmatrix} + \begin{bmatrix}
+    w_2a_{21} & w_2a_{22} & w_2a_{32}
+    \end{bmatrix} + \begin{bmatrix}
+    w_3a_{31} & w_3a_{32} & w_3a_{33}
+    \end{bmatrix} \\
+    &= \begin{bmatrix}
+    w_1a_{11}+w_2a_{21}+w_3a_{31} & w_1a_{12} + w_2a_{22} + w_3a_{32} & w_1a_{13} + w_2a_{23} + w_3a_{33}
+    \end{bmatrix}
+    \end{align*} 
+</p>
+
+
+<h4>5.3 Matrix-Matrix Multiplication</h4>
+<p>
+    We would look at three methods for performing matrix multiplication. 
+</p>
+
+<p>
+    <strong>1. Linear combination of columns</strong>: The first method involves performing several matrix-vector multiplications by linearly combining the columns of a matrix.
+</p>
+
+<p>
+    \begin{align*}
+    \text{let }
+    \mathbf{A} = \begin{bmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+    \end{bmatrix}, \mathbf{B} = \begin{bmatrix}
+    b_{11} & b_{12} & b_{13} \\
+    b_{21} & b_{22} & b_{23} \\
+    b_{31} & b_{32} & b_{33} 
+    \end{bmatrix}
+    \end{align*}
+</p>
+<p>
+    \begin{align*} 
+    \mathbf{A}\mathbf{B} &= \begin{bmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+    \end{bmatrix} \begin{bmatrix}
+    b_{11} & b_{12} & b_{13} \\
+    b_{21} & b_{22} & b_{23} \\
+    b_{31} & b_{32} & b_{33} 
+    \end{bmatrix} \\
+    \text{we obtain these} & \text{ matrix-vector multiplications:} \\
+    \begin{bmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+    \end{bmatrix} \begin{bmatrix}
+    b_{11} \\ b_{21} \\ b_{31}
+    \end{bmatrix}  &= \begin{bmatrix}
+    a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31} \\
+    a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31} \\
+    a_{31}b_{11} + a_{32}b_{21} + a_{33}b_{31}
+    \end{bmatrix} \\
+    \begin{bmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+    \end{bmatrix} \begin{bmatrix}
+    b_{12} \\ b_{22} \\ b_{32}
+    \end{bmatrix}  &= \begin{bmatrix}
+    a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32} \\
+    a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32} \\
+    a_{31}b_{12} + a_{32}b_{22} + a_{33}b_{32}
+    \end{bmatrix} \\
+    \begin{bmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+    \end{bmatrix} \begin{bmatrix}
+    b_{13} \\ b_{23} \\ b_{33}
+    \end{bmatrix}  &= \begin{bmatrix}
+    a_{11}b_{13} + a_{12}b_{23} + a_{13}b_{33} \\
+    a_{21}b_{13} + a_{22}b_{23} + a_{23}b_{33} \\
+    a_{31}b_{13} + a_{32}b_{23} + a_{33}b_{33}
+    \end{bmatrix} \\
+    \text{and} & \text{ finally,} \\
+    \mathbf{A}\mathbf{B} &= \begin{bmatrix}
+a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31} & a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32} & a_{11}b_{13} + a_{12}b_{23} + a_{13}b_{33} \\ 
+a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31}  & a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32}  & a_{21}b_{13} + a_{22}b_{23} + a_{23}b_{33} \\
+a_{31}b_{11} + a_{32}b_{21} + a_{33}b_{31} & a_{31}b_{12} + a_{32}b_{22} + a_{33}b_{32} & a_{31}b_{13} + a_{32}b_{23} + a_{33}b_{33}
+\end{bmatrix}
+    \end{align*}
+</p>
+
+<p>
+    <strong>Linear combination of rows</strong>: The second method involves linear combinations of the rows of the second matrix. It is similar to the first method, but instead of combining the columns of the first matrix, \(\mathbf{A}\), we combine the rows of the second matrix, \(\mathbf{B}\).
+
+</p>
+
+<p>
+    <strong>row vector vs column vector</strong>: The last method is the conventional method that we are all familiar with. We add the element-wise multiplication of the rows of \(\mathbf{A}\) and the columns of \(\mathbf{B}\).
+</p>
+
+<!-- oo -->
+
+    
+    <h4>5.4 Inverse of a Matrix</h4>
+    <p>
+        For a square matrix \(\mathbf{A}\), the inverse of\(\mathbf{A}\) is denoted as \(\mathbf{A}^{-1}\), such that:
+    </p>
+    <p>
+        \[
+            \mathbf{A} \mathbf{A}^{-1} = \mathbf{A}^{-1} \mathbf{A} = \mathbf{I}
+        \]
+    </p>
+    <p>
+        where \(\mathbf{I}\) is the identity matrix.
+    </p>
+    <p>
+        The inverse of a matrix can be computed using various methods, such as the Gauss-Jordan elimination, or for a 
+        \(2 \times 2\) matrix, it can be directly computed as:
+    </p>
+    <p>
+        \[
+            \mathbf{A} = \begin{bmatrix} a & b \\ c & d \end{bmatrix}, \quad \mathbf{A}^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}
+        \]
+    </p>
+    
+    <h4>5.5 Transpose of a Matrix</h4>
+    <p>
+        The transpose of a matrix \(\mathbf{A}\), denoted by \(\mathbf{A}^{\text{T}}\), 
+        is obtained by interchanging the rows and columns of \(\mathbf{A}\).
+    </p>
+    <p>
+        \[
+            \mathbf{A}^{\text{T}}_{ij} = \mathbf{A}_{ji}
+        \]
+    </p>
+    <p>
+        
+    <h4>5.6 Identity Matrix</h4>
+    <p>
+        The identity matrix, denoted by \(\mathbf{I}\), is a square matrix in which all the elements 
+        of the principal diagonal are ones, and all other elements are zeros.
+    </p>
+    
+    <p>
+        For example, the \(3 \times 3\) identity matrix is:
+    </p>
+    <p>
+        \[
+            \mathbf{I} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
+        \]
+    </p>
+    
+    <h4>5.7 Symmetric Matrix</h4>
+    <p>
+        A symmetric matrix is a square matrix that is equal to its transpose. Mathematically, a matrix 
+        \(\mathbf{A}\) is symmetric if:
+    </p>
+    <p>
+        \[
+            \mathbf{A} = \mathbf{A}^{\text{T}}
+        \]
+    </p>
+    
+    
+<!-- mmmki -->
+
+
+<h3>6. References</h3>
+<p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press,  2020, pp. 19–26. Accessed: Jun. 26, 2024. [Online]. Available: https://mml-book.github.io/book/mml-book.pdf
+</p>
+<p>MIT OpenCourseWare. 1. The Geometry of Linear Equations . (Sep 24, 2019). Accessed: Jun. 26, 2024. [Online video]. Available: https://youtu.be/J7DzL2_Na80?list=PL221E2BBF13BECF6C
+</p>

@@ -1,0 +1,218 @@
+
+<h1>Determinant and Trace</h1>
+
+<p>
+    In linear algebra, the determinant and trace are fundamental concepts associated with square matrices.
+    These concepts play a critical role in understanding the properties of matrices, including their invertibility,
+    eigenvalues, and geometric interpretations. In this lesson, we will explore the definition, computation,
+    and properties of the determinant and trace of matrices.
+</p>
+
+<h2>Determinant of a Matrix</h2>
+
+<p>
+    The determinant is a scalar value associated with a square matrix. It is denoted as 
+    \( \text{det}(\mathbf{A}) \) or \( |\mathbf{A}| \) for a matrix \( \mathbf{A} \).
+    The determinant provides important information about the matrix, such as whether it is invertible and its relation
+    to the volume of a geometric figure in higher dimensions.
+</p>
+
+<h3>Invertibility and Rank</h3>
+
+<p>
+    A square matrix \( \mathbf{A} \) is invertible (non-singular) if and only if its determinant is non-zero:
+</p>
+
+<p style="text-align: center;">
+    \( \mathbf{A} \text{ is invertible } \iff \text{det}(\mathbf{A}) \neq 0 \)
+</p>
+
+<p>
+    Additionally, the determinant of \( \mathbf{A} \) is non-zero if and only if the rank of \( \mathbf{A} \) is \( n \),
+    where \( n \) is the size of the matrix.
+</p>
+
+<h3>Determinant of a \( 2 \times 2 \) Matrix</h3>
+
+<p>
+    For a \( 2 \times 2 \) matrix \( \mathbf{A} \) given by:
+</p>
+
+<p style="text-align: center;">
+    \( \mathbf{A} = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \)
+</p>
+
+<p>
+    the determinant is computed as:
+</p>
+
+<p style="text-align: center;">
+    \( \text{det}(\mathbf{A}) = ad - bc \)
+</p>
+
+<h3>Determinant of a \( 3 \times 3 \) Matrix</h3>
+
+<p>
+    For a \( 3 \times 3 \) matrix \( \mathbf{A} \) given by:
+</p>
+
+<p style="text-align: center;">
+    \( \mathbf{A} = \begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \end{bmatrix} \)
+</p>
+
+<p>
+    the determinant is computed as:
+</p>
+
+<p style="text-align: center;">
+    \( \text{det}(\mathbf{A}) = a(ei - fh) - b(di - fg) + c(dh - eg) \)
+</p>
+
+<p>
+    This formula expands the determinant in terms of the elements of the first row and the corresponding \( 2 \times 2 \) determinants.
+</p>
+
+<h3>General Determinant Calculation (Laplace Expansion)</h3>
+
+<p>
+    For an \( n \times n \) matrix, the determinant can be computed using the Laplace expansion, which involves expanding the determinant along a row or a column. The determinant of \( \mathbf{A} \) along column \( j \) is given by:
+</p>
+
+<p style="text-align: center;">
+    \( \text{det}(\mathbf{A}) = \sum_{k=1}^{n} (-1)^{k+j} a_{kj} \text{det}(\mathbf{A}_{k,j}) \)
+</p>
+
+<p>
+    where \( \mathbf{A}_{k,j} \) is the \( (n-1) \times (n-1) \) submatrix obtained by removing the \( k \)-th row and \( j \)-th column from \( \mathbf{A} \).
+</p>
+
+<p>
+    Similarly, the determinant along row \( i \) is:
+</p>
+
+<p style="text-align: center;">
+    \( \text{det}(\mathbf{A}) = \sum_{k=1}^{n} (-1)^{i+k} a_{ik} \text{det}(\mathbf{A}_{i,k}) \)
+</p>
+
+<p>
+    This method generalizes the calculation of determinants to matrices of any size.
+</p>
+
+<h3>Properties of the Determinant</h3>
+
+<p>
+    The determinant has several important properties:
+</p>
+
+<ul>
+    <li><strong>Linearity:</strong> The determinant is linear with respect to rows and columns.</li>
+    <li><strong>Multiplicative Property:</strong> For any two square matrices \( \mathbf{A} \) and \( \mathbf{B} \) of the same size, the determinant of their product is the product of their determinants:
+        <p style="text-align: center;">\( \text{det}(\mathbf{AB}) = \text{det}(\mathbf{A}) \cdot \text{det}(\mathbf{B}) \)</p>
+    </li>
+    <li><strong>Transpose:</strong> The determinant of a matrix is equal to the determinant of its transpose:
+        <p style="text-align: center;">\( \text{det}(\mathbf{A}^T) = \text{det}(\mathbf{A}) \)</p>
+    </li>
+    <li><strong>Inverse:</strong> If \( \mathbf{A} \) is invertible, the determinant of the inverse is the reciprocal of the determinant:
+        <p style="text-align: center;">\( \text{det}(\mathbf{A}^{-1}) = \frac{1}{\text{det}(\mathbf{A})} \)</p>
+    </li>
+    <li><strong>Effect of Row Operations:</strong>
+        <ul>
+            <li>Swapping two rows (or columns) multiplies the determinant by \( -1 \).</li>
+            <li>Multiplying a row (or column) by a scalar \( c \) multiplies the determinant by \( c \).</li>
+            <li>Adding a multiple of one row (or column) to another row (or column) does not change the determinant.</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Determinant as Volume</h2>
+
+<p>
+    The determinant of an \( n \times n \) matrix can be interpreted geometrically as the signed volume of the \( n \)-dimensional parallelepiped formed by the column vectors of the matrix. For example:
+</p>
+
+<ul>
+    <li>In 2D, the absolute value of the determinant represents the area of the parallelogram formed by the column vectors.</li>
+    <li>In 3D, the absolute value of the determinant represents the volume of the parallelepiped formed by the column vectors.</li>
+</ul>
+
+<p>
+    The sign of the determinant indicates the orientation of the vectors: a positive determinant means the vectors follow a right-hand rule, while a negative determinant indicates a left-hand rule.
+</p>
+
+<h2>Trace of a Matrix</h2>
+
+<p>
+    The trace of a square matrix \( \mathbf{A} \), denoted as \( \text{tr}(\mathbf{A}) \), is the sum of its diagonal elements:
+</p>
+
+<p style="text-align: center;">
+    \( \text{tr}(\mathbf{A}) = \sum_{i=1}^{n} a_{ii} \)
+</p>
+
+<p>
+    where \( a_{ii} \) are the diagonal elements of \( \mathbf{A} \).
+</p>
+
+<h3>Properties of the Trace</h3>
+
+<p>
+    The trace has several useful properties:
+</p>
+
+<ul>
+    <li><strong>Linearity:</strong>
+        <p style="text-align: center;">\( \text{tr}(\mathbf{A} + \mathbf{B}) = \text{tr}(\mathbf{A}) + \text{tr}(\mathbf{B}) \)</p>
+    </li>
+    <li><strong>Homogeneity:</strong>
+        <p style="text-align: center;">\( \text{tr}(c\mathbf{A}) = c \cdot \text{tr}(\mathbf{A}) \)</p>
+        where \( c \) is a scalar.
+    </li>
+    <li><strong>Cyclic Property:</strong>
+        <p style="text-align: center;">\( \text{tr}(\mathbf{AB}) = \text{tr}(\mathbf{BA}) \)</p>
+        This property is particularly important in simplifying expressions involving products of matrices.
+    </li>
+    <li><strong>Trace of Identity Matrix:</strong>
+        <p style="text-align: center;">\( \text{tr}(\mathbf{I}) = n \)</p>
+        where \( \mathbf{I} \) is the identity matrix of size \( n \times n \).
+    </li>
+    <li><strong>Similarity Invariance:</strong> For similar matrices \( \mathbf{A} \) and \( \mathbf{B} \), where \( \mathbf{B} = \mathbf{S}^{-1} \mathbf{A} \mathbf{S} \), the traces are equal:
+        <p style="text-align: center;">\( \text{tr}(\mathbf{B}) = \text{tr}(\mathbf{A}) \)</p>
+    </li>
+</ul>
+
+<h2>Characteristic Polynomial</h2>
+
+<p>
+    The characteristic polynomial of a square matrix \( \mathbf{A} \) is a polynomial which has the eigenvalues of \( \mathbf{A} \) as its roots. It is given by:
+</p>
+
+<p style="text-align: center;">
+    \( p(\lambda) = \text{det}(\mathbf{A} - \lambda \mathbf{I}) \)
+</p>
+
+<p>
+    where \( \lambda \) is a scalar and \( \mathbf{I} \) is the identity matrix of the same size as \( \mathbf{A} \).
+</p>
+
+<h3>Coefficients of the Characteristic Polynomial</h3>
+
+<p>
+    The coefficients of the characteristic polynomial can be expressed in terms of the determinant and trace of the matrix:
+</p>
+
+<ul>
+    <li>The constant term is the determinant of the matrix:
+        <p style="text-align: center;">\( c_0 = \text{det}(\mathbf{A}) \)</p>
+    </li>
+    <li>The coefficient of the \( \lambda^{n-1} \) term is the trace of the matrix:
+        <p style="text-align: center;">\( c_{n-1} = (-1)^{n-1} \text{tr}(\mathbf{A}) \)</p>
+    </li>
+</ul>
+
+<p>
+    The characteristic polynomial plays a key role in determining the eigenvalues of the matrix, which are the roots of this polynomial.
+</p>
+
+<h3>References</h3>
+<p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press,  2020, pp. 19–26. Accessed: Jun. 26, 2024. [Online]. Available: https://mml-book.github.io/book/mml-book.pdf
+</p>

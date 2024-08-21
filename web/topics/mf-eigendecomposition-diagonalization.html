@@ -1,0 +1,137 @@
+
+    <h1>Eigendecomposition and Diagonalization</h1>
+
+    <p>Eigendecomposition allows us to express a square matrix as a product of its eigenvectors and eigenvalues. This technique is particularly useful in simplifying many matrix computations, such as finding matrix powers and determinants. In this lesson, we will delve into the concept of eigendecomposition, explore diagonalization, and examine the implications of these concepts.</p>
+
+    <h2>Diagonal Matrix and its Properties</h2>
+
+    <p>A <strong>diagonal matrix</strong> is a special type of square matrix where all the off-diagonal elements are zero. Mathematically, a diagonal matrix \( \mathbf{D} \) has the form:</p>
+
+    <p>
+    \[
+    \mathbf{D} = \begin{bmatrix}
+    d_1 & 0 & \dots & 0 \\
+    0 & d_2 & \dots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \dots & d_n
+    \end{bmatrix}
+    \]
+    </p>
+
+    <p>Here, \( d_1 \), \( d_2 \), \( \dots \), \( d_n \) are the diagonal elements, and all other elements are zero.</p>
+
+    <h3>Key Properties of Diagonal Matrices</h3>
+
+    <ol>
+        <li><strong>Determinant:</strong> The determinant of a diagonal matrix is the product of its diagonal elements:
+            <p>
+            \[
+            \text{det}(\mathbf{D}) = d_1 \cdot d_2 \cdot \dots \cdot d_n
+            \]
+            </p>
+        </li>
+        
+        <li><strong>Matrix Powers:</strong> The power of a diagonal matrix is obtained by raising each of the diagonal elements to that power:
+            <p>
+            \[
+            \mathbf{D}^k = \begin{bmatrix}
+            d_1^k & 0 & \dots & 0 \\
+            0 & d_2^k & \dots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \dots & d_n^k
+            \end{bmatrix}
+            \]
+            </p>
+        </li>
+    </ol>
+
+    <h2>Diagonalization of a Matrix</h2>
+
+    <p>A square matrix \( \mathbf{A} \) is said to be <strong>diagonalizable</strong> if it is similar to a diagonal matrix. This means that there exists an invertible matrix \( \mathbf{P} \) such that:</p>
+
+    <p>
+    \[
+    \mathbf{D} = \mathbf{P}^{-1} \mathbf{A} \mathbf{P}
+    \]
+    </p>
+
+    <p>Where \( \mathbf{D} \) is a diagonal matrix. The matrix \( \mathbf{A} \) can be expressed as:</p>
+
+    <p>
+    \[
+    \mathbf{A} = \mathbf{P} \mathbf{D} \mathbf{P}^{-1}
+    \]
+    </p>
+
+    <p>For a diagonalizable matrix \( \mathbf{A} \), the matrix \( \mathbf{D} \) is diagonal, and its diagonal elements are the eigenvalues of \( \mathbf{A} \). The matrix \( \mathbf{P} \) consists of the eigenvectors of \( \mathbf{A} \) as its columns.</p>
+
+    <p>This relationship can be further elaborated as:</p>
+
+    <p>
+    \[
+    \mathbf{A}\mathbf{P} = \mathbf{P}\mathbf{D}
+    \]
+    </p>
+
+    <p>This equation shows that multiplying \( \mathbf{A} \) by \( \mathbf{P} \) is equivalent to scaling the columns of \( \mathbf{P} \) by the corresponding eigenvalues (diagonal elements of \( \mathbf{D} \)).</p>
+
+    <h2>Eigendecomposition</h2>
+
+    <p><strong>Eigendecomposition</strong> is the process of decomposing a square matrix \( \mathbf{A} \) into a product involving its eigenvectors and eigenvalues. Specifically:</p>
+
+    <p>
+    \[
+    \mathbf{A} = \mathbf{P} \mathbf{D} \mathbf{P}^{-1}
+    \]
+    </p>
+
+    <p>Where:</p>
+
+    <ul>
+        <li>\( \mathbf{A} \) is the original matrix.</li>
+        <li>\( \mathbf{P} \) is the matrix whose columns are the eigenvectors of \( \mathbf{A} \).</li>
+        <li>\( \mathbf{D} \) is the diagonal matrix with the eigenvalues of \( \mathbf{A} \) on its diagonal.</li>
+    </ul>
+
+    <h2>Implications of Eigendecomposition</h2>
+
+    <ol>
+        <li><strong>Power of a Matrix:</strong>
+        The power of a matrix \( \mathbf{A} \) can be efficiently computed using its eigendecomposition. If we need to compute \( \mathbf{A}^k \) (where \( k \) is a positive integer), we can use:
+        
+        <p>
+        \[
+        \mathbf{A}^k = (\mathbf{P} \mathbf{D} \mathbf{P}^{-1})^k = \mathbf{P} \mathbf{D}^k \mathbf{P}^{-1}
+        \]
+        </p>
+        
+        Since \( \mathbf{D} \) is diagonal, \( \mathbf{D}^k \) is simply the diagonal matrix with each eigenvalue raised to the power \( k \).
+        </li>
+        
+        <li><strong>Efficient Computation of the Determinant:</strong>
+        The determinant of the matrix \( \mathbf{A} \) can also be easily computed using its eigendecomposition:
+        
+        <p>
+        \[
+        \text{det}(\mathbf{A}) = \text{det}(\mathbf{P} \mathbf{D} \mathbf{P}^{-1}) = \text{det}(\mathbf{P}) \cdot \text{det}(\mathbf{D}) \cdot \text{det}(\mathbf{P}^{-1})
+        \]
+        </p>
+        
+        Since \( \text{det}(\mathbf{P}) \cdot \text{det}(\mathbf{P}^{-1}) = 1 \), the determinant simplifies to:
+        
+        <p>
+        \[
+        \text{det}(\mathbf{A}) = \text{det}(\mathbf{D}) = d_1 \cdot d_2 \cdot \dots \cdot d_n
+        \]
+        </p>
+        
+        Thus, the determinant of \( \mathbf{A} \) is simply the product of its eigenvalues.
+        </li>
+    </ol>
+
+    <h2>Conclusion</h2>
+
+    <p>Eigendecomposition and diagonalization are fundamental concepts in linear algebra that enable efficient computation of matrix operations such as powers and determinants. By understanding the relationship between a matrix, its eigenvectors, and eigenvalues, we can greatly simplify many complex mathematical procedures. This decomposition is particularly valuable in singular value decomposition (SVD) and principal component analysis (PCA).</p>
+
+    <h2>References</h2>
+    <p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press,  2020, pp. 19–26. Accessed: Jun. 26, 2024. [Online]. Available: <a href="https://mml-book.github.io/book/mml-book.pdf">https://mml-book.github.io/book/mml-book.pdf</a></p>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MathML</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap">
+        <link rel="stylesheet" href="styles.css">
+
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+          }
+        }
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true
+          },
+          "HTML-CSS": { fonts: ["TeX"] }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.3.2/math.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="app.js" defer type="module"></script>
+    </head>
+    <body>
+        <div class="mathml-box">
+            
+            <mf-app-bar></mf-app-bar>
+            <div class="content">
+                <mf-tool-bar></mf-tool-bar>
+                <mf-side-box></mf-side-box>
+                <div class="main-content">
+                  <div class="main-content-container"></div>
+                </div>    
+            </div>
+            
+        </div>
+    </body>
+</html>

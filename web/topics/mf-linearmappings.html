@@ -1,0 +1,160 @@
+<h1>
+    Linear Mappings and Affine Spaces
+</h1>
+
+<p>Vectors can be added together and multiplied by scalars such that the result is also a vector. This is called a linear combination of vectors. For any two vector spaces <strong>V</strong> and <strong>W</strong>, a mapping &Phi; : <strong>V</strong> &rarr; <strong>W</strong> is called a linear mapping if, for all <strong>x</strong>, <strong>y</strong> &in; <strong>V</strong> and real-valued scalars, \(a\) and \(b\),</p>
+<p>\[\Phi(a\mathbf{x} + b\mathbf{y}) = a\Phi(\mathbf{x}) + b\Phi(\mathbf{y})\]</p>
+<p>and \(\Phi(a\mathbf{x} + b\mathbf{y})\), \(a\Phi(\mathbf{x}) + b\Phi(\mathbf{y})\) &in; <strong>W</strong>.</p>
+
+<p>Linear mappings can also be represented using matrices, which we call transformation matrices. Linear mappings can also be referred to as vector space homomorphisms or linear transformations.</p>
+
+<p>Vector spaces can be represented using their basis vectors such that every vector in the vector space, obtainable from a linear combination of the basis, is represented using coordinates, which are scalars by which the basis vectors are linearly combined. For a vector space <strong>V</strong> with ordered basis <strong>B</strong> = \(\{\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n\}\), any vector <strong>x</strong> &in; <strong>V</strong> can be obtained with a linear combination</p>
+<p>\[\mathbf{x} = a_1\mathbf{b}_1 + a_2\mathbf{b}_2 + \dots + a_n\mathbf{b}_n\]</p>
+<p>where the scalars \(a_1, \dots, a_n\) are the coordinates of <strong>x</strong>.</p>
+
+<h2>Transformation Matrices</h2>
+<p>With the coordinate representation of vectors, consider a linear mapping &Phi; : <strong>V</strong> &rarr; <strong>W</strong> with ordered basis <strong>B</strong> = \(\{\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_m\}\) of <strong>V</strong> and ordered basis <strong>C</strong> = \(\{\mathbf{c}_1, \mathbf{c}_2, \ldots, \mathbf{c}_n\}\) of <strong>W</strong>. Each basis vector of <strong>V</strong> can be mapped to <strong>W</strong> such that the result is a linear combination of the ordered basis of <strong>W</strong>. That is,</p>
+
+<p>\[
+\begin{align}
+\Phi(\mathbf{b}_1) &= a_{11}\mathbf{c}_1 + a_{12}\mathbf{c}_2 + \dots + a_{1n}\mathbf{c}_n \notag \\
+\Phi(\mathbf{b}_2) &= a_{21}\mathbf{c}_1 + a_{22}\mathbf{c}_2 + \dots + a_{2n}\mathbf{c}_n  \notag \\
+&\vdots \notag \\
+\Phi(\mathbf{b}_m) &= a_{m1}\mathbf{c}_1 + a_{m2}\mathbf{c}_2 + \dots + a_{mn}\mathbf{c}_n \tag{1} \label{eq:lmbasis}
+\end{align} 
+\]</p>
+
+<p>For any vector <strong>x</strong> &in; <strong>V</strong>, <strong>x</strong> can be expressed using the ordered basis <strong>B</strong> of <strong>V</strong> as</p>
+<p>\[\mathbf{x} = a_1\mathbf{b}_1 + a_2\mathbf{b}_2 + \dots + a_m\mathbf{b}_m\]</p>
+<p>Applying the linear mapping to <strong>x</strong>,</p>
+<p>\[
+\begin{align}
+    \Phi(\mathbf{x}) &= \Phi(a_1\mathbf{b}_1 + a_2\mathbf{b}_2 + \dots + a_m\mathbf{b}_m) \notag \\
+    &= a_1\Phi(\mathbf{b}_1) + a_2\Phi(\mathbf{b}_2) + \dots + a_m\Phi(\mathbf{b}_m) \notag \\
+    &= (a_1a_{11} + a_2a_{21} + \dots + a_ma_{m1})\mathbf{c}_1 \notag \\
+    &\quad + (a_1a_{12} + a_2a_{22} + \dots + a_ma_{m2})\mathbf{c}_2 \notag \\
+    &\quad + \dots \notag \\
+    &\quad + (a_1a_{1n} + a_2a_{2n} + \dots + a_ma_{mn})\mathbf{c}_n \tag{2}
+\end{align}
+\]</p>
+
+<p>Let the coordinate vector of <strong>x</strong> be <strong>\(\hat{x}\)</strong></p>
+<p>\[\mathbf{\hat{x}} = 
+\begin{bmatrix}
+    a_1 \\ a_2 \\ \vdots \\ a_m
+\end{bmatrix}
+\]</p>
+
+<p>The coordinate vector for \(\Phi(\mathbf{x})\) from equation (2) is</p>
+<p>\[
+\begin{bmatrix}
+    a_1a_{11} + a_2a_{21} + \dots + a_ma_{m1} \\
+    a_1a_{12} + a_2a_{22} + \dots + a_ma_{m2} \\
+    \vdots \\
+    a_1a_{1n} + a_2a_{2n} + \dots + a_ma_{mn}
+\end{bmatrix}
+\]</p>
+
+<p>This coordinate vector is obtainable as</p>
+<p>\[
+\begin{bmatrix}
+    a_{11} & a_{21} & \dots & a_{m1} \\
+    a_{12} & a_{22} & \dots & a_{m2} \\
+    \vdots & \vdots &       & \vdots \\
+    a_{1n} & a_{2n} & \dots & a_{mn}
+\end{bmatrix}
+\begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    \vdots \\
+    a_m 
+\end{bmatrix}
+=
+\begin{bmatrix}
+    a_1a_{11} + a_2a_{21} + \dots + a_ma_{m1} \\
+    a_1a_{12} + a_2a_{22} + \dots + a_ma_{m2} \\
+    \vdots \\
+    a_1a_{1n} + a_2a_{2n} + \dots + a_ma_{mn}
+\end{bmatrix}
+\]</p>
+
+<p>This is a product of a transformation matrix and the coordinate vector of <strong>x</strong>. We can denote this transformation matrix by <strong>A</strong><sub>&Phi;</sub>. Thus, the coordinate vector of \(\Phi(\mathbf{x})\) with respect to the ordered basis of <strong>W</strong> can be obtained as <strong>A</strong><sub>&Phi;</sub> <strong>\(\hat{x}\)</strong>.</p>
+
+<p>\[
+\mathbf{A}_\Phi = \begin{bmatrix}
+    a_{11} & a_{21} & \dots & a_{m1} \\
+    a_{12} & a_{22} & \dots & a_{m2} \\
+    \vdots & \vdots &       & \vdots \\
+    a_{1n} & a_{2n} & \dots & a_{mn}
+\end{bmatrix}
+\]</p>
+
+<p>It can be observed that the columns of <strong>A</strong><sub>&Phi;</sub> are the coordinate vectors obtained by applying the linear mapping to the ordered basis of <strong>V</strong>, as seen in equation (1). <strong>A</strong><sub>&Phi;</sub> is thus the transformation matrix that maps coordinates from <strong>V</strong> with respect to the ordered basis <strong>B</strong> to coordinates in <strong>W</strong> with respect to the ordered basis <strong>C</strong>.</p>
+
+<mf-linear-transform-same-vector-space-same-bases></mf-linear-transform-same-vector-space-same-bases>
+<mf-linear-transform-same-vector-space-same-bases2></mf-linear-transform-same-vector-space-same-bases2>
+
+<mf-linear-transform-same-vector-space-diff-bases>
+
+<mf-linear-mapping-change-of-bases>
+    <h2>Change of Basis</h2>
+
+    <p>For a vector space <strong>V</strong> with ordered basis <strong>B</strong> = \(\{\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_n\}\), and a vector <strong>x</strong> &in; <strong>V</strong> represented using coordinate vectors with respect to <strong>B</strong>, we can represent <strong>x</strong> with respect to a different ordered basis <strong>C</strong> = \(\{\mathbf{c}_1, \mathbf{c}_2, \ldots, \mathbf{c}_n\}\). For this, we would need a change of basis transformation matrix, similar to the one obtained above. </p>
+
+    <p>We define an identity linear transformation &Phi; : <strong>V</strong> &rarr; <strong>V</strong>, such that \(\Phi(\mathbf{x}) = \mathbf{x}\) that maps <strong>x</strong> in <strong>V</strong> with respect to <strong>B</strong> to <strong>x</strong> in <strong>V</strong> with respect to <strong>C</strong>.</p>
+    
+    <p>\[\mathbf{x} = a_1\mathbf{b}_1 + a_2\mathbf{b}_2 + \dots + a_n\mathbf{b}_n\]</p>
+    
+    <p>with coordinates \(\mathbf{\hat{x}}\) with respect to <strong>B</strong></p>
+    
+    <p>\[\mathbf{\hat{x}} = \begin{bmatrix}
+        a_1 \\ a_2 \\ \vdots \\ a_n
+    \end{bmatrix}\]</p>
+    
+    <p>The basis vectors are transformed as</p>
+    <p>\[
+    \begin{align}
+        \Phi(\mathbf{b}_1) = a_{11}\mathbf{c}_1 + a_{12}\mathbf{c}_2 + \dots + a_{1n}\mathbf{c}_n = \mathbf{b}_1 \tag{3} \\
+        \Phi(\mathbf{b}_2) = a_{21}\mathbf{c}_1 + a_{22}\mathbf{c}_2 + \dots + a_{2n}\mathbf{c}_n = \mathbf{b}_2 \tag{4} \\
+        \vdots \notag \\
+        \Phi(\mathbf{b}_n) = a_{n1}\mathbf{c}_1 + a_{n2}\mathbf{c}_2 + \dots + a_{nn}\mathbf{c}_n = \mathbf{b}_n \tag{5} \\
+    \end{align}
+    \]</p>
+    
+    <p>Equations (3) to (5) can be solved to obtain the coefficients \(a_{ij}\) for \(i,j = 1, 2, \dots, n\)</p>
+    
+    <p>The change of basis matrix that transforms coordinates from <strong>B</strong> to <strong>C</strong> is then given as</p>
+    
+    <p>\[\mathbf{S} = \begin{bmatrix}
+         a_{11} & a_{21} & \dots & a_{n1} \\ a_{12} & a_{22} & \dots & a_{n2} \\ \vdots & \vdots & \ddots & \vdots \\ a_{1n} & a_{2n} & \dots & a_{nn}
+    \end{bmatrix}
+    \]</p>
+    
+    <p>And that which transforms coordinates from <strong>C</strong> to <strong>B</strong> is the inverse of <strong>S</strong>, denoted <strong>S</strong><sup>-1</sup>.</p>
+    
+    <p>Now consider the linear mapping &Phi; : <strong>V</strong> &rarr; <strong>W</strong> with ordered bases <strong>B</strong> and <strong>B'</strong> of <strong>V</strong>, and <strong>C</strong> and <strong>C'</strong> of <strong>W</strong>. A transformation matrix of &Phi; with respect to <strong>B</strong> and <strong>C</strong>, <strong>A</strong><sub>&Phi;</sub>, can be modified into another transformation matrix with respect to <strong>B'</strong> and <strong>C'</strong>, <strong>A</strong>'<sub>&Phi;</sub> as follows:</p>
+    <p>\[\mathbf{A}_\Phi' = \mathbf{T}^{-1} \mathbf{A}_\Phi \mathbf{S}\]</p>
+    <p>where <strong>S</strong> is the basis change matrix from <strong>B'</strong> to <strong>B</strong>, and <strong>T</strong> is the basis change matrix from <strong>C'</strong> to <strong>C</strong>.</p>
+    
+    <h2>Equivalence and Similarity of Matrices</h2>
+    <p>Two matrices <strong>A</strong> and <strong>B</strong> &in; \(\mathbb{R}^{m \times n}\) are equivalent if there exist regular matrices <strong>T</strong> &in; \(\mathbb{R}^{m \times m}\) and <strong>S</strong> &in; \(\mathbb{R}^{n \times n}\) such that</p>
+    <p>\[\mathbf{B} = \mathbf{T}^{-1} \mathbf{A} \mathbf{S}\]</p>
+    
+    <p>Two matrices <strong>A</strong> and <strong>B</strong> &in; \(\mathbb{R}^{n \times n}\) are similar if there exists a regular matrix <strong>S</strong> &in; \(\mathbb{R}^{n \times n}\) such that </p>
+    <p>\[\mathbf{B} = \mathbf{S}^{-1} \mathbf{A} \mathbf{S}\]</p>
+    
+    <h2>Image and Kernel</h2>
+    <p>In simple terms, the image of a linear mapping is the vector subspace containing all vectors obtainable from the linear mapping, while the kernel (or null space) of a linear mapping is the vector subspace containing all vectors that are mapped to the zero vector by the linear mapping.</p>
+    
+
+<h3>References</h3>
+<p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press,  2020, pp. 19–26. Accessed: Jun. 26, 2024. [Online]. Available: https://mml-book.github.io/book/mml-book.pdf
+</p>
+
+
+<!-- <mf-linear-transform-same-vector-space-same-bases></mf-linear-transform-same-vector-space-same-bases>
+<mf-linear-transform-same-vector-space-same-bases2></mf-linear-transform-same-vector-space-same-bases2>
+
+<mf-linear-transform-same-vector-space-diff-bases>
+
+<mf-linear-mapping-change-of-bases> -->

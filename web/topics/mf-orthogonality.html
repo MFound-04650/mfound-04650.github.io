@@ -1,0 +1,249 @@
+<h1>Orthogonality and Related Concepts</h1>
+
+<h2>Introduction to Norms</h2>
+<p>A norm is a fundamental concept in linear algebra that measures the "size" or "length" of a vector. Formally, for a vector space <strong>V</strong>, the norm is a function that maps a vector to a non-negative real number:</p>
+<p>
+\[ || \cdot || : \mathbf{V} \to \mathbb{R} \]
+</p>
+<p>Given any vector <strong>x</strong> in <strong>V</strong>, the norm \( || \mathbf{x} || \) in \( \mathbb{R} \) is the measure of its length.</p>
+
+<p>Norms must satisfy three key properties:</p>
+<ul>
+    <li><strong>Absolute homogeneity:</strong> \( || \lambda \mathbf{x} || = | \lambda | || \mathbf{x} || \) for any scalar \( \lambda \in \mathbb{R} \).</li>
+    <li><strong>Triangle inequality:</strong> \( || \mathbf{x} + \mathbf{y} || \leq || \mathbf{x} || + || \mathbf{y} || \) for any vectors \( \mathbf{x}, \mathbf{y} \in \mathbf{V} \).</li>
+    <li><strong>Positive definiteness:</strong> \( || \mathbf{x} || \geq 0 \) and \( || \mathbf{x} || = 0 \) implies that \( \mathbf{x} = \mathbf{0} \).</li>
+</ul>
+
+<h3>Manhattan Norm and Euclidean Norm</h3>
+<p>Two common types of norms are the Manhattan norm and the Euclidean norm.</p>
+
+<p>The <strong>Manhattan Norm</strong>, also known as the \( l_1 \) norm, for a vector \( \mathbf{x} \in \mathbb{R}^n \) is defined as:</p>
+<p>
+\[ || \mathbf{x} ||_1 = \sum_{i=1}^{n} | x_i | \]
+</p>
+
+<p>The <strong>Euclidean Norm</strong>, also known as the \( l_2 \) norm, is given by:</p>
+<p>
+\[ || \mathbf{x} ||_2 = \sqrt{\sum_{i=1}^{n} x_i^2} \]
+</p>
+
+<h2>Dot Product</h2>
+<p>The dot product, also known as the inner product in \( \mathbb{R}^n \), is an essential operation that combines two vectors to produce a scalar. For any two vectors \( \mathbf{x}, \mathbf{y} \in \mathbb{R}^n \), the dot product is defined as:</p>
+<p>
+\[ \mathbf{x}^T \mathbf{y} = \sum_{i=1}^{n} x_i y_i \]
+</p>
+<p>This operation is not only used to measure similarity between vectors but also plays a key role in defining orthogonality and angles between vectors.</p>
+
+<h2>Symmetric, Positive Definite Matrices</h2>
+<p>A matrix \( \mathbf{A} \in \mathbb{R}^{n \times n} \) is said to be symmetric if \( \mathbf{A} = \mathbf{A}^T \) and positive definite if for any non-zero vector \( \mathbf{x} \in \mathbb{R}^n \):</p>
+<p>
+\[ \mathbf{x}^T \mathbf{A} \mathbf{x} > 0 \]
+</p>
+<p>If \( \mathbf{x}^T \mathbf{A} \mathbf{x} \geq 0 \), then \( \mathbf{A} \) is positive semidefinite. Symmetric, positive definite matrices are important in various mathematical contexts, including defining inner products and optimization problems.</p>
+
+<h2>Inner Product and Its Generalization</h2>
+<p>The inner product generalizes the concept of the dot product to more abstract vector spaces. Given a vector space \( \mathbf{V} \) with an ordered basis \( \mathbf{B} \) and vectors \( \mathbf{x}, \mathbf{y} \in \mathbf{V} \), the inner product \( \langle \mathbf{x}, \mathbf{y} \rangle \) is defined using a symmetric, positive definite matrix \( \mathbf{A} \in \mathbb{R}^{n \times n} \) as follows:</p>
+<p>
+\[ \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{A} \mathbf{y} \]
+</p>
+<p>When \( \mathbf{B} \) is the standard basis and \( \mathbf{A} \) is the identity matrix, the inner product simplifies to the dot product.</p>
+
+<h2>Lengths and Distances in Vector Spaces</h2>
+<p>The length (or norm) of a vector \( \mathbf{x} \) can be interpreted through its inner product with itself:</p>
+<p>
+\[ || \mathbf{x} || = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle} \]
+</p>
+<p>The distance between two vectors \( \mathbf{x} \) and \( \mathbf{y} \) is the length of their difference:</p>
+<p>
+\[ || \mathbf{x} - \mathbf{y} || = \sqrt{\langle \mathbf{x} - \mathbf{y}, \mathbf{x} - \mathbf{y} \rangle} \]
+</p>
+
+<h2>Angles and Orthogonality</h2>
+<p>The Cauchy-Schwarz inequality is a fundamental result in vector spaces, stating:</p>
+<p>
+\[ | \langle \mathbf{x}, \mathbf{y} \rangle | \leq || \mathbf{x} || \, || \mathbf{y} || \]
+</p>
+<p>This leads to the concept of the angle \( \theta \) between two vectors, where:</p>
+<p>
+\[ \cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{|| \mathbf{x} || \, || \mathbf{y} ||} \]
+</p>
+<p>Vectors \( \mathbf{x} \) and \( \mathbf{y} \) are <strong>orthogonal</strong> if \( \theta = \frac{\pi}{2} \), implying:</p>
+<p>
+\[ \langle \mathbf{x}, \mathbf{y} \rangle = 0 \]
+</p>
+<p>They are <strong>orthonormal</strong> if in addition to being orthogonal, they both have unit length, i.e., \( || \mathbf{x} || = || \mathbf{y} || = 1 \).</p>
+
+<h2>Orthogonal Matrices</h2>
+<p>A matrix \( \mathbf{A} \) is orthogonal if its column vectors form an orthonormal set. This implies:</p>
+<p>
+\[ \mathbf{A}^T \mathbf{A} = \mathbf{I} \quad \text{and} \quad \mathbf{A} \mathbf{A}^T = \mathbf{I} \]
+</p>
+<p>Here, \( \mathbf{I} \) is the identity matrix. Orthogonal matrices, as transformation matrices, preserve vector lengths and angles, making them crucial in transformations such as rotations.</p>
+
+<h2>Orthonormal Basis</h2>
+<p>An orthonormal basis in a vector space \( \mathbf{V} \) is a basis consisting of orthonormal vectors. If \( \mathbf{B} = \{\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_n\} \) is an orthonormal basis, then:</p>
+<p>
+\[ \langle \mathbf{b}_i, \mathbf{b}_j \rangle = 0 \quad \text{for} \quad i \neq j \]
+</p>
+<p>
+\[ \langle \mathbf{b}_i, \mathbf{b}_i \rangle = 1 \]
+</p>
+
+<h2>Orthogonal Complement</h2>
+<p>In a vector space \( \mathbf{V} \), the orthogonal complement of a subspace \( \mathbf{U} \) is the set of all vectors in \( \mathbf{V} \) that are orthogonal to every vector in \( \mathbf{U} \). Denote this complement as \( \mathbf{U}' \). It satisfies:</p>
+<p>
+\[ \text{dim}(\mathbf{U}') = \text{dim}(\mathbf{V}) - \text{dim}(\mathbf{U}) \]
+</p>
+<p>
+\[ \mathbf{U} \cap \mathbf{U}' = \{\mathbf{0}\} \]
+</p>
+
+<h2>Orthogonal Projections</h2>
+<p>An orthogonal projection maps a vector onto a subspace such that the difference between the vector and its projection is orthogonal to the subspace.</p>
+
+<p>An orthogonal projection is a fundamental concept in linear algebra. It is a linear mapping that projects a vector from its original vector space onto a subspace, with the key property that applying the projection multiple times is equivalent to applying it once. This means that the projection operation is idempotent.</p>
+
+<h3>Projection Matrix</h3>
+<p>The projection operation can be represented by a matrix, known as the <strong>projection matrix</strong>. This matrix transforms any vector in the vector space to its corresponding projection in the subspace.</p>
+
+<h3>Projection onto a Line (1D Subspaces)</h3>
+
+<p>Consider a one-dimensional subspace \( \mathbf{U} \) with a basis vector \( \mathbf{b} \). Any vector \( \mathbf{x} \) in the vector space can be projected onto this subspace \( \mathbf{U} \). The projection of \( \mathbf{x} \) onto \( \mathbf{U} \) is the vector \( \mathbf{p} \in \mathbf{U} \) that is closest to \( \mathbf{x} \).</p>
+
+<p>Since the projection \( \mathbf{p} \) lies in \( \mathbf{U} \), it can be expressed as a scalar multiple of the basis vector \( \mathbf{b} \):</p>
+<p>
+\[ \mathbf{p} = \alpha \mathbf{b} \]
+</p>
+<p>Additionally, the difference between \( \mathbf{x} \) and \( \mathbf{p} \), i.e., \( \mathbf{x} - \mathbf{p} \), must be orthogonal to the subspace \( \mathbf{U} \).</p>
+
+<p>This orthogonality condition can be expressed using the dot product:</p>
+<p>
+\[ \langle \mathbf{x} - \mathbf{p}, \mathbf{b} \rangle = 0 \]
+</p>
+<p>Substituting \( \mathbf{p} = \alpha \mathbf{b} \), we get:</p>
+<p>
+\[ \mathbf{b}^T (\mathbf{x} - \alpha \mathbf{b}) = 0 \]
+</p>
+<p>
+\[ \mathbf{b}^T \mathbf{x} - \alpha \mathbf{b}^T \mathbf{b} = 0 \]
+</p>
+<p>Solving for \( \alpha \):</p>
+<p>
+\[ \alpha = \frac{\mathbf{b}^T \mathbf{x}}{\mathbf{b}^T \mathbf{b}} \]
+</p>
+
+<p>Thus, the projection \( \mathbf{p} \) can be written as:</p>
+<p>
+\[ \mathbf{p} = \alpha \mathbf{b} = \left(\frac{\mathbf{b}^T \mathbf{x}}{\mathbf{b}^T \mathbf{b}}\right) \mathbf{b} \]
+</p>
+<p>We can also express \( \mathbf{p} \) as:</p>
+<p>
+\[ \mathbf{p} = \frac{\mathbf{b} \mathbf{b}^T}{\mathbf{b}^T \mathbf{b}} \mathbf{x} = \mathbf{P} \mathbf{x} \]
+</p>
+<p>Here, \( \mathbf{P} = \frac{\mathbf{b} \mathbf{b}^T}{\mathbf{b}^T \mathbf{b}} \) is the <strong>projection matrix</strong> that projects any vector onto the one-dimensional subspace spanned by \( \mathbf{b} \).</p>
+
+<h3>Projection onto a Subspace</h3>
+
+<p>Now, consider a subspace \( \mathbf{U} \) with an ordered basis \( \mathbf{B} = \{\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_k\} \). A vector \( \mathbf{x} \) can be projected onto this subspace \( \mathbf{U} \), resulting in a projection \( \mathbf{p} \in \mathbf{U} \) that can be expressed as a linear combination of the basis vectors:</p>
+<p>
+\[ \mathbf{p} = \sum_{i=1}^{k} \alpha_i \mathbf{b}_i = \mathbf{B} \mathbf{\alpha} \]
+</p>
+<p>where \( \mathbf{\alpha} \) is a vector of coefficients.</p>
+
+<p>For the projection to be orthogonal, the difference \( \mathbf{p} - \mathbf{x} \) must be orthogonal to all basis vectors \( \mathbf{b}_i \) for \( i=1,2,...,k \). This condition is expressed as:</p>
+<p>
+\[ \mathbf{B}^T (\mathbf{x} - \mathbf{p}) = \mathbf{0} \]
+</p>
+<p>Substituting \( \mathbf{p} = \mathbf{B} \mathbf{\alpha} \) gives:</p>
+<p>
+\[ \mathbf{B}^T \mathbf{x} - \mathbf{B}^T \mathbf{B} \mathbf{\alpha} = \mathbf{0} \]
+</p>
+<p>Solving for \( \mathbf{\alpha} \):</p>
+<p>
+\[ \mathbf{\alpha} = (\mathbf{B}^T \mathbf{B})^{-1} \mathbf{B}^T \mathbf{x} \]
+</p>
+
+<p>Therefore, the projection \( \mathbf{p} \) onto the subspace \( \mathbf{U} \) can be written as:</p>
+<p>
+\[ \mathbf{p} = \mathbf{B} \mathbf{\alpha} = \mathbf{B} (\mathbf{B}^T \mathbf{B})^{-1} \mathbf{B}^T \mathbf{x} \]
+</p>
+
+<p>The corresponding <strong>projection matrix</strong> is:</p>
+<p>
+\[ \mathbf{P} = \mathbf{B} (\mathbf{B}^T \mathbf{B})^{-1} \mathbf{B}^T \]
+</p>
+<p>Thus, the projection of \( \mathbf{x} \) onto the subspace \( \mathbf{U} \) is given by:</p>
+<p>
+\[ \mathbf{p} = \mathbf{P} \mathbf{x} \]
+</p>
+
+<h3>Pseudo-inverse of \( \mathbf{B} \)</h3>
+
+<p>The matrix \((\mathbf{B}^T \mathbf{B})^{-1} \mathbf{B}^T \) is also called the pseudo-inverse of \(\mathbf{B}\) and it can be computed for all matrices provided that \(\mathbf{B}^T \mathbf{B}\) is invertible.</p>
+
+
+<h2>Gram-Schmidt Orthogonalization</h2>
+
+<p>The Gram-Schmidt process is a method in linear algebra that allows us to convert a set of non-orthonormal vectors into an orthonormal basis. This process is iterative and is fundamental in constructing an orthonormal set of vectors from any linearly independent set of vectors.</p>
+
+<p>Given a non-orthonormal basis \( \mathbf{B} = \{\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_n\} \) for a subspace of a vector space, the goal is to create an orthonormal basis \( \mathbf{U} = \{\mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_n\} \) such that each vector \( \mathbf{u}_i \) in \( \mathbf{U} \) is orthogonal to every other vector in \( \mathbf{U} \) and has unit length.</p>
+
+<h3>Step-by-Step Process</h3>
+
+<p>The process starts by considering each vector in the basis \( \mathbf{B} \) and iteratively orthogonalizing and normalizing them to construct the orthonormal basis \( \mathbf{U} \).</p>
+
+<ol>
+    <li><strong>Normalize the First Vector:</strong> Start with the first vector \( \mathbf{b}_1 \). The first vector \( \mathbf{u}_1 \) of the orthonormal basis \( \mathbf{U} \) is obtained by normalizing \( \mathbf{b}_1 \):</li>
+    <p>
+    \[ \mathbf{u}_1 = \frac{\mathbf{b}_1}{|| \mathbf{b}_1 ||} \]
+    </p>
+    <li><strong>Orthogonalize the Second Vector:</strong> To obtain the next basis vector \( \mathbf{u}_2 \), we need to make \( \mathbf{b}_2 \) orthogonal to \( \mathbf{u}_1 \). This is done by subtracting the projection of \( \mathbf{b}_2 \) onto \( \mathbf{u}_1 \) from \( \mathbf{b}_2 \):</li>
+    <p>\[ \text{Projection of } \mathbf{b}_2 \text{ onto } \mathbf{u}_1 = \left(\frac{\mathbf{u}_1^T \mathbf{b}_2}{\mathbf{u}_1^T \mathbf{u}_1}\right) \mathbf{u}_1 \]</p>
+    <p>The vector orthogonal to \( \mathbf{u}_1 \) is then:</p>
+    <p>\[ \mathbf{v}_2 = \mathbf{b}_2 - \left(\frac{\mathbf{u}_1^T \mathbf{b}_2}{\mathbf{u}_1^T \mathbf{u}_1}\right) \mathbf{u}_1 \]</p>
+
+    <p>Finally, normalize \( \mathbf{v}_2 \) to obtain \( \mathbf{u}_2 \):</p>
+    <p>\[ \mathbf{u}_2 = \frac{\mathbf{v}_2}{|| \mathbf{v}_2 ||} \]</p>
+
+    <li><strong>Orthogonalize the Third Vector:</strong> For the third basis vector \( \mathbf{u}_3 \), we find a vector orthogonal to both \( \mathbf{u}_1 \) and \( \mathbf{u}_2 \). This is done by subtracting the projections of \( \mathbf{b}_3 \) onto both \( \mathbf{u}_1 \) and \( \mathbf{u}_2 \):</li>
+    <p>\[ \mathbf{v}_3 = \mathbf{b}_3 - \left(\frac{\mathbf{u}_1^T \mathbf{b}_3}{\mathbf{u}_1^T \mathbf{u}_1}\right) \mathbf{u}_1 - \left(\frac{\mathbf{u}_2^T \mathbf{b}_3}{\mathbf{u}_2^T \mathbf{u}_2}\right) \mathbf{u}_2 \]</p>
+    <p>Normalize \( \mathbf{v}_3 \) to obtain \( \mathbf{u}_3 \):</p>
+    <p>\[ \mathbf{u}_3 = \frac{\mathbf{v}_3}{|| \mathbf{v}_3 ||} \]</p>
+
+    <li><strong>Generalizing to the \( n^{th} \) Vector:</strong> The process continues similarly for each subsequent vector. For the \( k^{th} \) vector \( \mathbf{u}_k \), we subtract the projections of \( \mathbf{b}_k \) onto all previously obtained vectors \( \mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_{k-1} \):</li>
+    <p>\[ \mathbf{v}_k = \mathbf{b}_k - \sum_{i=1}^{k-1} \left(\frac{\mathbf{u}_i^T \mathbf{b}_k}{\mathbf{u}_i^T \mathbf{u}_i}\right) \mathbf{u}_i \]</p>
+    <p>Finally, normalize \( \mathbf{v}_k \) to obtain \( \mathbf{u}_k \):</p>
+    <p>\[ \mathbf{u}_k = \frac{\mathbf{v}_k}{|| \mathbf{v}_k ||} \]</p>
+</ol>
+
+<p>After applying this process, the set \( \mathbf{U} \) will be an orthonormal basis for the subspace spanned by \( \mathbf{B} \).</p>
+
+<h2>Rotations and Orthogonal Transformations</h2>
+<p>Rotations in vector spaces are a special case of orthogonal transformations. These transformations preserve the lengths of vectors and the angles between them, making them essential in geometry and physics.</p>
+
+<h3>Rotation Matrices in 2D</h3>
+<p>In the plane (\( \mathbb{R}^2 \)), a rotation by an angle \( \theta \) counterclockwise about the origin is represented by the rotation matrix:</p>
+<p>\[ \mathbf{R}(\theta) = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix} \]</p>
+<p>Applying this matrix to any vector \( \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \) results in a new vector \( \mathbf{x}' = \mathbf{R}(\theta)\mathbf{x} \), which is the original vector rotated by \( \theta \) degrees.</p>
+
+<h3>Rotations in 3D</h3>
+<p>In \( \mathbb{R}^3 \), rotations can occur about the \( x \), \( y \), or \( z \) axes. The corresponding rotation matrices are:</p>
+<p>\[ \mathbf{R}_x(\theta) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos \theta & -\sin \theta \\ 0 & \sin \theta & \cos \theta \end{bmatrix} \]</p>
+<p>\[ \mathbf{R}_y(\theta) = \begin{bmatrix} \cos \theta & 0 & \sin \theta \\ 0 & 1 & 0 \\ -\sin \theta & 0 & \cos \theta \end{bmatrix} \]</p>
+<p>\[ \mathbf{R}_z(\theta) = \begin{bmatrix} \cos \theta & -\sin \theta & 0 \\ \sin \theta & \cos \theta & 0 \\ 0 & 0 & 1 \end{bmatrix} \]</p>
+<p>These matrices rotate vectors about the respective axes, preserving vector lengths and the angles between vectors.</p>
+
+<h3>Properties of Rotations</h3>
+<p>Rotations have several key properties:</p>
+<ul>
+    <li><strong>Preservation of Lengths:</strong> Rotations do not change the length of vectors.</li>
+    <li><strong>Preservation of Angles:</strong> The angle between any two vectors remains the same before and after the rotation.</li>
+    <li><strong>Non-commutativity:</strong> The order of applying rotations matters; rotating by \( \theta \) about one axis and then by \( \phi \) about another axis generally produces a different result than performing these rotations in the reverse order.</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>Understanding these concepts of orthogonality, norms, projections, and rotations is fundamental in linear algebra. They form the basis for more advanced topics like eigenvalues and eigenvectors.</p>
+
+<h3>References</h3>
+<p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press,  2020, pp. 19–26. Accessed: Jun. 26, 2024. [Online]. Available: https://mml-book.github.io/book/mml-book.pdf
+</p>

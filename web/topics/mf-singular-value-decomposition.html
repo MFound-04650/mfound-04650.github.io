@@ -1,0 +1,118 @@
+
+<h1>Singular Value Decomposition (SVD)</h1>
+
+<p>Singular Value Decomposition (SVD) is a matrix factorization technique that extends the concept of eigendecomposition to all matrices, not just square ones. While eigendecomposition is limited to square matrices, SVD can be applied to any \( m \times n \) matrix.</p>
+
+<h2>Definition of SVD</h2>
+
+<p>For any given \( m \times n \) matrix \( \mathbf{A} \), the Singular Value Decomposition is a factorization of the form:</p>
+
+<p>\[
+\mathbf{A} = \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^\top
+\]</p>
+
+<p>where:</p>
+
+<ul>
+    <li>\( \mathbf{U} \) is an \( m \times m \) orthogonal matrix (i.e., \( \mathbf{U}^\top \mathbf{U} = \mathbf{I} \)).</li>
+    <li>\( \mathbf{V} \) is an \( n \times n \) orthogonal matrix (i.e., \( \mathbf{V}^\top \mathbf{V} = \mathbf{I} \)).</li>
+    <li>\( \boldsymbol{\Sigma} \) is an \( m \times n \) diagonal matrix, where \( \Sigma_{ii} = \sigma_i \) (the singular values of \( \mathbf{A} \)), and \( \Sigma_{ij} = 0 \) for \( i \neq j \).</li>
+</ul>
+
+<p>The diagonal entries of \( \boldsymbol{\Sigma} \), denoted by \( \sigma_1, \sigma_2, \dots, \sigma_r \), are called the singular values of \( \mathbf{A} \), where \( r = \min(m,n) \). These singular values are ordered such that:</p>
+
+<p>\[
+\sigma_1 \geq \sigma_2 \geq \sigma_3 \geq \dots \geq \sigma_r \geq 0
+\]</p>
+
+<p>The columns of \( \mathbf{U} \) are referred to as the <strong>left-singular vectors</strong> of \( \mathbf{A} \), while the columns of \( \mathbf{V} \) are the <strong>right-singular vectors</strong>.</p>
+
+<p>The rank of the matrix \( \mathbf{A} \), denoted as \( r \), is the number of non-zero singular values and is bounded by \( 0 \leq r \leq \min(m,n) \).</p>
+
+<h2>Construction of SVD</h2>
+
+<p>To better understand how SVD is constructed, we explore its relation to the eigendecomposition of certain symmetric matrices derived from \( \mathbf{A} \).</p>
+
+<h3>Consider the Symmetric Matrix \( \mathbf{S} = \mathbf{A}^\top \mathbf{A} \)</h3>
+
+<p>Given that \( \mathbf{S} = \mathbf{A}^\top \mathbf{A} \) is symmetric, we can apply eigendecomposition:</p>
+
+<p>\[
+\mathbf{S} = \mathbf{P} \mathbf{D} \mathbf{P}^\top
+\]</p>
+
+<p>where \( \mathbf{P} \) is an orthogonal matrix whose columns are the eigenvectors of \( \mathbf{S} \), and \( \mathbf{D} \) is a diagonal matrix with the eigenvalues of \( \mathbf{S} \) on the diagonal.</p>
+
+<p>Now, substituting the expression for \( \mathbf{A} \) in terms of SVD:</p>
+
+<p>\[
+\mathbf{S} = \mathbf{A}^\top \mathbf{A} = (\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^\top)^\top (\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^\top) = \mathbf{V} \boldsymbol{\Sigma}^\top \mathbf{U}^\top \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^\top = \mathbf{V} \boldsymbol{\Sigma}^\top \boldsymbol{\Sigma} \mathbf{V}^\top
+\]</p>
+
+<p>This implies that:</p>
+
+<ul>
+    <li>\( \mathbf{V} = \mathbf{P} \), meaning the columns of \( \mathbf{V} \) (right-singular vectors) are the eigenvectors of \( \mathbf{A}^\top \mathbf{A} \).</li>
+    <li>\( \mathbf{D} = \boldsymbol{\Sigma}^\top \boldsymbol{\Sigma} \), meaning the diagonal entries of \( \mathbf{D} \) are the eigenvalues of \( \mathbf{A}^\top \mathbf{A} \), and these eigenvalues are the squares of the singular values \( \sigma_i \) of \( \mathbf{A} \).</li>
+</ul>
+
+<h3>Symmetric Matrix \( \mathbf{S} = \mathbf{A} \mathbf{A}^\top \)</h3>
+
+<p>Similarly, consider the symmetric matrix \( \mathbf{S} = \mathbf{A} \mathbf{A}^\top \). By applying eigendecomposition:</p>
+
+<p>\[
+\mathbf{S} = \mathbf{P} \mathbf{D} \mathbf{P}^\top
+\]</p>
+
+<p>Substituting the SVD of \( \mathbf{A} \):</p>
+
+<p>\[
+\mathbf{S} = \mathbf{A} \mathbf{A}^\top = (\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^\top)(\mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^\top)^\top = \mathbf{U} \boldsymbol{\Sigma} \mathbf{V}^\top \mathbf{V} \boldsymbol{\Sigma}^\top \mathbf{U}^\top = \mathbf{U} \boldsymbol{\Sigma} \boldsymbol{\Sigma}^\top \mathbf{U}^\top
+\]</p>
+
+<p>This implies that:</p>
+
+<ul>
+    <li>\( \mathbf{U} = \mathbf{P} \), meaning the columns of \( \mathbf{U} \) (left-singular vectors) are the eigenvectors of \( \mathbf{A} \mathbf{A}^\top \).</li>
+    <li>\( \mathbf{D} = \boldsymbol{\Sigma} \boldsymbol{\Sigma}^\top \), meaning the diagonal entries of \( \mathbf{D} \) are the eigenvalues of \( \mathbf{A} \mathbf{A}^\top \), and these eigenvalues are again the squares of the singular values \( \sigma_i \) of \( \mathbf{A} \).</li>
+</ul>
+
+<h2>SVD for Matrix Approximation</h2>
+
+<p>Matrix approximation involves representing a matrix as a sum of simpler, low-rank matrices.</p>
+
+<h3>Rank-1 Matrices</h3>
+
+<p>A rank-1 matrix is the simplest form of a matrix and can be constructed as the outer product of a column vector \(\mathbf{u}\) and a row vector \(\mathbf{v}^\top\). Mathematically, a rank-1 matrix \(\mathbf{A}_i\) is given by:</p>
+
+<p>\[
+\mathbf{A}_i = \mathbf{u}_i \mathbf{v}_i^\top
+\]</p>
+
+<p>Here, \(\mathbf{u}_i\) is an \(m \times 1\) column vector, and \(\mathbf{v}_i^\top\) is a \(1 \times n\) row vector, making \(\mathbf{A}_i\) an \(m \times n\) matrix.</p>
+
+<h3>Low-Rank Approximation</h3>
+
+<p>Using SVD, we can approximate the matrix \(\mathbf{A}\) by retaining only the most significant singular values and their corresponding singular vectors. This leads to a low-rank approximation:</p>
+
+<p>\[
+\mathbf{A} \approx \sigma_1 \mathbf{A}_1 + \sigma_2 \mathbf{A}_2 + \cdots + \sigma_k \mathbf{A}_k
+\]</p>
+
+<p>Where:</p>
+
+<p>\[
+\mathbf{A}_i = \mathbf{u}_i \mathbf{v}_i^\top
+\]</p>
+
+<p>is the rank-1 matrix corresponding to the \(i\)-th singular value \(\sigma_i\). \(k\) is the number of singular values retained, which determines the rank of the approximation.</p>
+
+<p>The low-rank approximation effectively captures the essential structure of the matrix \(\mathbf{A}\) while ignoring less significant details.</p>
+
+<h2>Conclusion</h2>
+
+<p>In summary, Singular Value Decomposition (SVD) provides a way to decompose any matrix \( \mathbf{A} \) into three components: \( \mathbf{U} \), \( \boldsymbol{\Sigma} \), and \( \mathbf{V}^\top \). These components relate to the eigenvectors and eigenvalues of the symmetric matrices \( \mathbf{A}^\top \mathbf{A} \) and \( \mathbf{A} \mathbf{A}^\top \), connecting SVD closely with eigendecomposition.</p>
+
+<h2>References</h2>
+
+<p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press, 2020, pp. 19–26. Accessed: Jun. 26, 2024. <a href="https://mml-book.github.io/book/mml-book.pdf">Available online</a></p>

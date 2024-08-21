@@ -1,0 +1,148 @@
+<h1>Linear independence, Basis and Rank</h1>
+
+<h2>Vector Spaces</h2>
+
+<p>A <strong>vector space</strong> is a set \( V \) consisting of vectors, where two operations—scalar multiplication and vector addition—are defined. These operations satisfy certain properties that ensure the set is closed under them, meaning that any linear combination of vectors within the set will result in another vector that also belongs to the set. Formally, for any vectors \( \mathbf{u}, \mathbf{v} \in V \) and scalars \( \alpha, \beta \in \mathbb{R} \), the vector \( \alpha \mathbf{u} + \beta \mathbf{v} \) must be an element of \( V \).</p>
+
+<h3>Examples of Vector Spaces</h3>
+
+<p><strong>1. The Simplest Vector Space:</strong><br>
+The simplest vector space is the set containing only the zero vector, denoted by \( \{\mathbf{0}\} \). This set satisfies the closure property because any linear combination of the zero vector will always result in the zero vector itself. This vector space can be visualized as a point in space.</p>
+
+<p>Consider a vector space \( V = \left\{ \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} \right\} \). For any \( \alpha, \beta \in \mathbb{R} \):
+\[
+\alpha \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} + \beta \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} \in V
+\]
+This space contains only one element and represents a point.</p>
+
+<p><strong>2. A Line as a Vector Space:</strong><br>
+Consider the vector space \( V = \left\{ \lambda \begin{bmatrix} 1 \\ 2 \end{bmatrix} \mid \lambda \in \mathbb{R} \right\} \), which is the set of all vectors that are multiples of the vector \( \begin{bmatrix} 1 \\ 2 \end{bmatrix} \), including the zero vector \( \begin{bmatrix} 0 \\ 0 \end{bmatrix} \). These vectors lie on a line through the origin.</p>
+
+<p><strong>3. The 2D Vector Space \( \mathbb{R}^2 \):</strong><br>
+Another example of a vector space is the set of all vectors in 2D space, denoted by \( \mathbb{R}^2 \). Consider the vector space \( V = \mathbb{R}^2 = \left\{ \begin{bmatrix} x \\ y \end{bmatrix} \mid x, y \in \mathbb{R} \right\} \).</p>
+
+<p>For any \( \mathbf{u}, \mathbf{v} \in V \) and any \( \alpha, \beta \in \mathbb{R} \):
+\[
+\alpha \mathbf{u} + \beta \mathbf{v} = \mathbf{w} \quad \text{and} \quad \mathbf{w} \in V
+\]
+For example, let \( \mathbf{u} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} \in \mathbb{R}^2 \), \( \mathbf{v} = \begin{bmatrix} 4 \\ 3 \end{bmatrix} \in \mathbb{R}^2 \), and \( \alpha, \beta \in \mathbb{R} \):
+\[
+\alpha \mathbf{u} + \beta \mathbf{v} = \begin{bmatrix} \alpha + 4\beta \\ 2\alpha + 3\beta \end{bmatrix} \in \mathbb{R}^2 \quad \text{since} \quad \alpha + 4\beta \in \mathbb{R} \quad \text{and} \quad 2\alpha + 3\beta \in \mathbb{R}
+\]</p>
+
+<p><strong>4. The 3D Vector Space \( \mathbb{R}^3 \):</strong><br>
+Similarly, a vector space can be the set of all vectors in 3D space, denoted by \( \mathbb{R}^3 \). Here, \( V = \mathbb{R}^3 = \left\{ \begin{bmatrix} x \\ y \\ z \end{bmatrix} \mid x, y, z \in \mathbb{R} \right\} \).</p>
+
+<h3>Properties of a Vector Space</h3>
+
+<p>For a set \( V \) to be a vector space, it must satisfy the following properties:</p>
+
+<ul>
+    <li><strong>Closure under scalar multiplication and vector addition:</strong><br>
+    For all \( \mathbf{u}, \mathbf{v} \in V \) and \( \alpha, \beta \in \mathbb{R} \), \( \alpha \mathbf{u} + \beta \mathbf{v} \in V \).</li>
+    
+    <li><strong>Associativity of vector addition:</strong><br>
+    For all \( \mathbf{u}, \mathbf{v}, \mathbf{w} \in V \), \( \mathbf{u} + (\mathbf{v} + \mathbf{w}) = (\mathbf{u} + \mathbf{v}) + \mathbf{w} \).</li>
+    
+    <li><strong>Existence of a neutral element (with respect to scalar multiplication and vector addition):</strong><br>
+    For all \( \mathbf{v} \in V \), \( \mathbf{v} + \mathbf{0} = \mathbf{v} \).<br>
+    For all \( \mathbf{v} \in V \), \( 1\mathbf{v} = \mathbf{v} \).</li>
+    
+    <li><strong>Existence of an inverse element with respect to vector addition:</strong><br>
+    For all \( \mathbf{v} \in V \), \( \mathbf{v} + (-\mathbf{v}) = \mathbf{0} \), where \( \mathbf{0} \) is the neutral element and \( -\mathbf{v} \in V \).</li>
+    
+    <li><strong>Commutativity under vector addition:</strong><br>
+    For all \( \mathbf{u}, \mathbf{v} \in V \), \( \mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u} \).</li>
+    
+    <li><strong>Distributivity:</strong><br>
+    For all \( \lambda \in \mathbb{R} \), \( \mathbf{u}, \mathbf{v} \in V \), \( \lambda (\mathbf{u} + \mathbf{v}) = \lambda \mathbf{u} + \lambda \mathbf{v} \).<br>
+    For all \( \alpha, \beta \in \mathbb{R} \), \( \mathbf{u} \in V \), \( (\alpha + \beta) \mathbf{u} = \alpha \mathbf{u} + \beta \mathbf{u} \).</li>
+</ul>
+
+<h2>Vector Subspaces</h2>
+
+<p>A <strong>vector subspace</strong> is a subset \( U \) of a vector space \( V \) that is itself a vector space under the operations defined on \( V \). This means that any linear combination of elements in \( U \) will result in another element of \( U \), and \( U \) must also satisfy the vector space properties.</p>
+
+<p>For example, consider the vector space \( V = \left\{ \begin{bmatrix} x \\ y \\ z \end{bmatrix} \in \mathbb{R}^3 \right\} \). The set \( U = \left\{ \begin{bmatrix} x \\ y \\ 0 \end{bmatrix} \mid x, y \in \mathbb{R} \right\} \) is a subset of \( V \), i.e., \( U \subseteq V \). \( U \) is a 2D plane in 3D space and is a vector subspace because it respects all the properties of a vector space outlined above.</p>
+
+<p>A vector subspace \( U \) inherits the properties of the vector space \( V \) and additionally satisfies:</p>
+<ul>
+    <li><strong>Containment of the zero element:</strong><br>
+    For a vector subspace \( U \), \( \mathbf{0} \in U \).</li>
+    
+    <li><strong>Closure with respect to vector addition:</strong><br>
+    For all \( \mathbf{u}, \mathbf{w} \in U \), \( \mathbf{u} + \mathbf{w} \in U \).</li>
+    
+    <li><strong>Closure with respect to scalar multiplication:</strong><br>
+    For all \( \lambda \in \mathbb{R} \) and \( \mathbf{u} \in U \), \( \lambda \mathbf{u} \in U \).</li>
+</ul>
+
+<h2>The Span of a Set of Vectors</h2>
+
+<p>The <strong>span</strong> of a set of vectors \( S \) is the set of all possible linear combinations of the elements of \( S \). The span is a vector space.</p>
+
+<ul>
+    <li>For a set \( S = \left\{ \begin{bmatrix} 1 \\ 2 \end{bmatrix} \right\} \), the span is all possible linear combinations of \( \begin{bmatrix} 1 \\ 2 \end{bmatrix} \), which forms a line.</li>
+    
+    <li>For a set \( S = \left\{ \begin{bmatrix} 1 \\ 2 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \end{bmatrix} \right\} \), the span contains all possible linear combinations of the vectors \( \begin{bmatrix} 1 \\ 2 \end{bmatrix} \) and \( \begin{bmatrix} 0 \\ 1 \end{bmatrix} \), which form a 2D plane.</li>
+</ul>
+
+<h2>Linear Independence</h2>
+
+<p>A vector \( \mathbf{u} \) is said to be <strong>linearly dependent</strong> on vectors \( \mathbf{v} \) and \( \mathbf{w} \) if it can be expressed as a linear combination of \( \mathbf{v} \) and \( \mathbf{w} \). If \( \mathbf{u} \) cannot be expressed in such a way, then it is <strong>linearly independent</strong> of \( \mathbf{v} \) and \( \mathbf{w} \).</p>
+
+<p>The vectors \( \mathbf{u}, \mathbf{v}, \) and \( \mathbf{w} \) are linearly dependent if any of the vectors can be obtained as a linear combination of the other two. This concept can be extended to more than three vectors.</p>
+
+<p>For a vector space \( V \), consider \( k \) vectors \( \mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_k \in V \) and scalars \( \lambda_1, \lambda_2, \dots, \lambda_k \in \mathbb{R} \). If it is possible to linearly combine the vectors \( \mathbf{u}_i \) such that:
+\[
+\sum_{i=1}^{k} \lambda_i \mathbf{u}_i = \mathbf{0} \quad \text{with at least one } \lambda_i \neq 0,
+\]
+then the vectors \( \mathbf{u}_1, \dots, \mathbf{u}_k \) are linearly dependent. They are linearly independent if the only solution is \( \lambda_1 = \lambda_2 = \dots = \lambda_k = 0 \).</p>
+
+<p>For example, consider the vectors \( \mathbf{u}_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix} \) and \( \mathbf{u}_2 = \begin{bmatrix} 2 \\ 4 \end{bmatrix} \). These vectors are linearly dependent because:
+\[
+2\mathbf{u}_1 - \mathbf{u}_2 = \begin{bmatrix} 0 \\ 0 \end{bmatrix} = \mathbf{0}
+\]
+Indeed, \( \mathbf{u}_2 \) can be obtained as \( \mathbf{u}_2 = 2\mathbf{u}_1 \), confirming their linear dependence.</p>
+
+<p>In contrast, the vectors \( \mathbf{w}_1 = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \) and \( \mathbf{w}_2 = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \) are linearly independent because \( \mathbf{w}_1 \) cannot be obtained from \( \mathbf{w}_2 \) and vice versa. The only way to express the zero vector as a linear combination of \( \mathbf{w}_1 \) and \( \mathbf{w}_2 \) is by using the zero scalars:
+\[
+0\mathbf{w}_1 + 0\mathbf{w}_2 = \mathbf{0}
+\]</p>
+
+<p>As another example, consider vectors \( \mathbf{u} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix} \), \( \mathbf{v} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \), and \( \mathbf{w} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \). It is evident that \( \mathbf{u} \) can be obtained as a linear combination of \( \mathbf{v} \) and \( \mathbf{w} \), i.e., \( \mathbf{u} = \mathbf{v} + \mathbf{w} \), hence \( \mathbf{u}, \mathbf{v}, \) and \( \mathbf{w} \) are linearly dependent.</p>
+
+<h2>Basis and Rank</h2>
+
+<h3>Basis</h3>
+
+<p>A set of vectors is a <strong>basis</strong> of a vector space \( V \) if the vectors are linearly independent and their span generates the entire vector space. In other words, the span of a set of basis vectors is the vector space itself. For a vector space \( V \), if \( B \subseteq V \) and all vectors in \( B \) are linearly independent such that adding any new vector to \( B \) makes it linearly dependent, then \( B \) is a basis of \( V \). The <strong>dimension</strong> of a vector space or vector subspace is the number of linearly independent vectors in the basis.</p>
+
+<p>Consider the vector space \( \mathbb{R}^2 \):
+\[
+\mathbb{R}^2 = \left\{ \begin{bmatrix} x \\ y \end{bmatrix} \mid x, y \in \mathbb{R} \right\}
+\]
+The vectors \( \begin{bmatrix} 0 \\ 1 \end{bmatrix} \) and \( \begin{bmatrix} 1 \\ 0 \end{bmatrix} \) can be considered the basis vectors of \( \mathbb{R}^2 \) because they are linearly independent, and any vector in \( \mathbb{R}^2 \) can be obtained from a linear combination of \( \begin{bmatrix} 0 \\ 1 \end{bmatrix} \) and \( \begin{bmatrix} 1 \\ 0 \end{bmatrix} \). Therefore, \( B = \left\{ \begin{bmatrix} 0 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \end{bmatrix} \right\} \) is the basis for \( \mathbb{R}^2 \).</p>
+
+<h3>Rank</h3>
+
+<p>The <strong>rank</strong> of a matrix \( A \) is the number of linearly independent columns (or rows) in \( A \). The number of linearly independent columns is always equal to the number of linearly independent rows, so the rank of a matrix \( A \) is equal to the rank of its transpose \( A^T \).</p>
+
+<p>For example, consider the matrix \( A = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 1 & 1 & 0 \end{bmatrix} \). \( A \) has two linearly independent rows (and columns), so the rank of \( A \) is 2, i.e., \( \text{rk}(A) = 2 \).</p>
+
+<h3>Properties of the Rank of a Matrix</h3>
+
+<p>The rank of a matrix \( A \) has the following properties:</p>
+
+<ul>
+    <li>\( \text{rk}(A) = \text{rk}(A^T) \).</li>
+    <li>The columns of a matrix span a subspace whose dimension is equal to the rank of \( A \). The basis of this subspace is found by applying Gaussian elimination to find the pivot columns of \( A \).</li>
+    <li>The rows of a matrix span a subspace whose dimension is equal to the rank of \( A \). The basis of this subspace is found by applying Gaussian elimination to \( A \) to find the non-zero rows.</li>
+    <li>For a square matrix \( A \), \( A \) is regular (invertible) if and only if \( \text{rk}(A) = n \).</li>
+    <li>A system of linear equations \( A\mathbf{x} = \mathbf{b} \) can be solved if and only if \( \text{rk}(A) = \text{rk}([A \mid \mathbf{b}]) \).</li>
+    <li>The subspace of solutions for \( A\mathbf{x} = \mathbf{0} \) (the kernel or null space) has dimension \( n - \text{rk}(A) \).</li>
+    <li>A matrix has full rank if its rank is equal to \( \min(m, n) \), where \( m \) and \( n \) are the number of rows and columns of the matrix, respectively.</li>
+</ul>
+
+<h2>References</h2>
+<p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press, 2020, pp. 19–26. Accessed: Jun. 26, 2024. [Online]. Available: https://mml-book.github.io/book/mml-book.pdf"</p>

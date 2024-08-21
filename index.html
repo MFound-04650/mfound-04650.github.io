@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Mathmatical Foundation For Machine Learning</title>
+        <link rel="shortcut icon" href="./favicon.ico" type="image/vnd.microsoft.icon">
+
+        <!-- display nicely on phones -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <!-- bootstrap 3 -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+            crossorigin="anonymous">
+        <!-- fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic' rel='stylesheet'
+            type='text/css'>
+        <!-- font awesome icons (for mobile menu) -->
+        <script src="https://kit.fontawesome.com/fc8bcf2df2.js" crossorigin="anonymous"></script>
+        <!-- jquery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <!-- vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+        <!-- custom code -->
+        <script src="script.js"></script>
+        <!--Chat Bot-->
+        <link rel="stylesheet" type="text/css" href="chatbot.css">
+
+
+        <!-- bust caches by incrementing version of main -->
+        <link href="main.4.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+
+        <div class="header">
+            <span class="menu-wrapper">
+                <span class="header-item" onclick="toSection('#title')">
+                    About
+                </span>
+                <span class="header-item" onclick="toSection('#oh')">
+                    OH
+                </span>
+               
+               
+                <span class="header-item" onclick="toSection('#lectures')">
+                    Lectures
+                </span>
+               
+                
+            </span>
+
+         
+        </div>
+
+        <div class="mobile-menu">
+            <div class="menu-exit m-header-item" onclick="hideMenu()">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </div>
+            <div class="m-header-item" onclick="mobileToSection('#title')">
+                About
+            </div>
+            <div class="m-header-item" onclick="mobileToSection('#oh')">
+                OH
+            </div>
+          
+          
+            <div class="m-header-item" onclick="mobileToSection('#lectures')">
+                Lectures
+            </div>
+            
+        </div>
+
+        <div class="container titlebar">
+            <div class="row">
+                <div class="title-col vcenter" style="color:#00a89a;font-weight:bold;text-align:center;width:100%">
+                    <div id="title">
+                        <b>0450-A:</b> Mathematical Foundations of Machine Learning
+                    </div>
+                    <div class="subtitle"><i>Fall 2024</i>
+                        <br>
+                       
+                        <br>
+                       
+                        <p>In-Person Venue:CMU-Africa F205</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- SCHEDULE OF LECTURES -->
+         <div class="container">
+     
+              
+
+                <!-- Course Description -->
+                <h3>Course Description</h3>
+                <p> 
+                    This course offers a comprehensive mathematical
+                    foundation for machine learning, covering essential topics from linear algebra,
+                    calculus, probability theory, and optimization to advanced concepts, including
+                    information theory and statistical inferencs. The course aims to equip students
+                    with the necessary mathematical tools to understand, analyze, and implement
+                    various machine learning algorithms and models at a deeper level.
+                                    </p>
+                <h3>Prerequisites</h3>
+                <ol>
+                    <li>We will be using Numpy and Pandas in this class, so you will need to be able to program in
+                        python3.
+                    </li>
+                    <li>You will need familiarity with basic calculus (differentiation, chain rule), linear algebra, and
+                        basic probability. </li>
+                </ol>
+                
+
+                <h3>Your Supporters</h3>
+                <p><b style="color:#008fa8;">Instructor:</b></p>
+                <ul style="margin-top:-10px;">
+                    <li><b>Moise Busogi</b> : mbusogi@andrew.cmu.edu</li>
+                  
+                </ul>
+                <p>
+                    <b style="color:#049dc7;">TAs:</b>
+                </p>
+                <ul>
+                    <!-- listing all TA names and contact info for S24 -->
+                    <li><b>Lawrence Francis</b>:lfrancis@andrew.cmu.edu</li>
+                    <li><b>Marie Cynthia Abijuru Kamikazi: </b> mabijuru@andrew.cmu.edu</li>
+                    <li><b>Brian Kipkirui</b>: bkipkiru@andrew.cmu.edu</li>
+                   
+                </ul>
+                <h3>Assignment Policy</h3>
+                <p> 
+                    Homework not turned before the due will lose 20%. Each
+                    additional day loses another 20%. The lowest homework and quiz grade will be
+                    dropped. While students in class are encouraged to discuss the assigned
+                    problems, each student should write and submit their own solution and should
+                    not copy the solutions of other students. This policy will be strictly enforced in this
+                    class. If you have any question about whether some activity would constitute
+                    cheating, please feel free to ask.
+                    You will be granted a maximum of 3 slack days, slack days are self granted extensions which you can use a maximum of one day per assignment.
+                </p>
+                <h3>Attendance:</h3>
+                <p>
+                    Every student is expected to attend every class for the whole class
+                    duration. Attendance will be checked randomly using different means, including a
+                    pop quiz that also assesses the reading assignment. Unexplained absence will
+                    result in deduction of point in the attendance score. The attendance score will
+                    also include various ways, such as answering your colleague&#39;s questions on
+                    Piazza, or being active during class. If you need to miss a lecture because of a
+                    medical emergency or something equally significant, please inform the instructor
+                    before the start of the class. 
+                </p>
+                <h3>Grading Algorithm:</h3>
+<p>
+35% Homework, 20% Quizzes, 5% Reading &amp; Attendance, 20% Mid-term Exam, 20% Final Exam
+</p>
+
+<h3>Letter Grading Algorithm:</h3>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Grade </th>
+        <th>Letter Grade</th>
+    </tr>
+    <tr>
+        <td>94 - 100</td>
+        <td>A</td>
+    </tr>
+    <tr>
+        <td>90 - 93.99</td>
+        <td>A-</td>
+    </tr>
+    <tr>
+        <td>87 - 89.99</td>
+        <td>B+</td>
+    </tr>
+    <tr>
+        <td>84 - 86.99</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>80 - 83.99</td>
+        <td>B-</td>
+    </tr>
+    <tr>
+        <td>77 - 79.99</td>
+        <td>C+</td>
+    </tr>
+    <tr>
+        <td>74 - 76.99</td>
+        <td>C</td>
+    </tr>
+    <tr>
+        <td>70 - 73.99</td>
+        <td>C-</td>
+    </tr>
+    <tr>
+        <td>67 - 69.99</td>
+        <td>D+</td>
+    </tr>
+    <tr>
+        <td>64 - 67.99</td>
+        <td>D</td>
+    </tr>
+    <tr>
+        <td>61 - 63.99</td>
+        <td>D-</td>
+    </tr>
+    <tr>
+        <td>0 - 60.99</td>
+        <td>F</td>
+    </tr>
+</table>
+        
+        <!-- SCHEDULE OF LECTURES -->
+        <div id="lectures" class="container">
+            <div class="row">
+                <h2>Schedule of Lectures</h2>
+               
+                <!-- Schedule of Lectures Table -->
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Lecture</th>
+                                <th>Date</th>
+                                <th>Topics</th>
+                                <th>Slides</th>
+                                <th>Additional Materials</th>
+                                <th>Quiz</th>
+                                <th>Assignment</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Tabular Description of each Lecture -->
+                        <!-- ordered {Lecture Number, Date, Topics, Slides + Video, Addn. Materials, Quiz} -->
+                        <tbody>
+                            <!-- Lecture 0 -->
+                            <tr>
+                                <td>0</td>
+                                <td>Monday,<br> Aug 05</td>
+                                <td>
+                                    <ul>
+                                        <li>Course Logistics</li>
+                                        <li>Learning Objectives</li>
+                                        <li>Grading</li>
+                                        <li>Deadlines</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="https://www.youtube.com/watch?v=ylRKoyTqwOc" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- blank additional materials section -->
+                                </td>
+                                <td rowspan=1 style="vertical-align: middle; text-align: center;">
+                                    Warm up Quiz
+                                </td>
+                                <td rowspan=1 style="vertical-align: middle; text-align: center;">
+                                    No Assignment
+                                </td>
+                            </tr>
+
+                            <!-- Lecture 1 -->
+                            <tr>
+                                <td>1</td>
+                                <td>Monday,<br> Aug 26</td>
+                                <td>
+                                    <ul>
+                                        <li>Introduction and Course Logistics</li>
+                                        <li>Systems of Linear Equations and Matrices</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    </td>
+                                <td>
+                                    </td>
+
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                   
+                                        Quiz 1
+                                   
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/assignments/665246"> -->
+                                        Assignment 1 Released
+                                    <!-- </a> -->
+                                </td>
+                              
+                            </tr>
+
+                            <!-- Lecture 2 -->
+                            <tr>
+                                <td>2</td>
+                                <td>Wednesday,<br> Aug 28</td>
+                                <td>
+                                    <ul>
+                                        <li>Solving Systems of Linear Equations</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                 
+                                
+                            </tr>
+
+                            <!-- Lecture 3 -->
+                            <tr>
+                                <td>3</td>
+                                <td>Monday,<br> Sep 02</td>
+                                <td>
+                                    <ul>
+                                        <li>Linear Independence, Basis, and Rank</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                     </td>
+                                <td>
+                                 </td>
+                                 <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    Quiz 2
+                                </td>
+                                <td rowspan="2"></td>
+                            </tr>
+
+                            <!-- Lecture 4 -->
+                            <tr>
+                                <td>4</td>
+                                <td>Wednesday,<br> Sep 04</td>
+                                <td>
+                                    <ul>
+                                        <li>Linear Mappings and Affine Spaces</li>
+                                      
+                                    </ul>
+                                </td>
+                                <td>
+                                  
+                                 </td>
+                                <td>
+                                  </td>
+                                  
+                                  
+                            </tr>
+
+                            <!-- Lecture 5 -->
+                            <tr>
+                                <td>5</td>
+                                <td>Monday,<br> Sep 09</td>
+                                <td>
+                                    
+                                    <ul>
+                                        <li>Orthogonality</li>
+                                        
+                                    </ul>
+                                  
+                                </td>
+                                <td>
+                                    </td>
+                                <td>
+                                  </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                        Quiz 3
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    Assignment 1 Due <br> Assignment 2 Released
+                            </td>
+                            </tr>
+
+                            <!-- Lecture 6 -->
+                            <tr>
+                                <td>6</td>
+                                <td>Wednesday,<br> Sep 11</td>
+                                <td>
+                                    <ul>
+                                            <li>Determinant and Trace</li>
+                                    </ul>
+                                </td>
+                                <td>
+                               </td>
+                               <td>
+
+                               </td>
+                            </tr>
+
+                            <tr>
+                                <td>7</td>
+                                <td>Monday,<br> Sep 16</td>
+                                <td>
+                                    <ul>
+                                        <li>Eigenvalues and Eigenvectors</li>
+                                       
+                                    </ul>
+                                </td>
+                                <td>
+                                  </td>
+                                <td>
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/115277"> -->
+                                        Quiz 4
+                                    <!-- </a> -->
+                                </td>
+                            </tr>
+
+                            <!-- Lecture 8 -->
+                            <tr>
+                                <td>8</td>
+                                <td>Wednesday,<br> Sep 18</td>
+                                <td>
+                                    <ul>
+                                        <li>Eigendecomposition and Diagonalization</li>
+                                        
+                                    </ul>
+                                </td>
+                                <td>
+                               </td>
+                                <td>
+                               </td>
+                            </tr>
+
+                            <!-- Lecture 9 -->
+                            <tr>
+                                <td>9</td>
+                                <td>Monday,<br> Sep 23</td>
+                                <td>
+                                    <ul>
+                                        <li>Singular Value Decomposition</li>
+                                    </ul>
+                                </td>
+                                <td>
+                               </td>
+                                <td>
+                                    <!-- blank additional materials section -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/115286/take?user_id=121765"> -->
+                                        Quiz 5
+                                    <!-- </a> -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    Assignment 2 Due <br> Assignment 3 Released
+                            </td>
+                            </tr>
+
+                            <!-- Lecture 10 -->
+                            <tr>
+                                <td>10</td>
+                                <td>Wednesday,<br> Sep 25</td>
+                                <td>
+                                    <ul>
+                                        <li>Symmetric Matrix</li>
+                                    </ul>
+                                </td>
+                                <td>
+                               </td>
+                                <td>
+                                    <!-- blank additional materials section -->
+                                </td>
+                                
+                            </tr>
+
+                            <!-- Lecture 11 -->
+                            <tr>
+                                <td>11</td>
+                                <td>Monday,<br> Sep 30</td>
+                                <td>
+                                    <ul>
+                                        <li>PCA</li>
+                                    </ul>
+                                </td>
+                                <td>
+                               </td>
+                                <td>
+                                    <!-- <a href="https://poloclub.github.io/cnn-explainer/">CNN Explainer</a> -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/115282"> -->
+                                        Quiz 6
+                                    <!-- </a> -->
+                                </td>
+                                
+                            </tr>
+
+                            <!-- Lecture 12 -->
+                            <tr>
+                                <td>12</td>
+                                <td>Wednesday,<br> Oct 02</td>
+                                <td>
+                                    <ul>
+                                        <li>Differentiation of Univariate Functions</li>
+                                  
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- enter slides, video here -->
+                                    <!-- <a href="./document/slides/lec12.CNN4.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-+Convolutional+Networks+IV/1_agu1gzk9/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/4rxZht6c6z0" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- blank additional materials section -->
+                                </td>
+                            </tr>
+
+                            <!-- Lecture 13 -->
+                            <tr>
+                                <td>13</td>
+                                <td>Monday,<br> Oct 07</td>
+                                <td>
+                                    <ul>
+                                        <li>Partial Differentiation and Gradients</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- enter slides, video here -->
+                                    <!-- <a href="./document/slides/lec13.recurrent.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-+Recurrent+Networks+1/1_n2rpr4bd/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/Saol4zcdBTc" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- <a href="https://proceedings.neurips.cc/paper/1989/file/69adc1e107f7f7d035d7baf04342e1ca-Paper.pdf">
+                                        Fahlman and Lebiere (1990)</a><br>
+                                    <a href="./document/readings/How to compute a derivative.pdf">
+                                        How to compute a derivative, extra help for HW3P1 (*.pptx)</a><br> -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/115283"> -->
+                                        No Quiz
+                                    <!-- </a> -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    Assignment 3 Due <br> 
+                            </td>
+                            </tr>
+
+                            <!-- Lecture 14 -->
+                            <tr>
+                                <td>14</td>
+                                <td>Wednesday,<br> Oct 09</td>
+                                <td>
+                                    <ul>
+                                        <li>Midterm Exam</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec14.recurrent.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-+Recurrent+Networks+-+Stability+analysis+and+LSTMs/1_2cbjh8hm/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/Jaa7VGdj0sc" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- <a href="document/readings/Bidirectional%20Recurrent%20Neural%20Networks.pdf">
+                                        Bidirectional Recurrent Neural Networks </a> -->
+                                </td>
+                            </tr>
+
+                            <!-- Fall Break -->
+                            <tr>
+                                <td>-</td>
+                                <td>Monday,<br> Oct 14</td>
+                                <td>
+                                    <ul>
+                                        <li>No Class - Fall Break</li>
+                                    </ul>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/115285"> -->
+                                        No Quiz
+                                    <!-- </a> -->
+                                </td>
+                            </tr>
+
+                            <!-- Fall Break -->
+                            <tr>
+                                <td>-</td>
+                                <td>Wednesday,<br> Oct 16</td>
+                                <td>
+                                    <ul>
+                                        <li>No Class - Fall Break</li>
+                                    </ul>
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <!-- Lecture 15 -->
+                            <tr>
+                                <td>15</td>
+                                <td>Monday,<br> Oct 21</td>
+                                <td>
+                                    <ul>
+                                        <li>Gradients of Matrices
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec15.recurrent.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-+3+11/1_ahp86hby/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/6wjbgUzELls?si=exUUMcm2kWdtGywD" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- <a href="document/readings/LSTM.pdf">LSTM</a> -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/115278"> -->
+                                        Quiz 7
+                                    <!-- </a> -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <br> Assignment 4 Released
+                            </td>
+                            </tr>
+
+                            <!-- Lecture 16 -->
+                            <tr>
+                                <td>16</td>
+                                <td>Wednesday,<br> Oct 23</td>
+                                <td>
+                                    <ul>
+                                        <li>Backpropagation and Automatic Differentiation</li>
+                                        
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec16.recurrent.pdf" target="_blank">Slides (PDF)</a><br> -->
+                                    <!-- <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-+Recurrent+Networks+-+Sequence+to+Sequence+models+-+Connectionist+Temporal+Classification/1_uiz30l6o/329214902" target="_blank">MediaServices</a><br> -->
+                                    <!-- <a href="https://youtu.be/Vss65fMigUg" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- blank additional materials section -->
+                                </td>
+                            </tr>
+
+                            <!-- Lecture 17 -->
+                            <tr>
+                                <td>17</td>
+                                <td>Monday,<br> Oct 28</td>
+                                <td>
+                                    <ul>
+                                        <li>Optimization Using Gradient Descent</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec17.recurrent.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Recurrent+Networks+Modeling+Languages+Sequence+to+Sequence+Models/1_hjdmpixr/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/2irlCrUqfMw" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- <a href="https://www.cs.toronto.edu/~graves/icml_2006.pdf">
+                                        Labeling Unsegmented Sequence Data with Recurrent Neural Networks</a> -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/115287"> -->
+                                        Quiz 8
+                                    <!-- </a> -->
+                                </td>
+                            </tr>
+
+                            <!-- Lecture 18 -->
+                            <tr>
+                                <td>18</td>
+                                <td>Wednesday,<br> Oct 30</td>
+                                <td>
+                                    <ul>
+                                        <li>Introduction to Probability and Statistics</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec18.attention.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Recurrent+Networks+Modeling+Languages+Sequence+to+Sequence+Models+2/1_yu43wsj5/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/-B_Sm2oFCHI" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- <a href="https://arxiv.org/pdf/1706.03762.pdf" target="blank">Attention Is All You
+                                        Need</a><br>
+                                    <a href="http://nlp.seas.harvard.edu/annotated-transformer/" target="_blank">
+                                        The Annotated Transformer - Attention is All You Need paper, but annotated and coded in PyTorch!</a> -->
+                                </td>
+                            </tr>
+
+                            <!-- Lecture 19 -->
+                            <tr>
+                                <td>19</td>
+                                <td>Monday,<br> Nov 04</td>
+                                <td>
+                                    <ul>
+                                        <li>Bayes’ Theorem</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec19.transformers.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-+Transformers/1_nxlkim38/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/_FPgY1-tJRU" target="_blank">Youtube</a><br> -->
+                                </td>
+                                    <!-- blank additional materials section -->
+                                <td>
+
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/122035"> -->
+                                        Quiz 9
+                                    <!-- </a> -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    Assignment 4 Due <br> Assignment 5 Released
+                            </td>
+                            </tr>
+
+                            <!-- Lecture 20 -->
+                            <tr>
+                                <td>20</td>
+                                <td>Wednesday,<br> Nov 06</td>
+                                <td>
+                                    <ul>
+                                        <li>Independence, and Law of Total Probability</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec20.LLM.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-+Large+Language+Models/1_kaqe8n1v/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/u4Z7dr0_aFg" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- blank additional materials section -->
+                                </td>
+                            </tr>
+
+                            <!-- Lecture 21 -->
+                            <tr>
+                                <td>21</td>
+                                <td>Monday,<br> Nov 11</td>
+                                <td>
+                                    <ul>
+                                        <li>Probability Distribution</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec21.representations.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-Representations/1_rinw96v8/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/U3-_NSKiuH0" target="_blank">Youtube</a><br> -->
+                                </td>
+                                    <!-- blank additional materials section -->
+                                <td>
+
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/115293"> -->
+                                        Quiz 10
+                                    <!-- </a> -->
+                                </td>
+                            </tr>
+
+                            <!-- Lecture 22 -->
+                            <tr>
+                                <td>22</td>
+                                <td>Wednesday,<br> Nov 13</td>
+                                <td>
+                                    <ul>
+                                        <li>Data, Models, and Learning
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec22.VAE_1.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-Variational+Autoencoders/1_jsuf0ost/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/myS3iY4tsGM" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- <a href="https://arxiv.org/abs/1606.05908">Tutorial on VAEs (Doersch)</a><br>
+                                    <a href="https://arxiv.org/abs/1312.6114">Autoencoding variational Bayes (Kingma)</a> -->
+                                </td>
+                            </tr>
+
+                            <!-- Lecture 23 -->
+                            <tr>
+                                <td>23</td>
+                                <td>Monday,<br> Nov 18</td>
+                                <td>
+                                    <ul>
+                                        <li>Parameter Estimation</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec23.VAE_2.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-Variational+Autoencoders+Part+2/1_kh7wcf6u/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/kmfmHaWhDxs" target="_blank">Youtube</a><br> -->
+                                </td>
+                                    <!-- blank additional materials section -->
+                                <td>
+
+                                </td>
+                                    <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                        <!-- <a href="https://canvas.cmu.edu/courses/38471/quizzes/122323"> -->
+                                            Quiz 11
+                                        <!-- </a> -->
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    Assignment 5 Due <br> Assignment 6 Released
+                            </td>
+                            </tr>
+
+                            <!-- Lecture 24 -->
+                            <tr>
+                                <td>24</td>
+                                <td>Wednesday,<br> Nov 20</td>
+                                <td>
+                                    <ul>
+                                        <li>Entropy and Mutual Information</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/Diffusion_Models.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-Diffusion+Models/1_12sq75th/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/j5oMYTud_eg" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- blank additional materials section -->
+                                </td>
+                                
+                            </tr>
+
+                            <!-- Lecture 25 -->
+                            <tr>
+                                <td>25</td>
+                                <td>Monday,<br> Nov 25</td>
+                                <td>
+                                    <ul>
+                                        <li>Entropy and Mutual Information II</li>
+                                    </ul>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec25_GANs.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-General+Adversarial+Networks/1_etajjxyv/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/mawTWoEIFYg" target="_blank">Youtube</a><br> -->
+                                
+                                </td>
+                                <td rowspan=1 style="vertical-align: middle; text-align: center;">
+                                    No Quiz
+                                </td>
+                                <td></td>
+                                
+                                    
+                            </tr>
+
+                            <!-- Lecture 26 -->
+                            <tr>
+                                <td>26</td>
+                                <td>Monday,<br> Dec 02</td>
+                                <td>
+                                    <ul>
+                                        <li>KL Divergence and Cross-Entropy
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- NO SLIDES FOR GUEST LECTURE -->
+                                    <!-- <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-Graphic+Neural+Networks/1_db3bnp3s/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/BuTPeFtTjRs" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- <a href="https://ieeexplore.ieee.org/abstract/document/9046288"> -->
+                                        <!-- A Comprehensive Survey of GNNs</a> -->
+                                </td>
+
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    No Quiz
+                                </td>
+                                <td rowspan=2 style="vertical-align: middle; text-align: center;">
+                                    Assignment 6 Due 
+                            </td>
+                            </tr>
+
+                            <!-- Lecture 27 -->
+                            <tr>
+                                <td>27</td>
+                                <td>Wednesday,<br> Dec 04</td>
+                                <td>
+                                    <ul>
+                                        <li>Review</li>
+                                      
+                                    </ul>
+                                </td>
+                                <td>
+                                    <!-- <a href="./document/slides/lec26.hopfieldBM.pdf" target="_blank">Slides (PDF)</a><br>
+                                    <a href="https://mediaservices.cmu.edu/media/Introduction+to+Deep+Learning+-+Spring+2024+-Hopfield+Nets%2C+Auto+Associators%2C+Boltzmann+machines/1_9zwg7azu/329214902" target="_blank">MediaServices</a><br>
+                                    <a href="https://youtu.be/I9zw_VsqArc" target="_blank">Youtube</a><br> -->
+                                </td>
+                                <td>
+                                    <!-- blank additional materials section -->
+                                    <!-- <a href="./document/readings/hopfieldnets_is_all_you_need.pdf">
+                                        The similarities between Hopfield Nets and Transformers </a> -->
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+             
+    </body>
+
+</html>

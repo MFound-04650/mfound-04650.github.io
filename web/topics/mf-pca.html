@@ -1,0 +1,84 @@
+
+<h1>Principal Component Analysis (PCA)</h1>
+<p>Principal Component Analysis (PCA) is a technique for dimensionality reduction, often employed in data analysis to simplify high-dimensional datasets while retaining as much variability as possible.</p>
+
+<h2>Problem Setup</h2>
+<p>Consider a dataset consisting of \(n\) vectors \(\mathbf{X} = \{\mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_n\}\), where each vector \(\mathbf{x}_i\) resides in a \(D\)-dimensional space, \(\mathbb{R}^D\). Our goal is to find a reduced representation of these vectors in a lower-dimensional space \(\mathbb{R}^M\), where \(M < D\), while preserving as much of the original data's variance as possible.</p>
+
+<p>Assume that the data has been centered, meaning the mean of the vectors is zero:</p>
+\[
+\frac{1}{n} \sum_{i=1}^n \mathbf{x}_i = \mathbf{0}
+\]
+
+<h2>Covariance Matrix</h2>
+<p>The first step in PCA is to compute the covariance matrix \(\mathbf{S}\), which captures the relationships between the different dimensions of the data. The covariance matrix is defined as:</p>
+\[
+\mathbf{S} = \frac{1}{n} \sum_{i=1}^n \mathbf{x}_i \mathbf{x}_i^\top
+\]
+<p>This \(D \times D\) matrix summarizes how the dimensions of the data vary with respect to each other.</p>
+
+<h2>Dimensionality Reduction</h2>
+<p>PCA reduces the dimensionality of the data by projecting it onto a new set of orthonormal basis vectors, which we denote as \(\mathbf{B} = [\mathbf{b}_1, \mathbf{b}_2, \ldots, \mathbf{b}_M]\). These basis vectors form the columns of the matrix \(\mathbf{B}\).</p>
+
+<p>For each data point \(\mathbf{x}_i\), its low-dimensional representation \(\mathbf{z}_i\) in \(\mathbb{R}^M\) is obtained by:</p>
+\[
+\mathbf{z}_i = \mathbf{B}^\top \mathbf{x}_i
+\]
+<p>The original vector \(\mathbf{x}_i\) can be approximately reconstructed from \(\mathbf{z}_i\) by:</p>
+\[
+\hat{\mathbf{x}}_i = \mathbf{B} \mathbf{z}_i
+\]
+<p>This approximation becomes exact if \(M = D\). However, in the context of PCA, \(M\) is usually much smaller than \(D\), leading to a compressed representation of the data.</p>
+
+<h2>Variance Maximization</h2>
+<p>The core principle behind PCA is to maximize the variance of the projected data in the lower-dimensional space.</p>
+
+<p>We consider a single basis vector \(\mathbf{b}_1\). The representation of each data point, \(\mathbf{x}_i\), with respect to \(\mathbf{b}_1\) is:</p>
+
+\[
+    z_i = \mathbf{b}_1^\top \mathbf{x}_i
+\]
+
+<p>The variance of this projection is given by:</p>
+
+
+\begin{align*}
+
+\text{Var}[z] &= \frac{1}{n}\sum_{i=1}^{n}z_{i}^2  \\
+     &= \frac{1}{n}\sum_{i=1}^{n}(\mathbf{b}_1^\top \mathbf{x}_i)^2 \\
+     &= \frac{1}{n}\sum_{i=1}^{n}\mathbf{b}_1^\top \mathbf{x}_i \mathbf{x}_i^\top \mathbf{b}_1 \\
+     &= \mathbf{b}_1^\top \left(\frac{1}{n}\sum_{i=1}^{n}\mathbf{x}_i \mathbf{x}_i^\top \right) \mathbf{b}_1 \\
+     &= \mathbf{b}_1^\top \mathbf{S} \mathbf{b}_1
+
+\end{align*}
+     
+
+<p>To maximize this variance, we need to solve the following optimization problem:</p>
+\[
+\text{maximize } \mathbf{b}_1^\top \mathbf{S} \mathbf{b}_1 \quad \text{subject to } \mathbf{b}_1^\top \mathbf{b}_1 = 1
+\]
+<p>This leads to the eigenvalue problem:</p>
+\[
+\mathbf{S} \mathbf{b}_1 = \lambda_1 \mathbf{b}_1
+\]
+<p>Here, \(\mathbf{b}_1\) is the eigenvector of the covariance matrix \(\mathbf{S}\), and \(\lambda_1\) is the corresponding eigenvalue. The eigenvector associated with the largest eigenvalue captures the direction of maximum variance in the data.</p>
+
+<h2>Principal Components</h2>
+<p>The first principal component \(\mathbf{b}_1\) is the direction in which the data has the most variance. Subsequent principal components \(\mathbf{b}_2, \mathbf{b}_3, \ldots, \mathbf{b}_M\) are found by solving similar eigenvalue problems for the remaining eigenvectors, ensuring that they are orthogonal to each other. These components capture the remaining variance in decreasing order of magnitude.</p>
+
+<h2>Encoding and Decoding in PCA</h2>
+<p>PCA can be understood through an encoder-decoder paradigm:</p>
+<ul>
+    <li><strong>Encoding Step:</strong> The high-dimensional vector \(\mathbf{x}_i\) is encoded into a low-dimensional representation \(\mathbf{z}_i\) by projecting it onto the principal components:</li>
+    \[
+    \mathbf{z}_i = \mathbf{B}^\top \mathbf{x}_i
+    \]
+    <li><strong>Decoding Step:</strong> The low-dimensional representation \(\mathbf{z}_i\) is decoded back into the original space to approximate \(\mathbf{x}_i\):</li>
+    \[
+    \hat{\mathbf{x}}_i = \mathbf{B} \mathbf{z}_i
+    \]
+</ul>
+<p>The closer \(\hat{\mathbf{x}}_i\) is to \(\mathbf{x}_i\), the better the approximation.</p>
+
+<h2>References</h2>
+<p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press, 2020, pp. 19–26. Accessed: Jun. 26, 2024. <a href="https://mml-book.github.io/book/mml-book.pdf" target="_blank">Online</a>.</p>

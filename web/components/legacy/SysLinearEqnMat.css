@@ -1,0 +1,95 @@
+/* Systems of Linear Equations ==================================================================*/
+.equation {
+    margin-bottom: 10px;
+}
+
+.equations-content{
+    width: 400px;
+}
+
+.input-box {
+    width: 40px;
+    height: 20px;
+    margin-right: 2px;
+}
+
+.unknown, .operator {
+    margin-right: 10px;
+}
+
+
+.solution-choices {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.solution-choice {
+    /* height: 30px; */
+    background-color: #eee;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    user-select:none;
+    margin-bottom: 10px;
+    width: 200px;
+
+}
+
+.solution-choice:hover {
+    background-color: #cee;
+    cursor: pointer;
+}
+
+.main-content-block {
+    margin-left: 10px;
+    width: 100%;
+    padding-bottom: 100px;
+    display: flex;
+    margin-top: 10px;
+}
+
+.visual-choices {
+    margin-left: 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.visual-choices-radio {
+    
+}
+
+.visual-choices-dimension {
+    margin-right: 20px;
+}
+
+.visual-solution-choice-box {
+    margin-bottom: 30px;
+    
+}
+
+
+
+canvas {
+    image-rendering:auto;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+    
+}
+
+svg {
+    
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+    
+}
+
+.linear-2d-container {
+    display: flex;
+}
+
+.linear-2d-right {
+    margin-right: 20px;
+}
+/* Systems of Linear Equations ==================================================================*/

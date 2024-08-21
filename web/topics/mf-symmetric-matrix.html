@@ -1,0 +1,77 @@
+
+
+<h1>Symmetric Matrices</h1>
+
+<section>
+    <h2>Symmetric Matrix</h2>
+    <p>A <strong>symmetric matrix</strong> is a square matrix that is equal to its transpose. This means that the elements of the matrix are mirrored along the main diagonal. Mathematically, a matrix \( \mathbf{A} \) is symmetric if:</p>
+    <p>
+        \[
+        \mathbf{A} = \mathbf{A}^T
+        \]
+    </p>
+    <p>where \( \mathbf{A}^T \) denotes the transpose of \( \mathbf{A} \).</p>
+    <p>In other words, for any symmetric matrix \( \mathbf{A} \):</p>
+    <p>
+        \[
+        a_{ij} = a_{ji} \quad \text{for all } i, j
+        \]
+    </p>
+    <p>This implies that the element in the \( i \)th row and \( j \)th column is the same as the element in the \( j \)th row and \( i \)th column.</p>
+
+    <h3>Example</h3>
+    <p>Consider the matrix \( \mathbf{A} \):</p>
+    <p>
+        \[
+        \mathbf{A} = \begin{bmatrix}
+        1 & 2 & 3 \\
+        2 & 4 & 5 \\
+        3 & 5 & 6
+        \end{bmatrix}
+        \]
+    </p>
+    <p>The transpose of \( \mathbf{A} \) is \( \mathbf{A}^T \):</p>
+    <p>
+        \[
+        \mathbf{A}^T = \begin{bmatrix}
+        1 & 2 & 3 \\
+        2 & 4 & 5 \\
+        3 & 5 & 6
+        \end{bmatrix}
+        \]
+    </p>
+    <p>Since \( \mathbf{A} = \mathbf{A}^T \), the matrix \( \mathbf{A} \) is symmetric.</p>
+</section>
+
+<section>
+    <h2>Properties of Symmetric Matrices</h2>
+    <ol>
+        <li><strong>Symmetry of Elements:</strong> As stated earlier, \( a_{ij} = a_{ji} \) for all \( i, j \). This symmetry implies that all off-diagonal elements (those not on the main diagonal) are symmetric with respect to the main diagonal.</li>
+
+        <li><strong>Real Eigenvalues:</strong> A symmetric matrix always has real eigenvalues.</li>
+
+        <li><strong>Orthogonal Eigenvectors:</strong> The eigenvectors of a symmetric matrix corresponding to distinct eigenvalues are orthogonal. This means that if \( \mathbf{A} \) is symmetric and \( \mathbf{v}_1 \) and \( \mathbf{v}_2 \) are eigenvectors corresponding to eigenvalues \( \lambda_1 \) and \( \lambda_2 \) respectively, and \( \lambda_1 \neq \lambda_2 \), then:
+            <p>
+                \[
+                \mathbf{v}_1 \cdot \mathbf{v}_2 = 0
+                \]
+            </p>
+        </li>
+
+        <li><strong>Diagonalization:</strong> A symmetric matrix can be diagonalized by an orthogonal matrix. That is, if \( \mathbf{A} \) is a symmetric matrix, there exists an orthogonal matrix \( \mathbf{P} \) (where \( \mathbf{P}^T \mathbf{P} = \mathbf{P} \mathbf{P}^T = \mathbf{I} \)) such that:
+            <p>
+                \[
+                \mathbf{A} = \mathbf{P} \mathbf{D} \mathbf{P}^T
+                \]
+            </p>
+            <p>Here, \( \mathbf{D} \) is a diagonal matrix whose diagonal elements are the eigenvalues of \( \mathbf{A} \). The columns of \( \mathbf{P} \) are the eigenvectors of \( \mathbf{A} \).</p>
+        </li>
+
+        <li><strong>Positive Semi-definiteness:</strong> A symmetric matrix is positive semi-definite if all its eigenvalues are non-negative. That is, for every vector \( \mathbf{x} \), \( \mathbf{x}^T \mathbf{A} \mathbf{x} \geq 0 \). The symmetric matrix is positive definite if \( \mathbf{x}^T \mathbf{A} \mathbf{x} > 0 \).</li>
+    </ol>
+</section>
+
+<section>
+    <h2>References</h2>
+    <p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press, 2020, pp. 19–26. Accessed: Jun. 26, 2024. [Online]. Available: <a href="https://mml-book.github.io/book/mml-book.pdf">https://mml-book.github.io/book/mml-book.pdf</a></p>
+</section>
