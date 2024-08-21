@@ -217,6 +217,17 @@ p {
         width: 1000px;
     } */
 
+/* .main-content-container {
+    width: 500px;
+} */
+
+figure {
+    margin: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px;
+    
+}
 .left-space {
     margin-left: 10px;
 }

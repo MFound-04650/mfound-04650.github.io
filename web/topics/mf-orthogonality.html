@@ -5,7 +5,7 @@
 <p>
 \[ || \cdot || : \mathbf{V} \to \mathbb{R} \]
 </p>
-<p>Given any vector <strong>x</strong> in <strong>V</strong>, the norm \( || \mathbf{x} || \) in \( \mathbb{R} \) is the measure of its length.</p>
+<p>Given any vector \(x \in V\), the norm \( || \mathbf{x} ||  \in  \mathbb{R} \) is the measure of its length.</p>
 
 <p>Norms must satisfy three key properties:</p>
 <ul>
@@ -22,32 +22,42 @@
 \[ || \mathbf{x} ||_1 = \sum_{i=1}^{n} | x_i | \]
 </p>
 
+<mf-manhattan></mf-manhattan>
+
 <p>The <strong>Euclidean Norm</strong>, also known as the \( l_2 \) norm, is given by:</p>
 <p>
 \[ || \mathbf{x} ||_2 = \sqrt{\sum_{i=1}^{n} x_i^2} \]
 </p>
-
+<mf-euclidean></mf-euclidean>
 <h2>Dot Product</h2>
 <p>The dot product, also known as the inner product in \( \mathbb{R}^n \), is an essential operation that combines two vectors to produce a scalar. For any two vectors \( \mathbf{x}, \mathbf{y} \in \mathbb{R}^n \), the dot product is defined as:</p>
 <p>
-\[ \mathbf{x}^T \mathbf{y} = \sum_{i=1}^{n} x_i y_i \]
+\[ \mathbf{x}^\top \mathbf{y} = \sum_{i=1}^{n} x_i y_i \]
+</p>
+<p>
+    For example, if \(\mathbf{x} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}\) and \(\mathbf{y} = \begin{bmatrix} 2 \\ 1 \\ 4 \end{bmatrix}\), the dot product \(\mathbf{x}^\top \mathbf{y}\) is calculated as:
+
+\[
+\mathbf{x}^\top \mathbf{y} = \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2 \\ 1 \\ 4 \end{bmatrix} = 1 \times 2 + 2 \times 1 + 3 \times 4 = 18
+\]
 </p>
 <p>This operation is not only used to measure similarity between vectors but also plays a key role in defining orthogonality and angles between vectors.</p>
 
 <h2>Symmetric, Positive Definite Matrices</h2>
-<p>A matrix \( \mathbf{A} \in \mathbb{R}^{n \times n} \) is said to be symmetric if \( \mathbf{A} = \mathbf{A}^T \) and positive definite if for any non-zero vector \( \mathbf{x} \in \mathbb{R}^n \):</p>
+<p>A matrix \( \mathbf{A} \in \mathbb{R}^{n \times n} \) is said to be symmetric if \( \mathbf{A} = \mathbf{A}^\top \) and positive definite if for any non-zero vector \( \mathbf{x} \in \mathbb{R}^n \):</p>
 <p>
-\[ \mathbf{x}^T \mathbf{A} \mathbf{x} > 0 \]
+\[ \mathbf{x}^\top \mathbf{A} \mathbf{x} > 0 \]
 </p>
-<p>If \( \mathbf{x}^T \mathbf{A} \mathbf{x} \geq 0 \), then \( \mathbf{A} \) is positive semidefinite. Symmetric, positive definite matrices are important in various mathematical contexts, including defining inner products and optimization problems.</p>
+<p>If \( \mathbf{x}^\top \mathbf{A} \mathbf{x} \geq 0 \), then \( \mathbf{A} \) is positive semidefinite. Symmetric, positive definite matrices are important in various mathematical contexts, including defining inner products and optimization problems.</p>
 
 <h2>Inner Product and Its Generalization</h2>
 <p>The inner product generalizes the concept of the dot product to more abstract vector spaces. Given a vector space \( \mathbf{V} \) with an ordered basis \( \mathbf{B} \) and vectors \( \mathbf{x}, \mathbf{y} \in \mathbf{V} \), the inner product \( \langle \mathbf{x}, \mathbf{y} \rangle \) is defined using a symmetric, positive definite matrix \( \mathbf{A} \in \mathbb{R}^{n \times n} \) as follows:</p>
 <p>
-\[ \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^T \mathbf{A} \mathbf{y} \]
+\[ \langle \mathbf{x}, \mathbf{y} \rangle = \hat{\mathbf{x}}^\top \mathbf{A} \hat{\mathbf{y}} \]
 </p>
+<p>Where \(\hat{\mathbf{x}}\), and \(\hat{\mathbf{y}}\) are the coordinates of \(x\) and \(y\) with respect to the basis, \(\mathbf{B}\).</p>
 <p>When \( \mathbf{B} \) is the standard basis and \( \mathbf{A} \) is the identity matrix, the inner product simplifies to the dot product.</p>
-
+\[\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^\top \mathbf{y}\]
 <h2>Lengths and Distances in Vector Spaces</h2>
 <p>The length (or norm) of a vector \( \mathbf{x} \) can be interpreted through its inner product with itself:</p>
 <p>
@@ -57,6 +67,40 @@
 <p>
 \[ || \mathbf{x} - \mathbf{y} || = \sqrt{\langle \mathbf{x} - \mathbf{y}, \mathbf{x} - \mathbf{y} \rangle} \]
 </p>
+<p>Consider two vectors \( \mathbf{x} = \begin{bmatrix} 3 \\ 1 \end{bmatrix} \) and \( \mathbf{y} = \begin{bmatrix} 1 \\ 3 \end{bmatrix} \). The distance between \( \mathbf{x} \) and \( \mathbf{y} \) is defined as the length of the vector \( \mathbf{x} - \mathbf{y} \).</p>
+
+    <p>\[
+    \mathbf{x} - \mathbf{y} = \begin{bmatrix} 3 - 1 \\ 1 - 3 \end{bmatrix} = \begin{bmatrix} 2 \\ -2 \end{bmatrix}
+    \]</p>
+
+    <p>The length (or norm) of the vector \( \mathbf{x} - \mathbf{y} \) is given by:</p>
+
+    <p>\[
+    || \mathbf{x} - \mathbf{y} || = \sqrt{\langle \mathbf{x} - \mathbf{y}, \mathbf{x} - \mathbf{y} \rangle}
+    \]</p>
+
+    <p>The inner product \( \langle \mathbf{x} - \mathbf{y}, \mathbf{x} - \mathbf{y} \rangle \) is computed as:</p>
+
+    <p>\[
+    \langle \mathbf{x} - \mathbf{y}, \mathbf{x} - \mathbf{y} \rangle = (\mathbf{x} - \mathbf{y})^\top (\mathbf{x} - \mathbf{y})
+    \]</p>
+
+    <p>Thus, the norm can be expressed as:</p>
+
+    <p>\[
+    || \mathbf{x} - \mathbf{y} || = \sqrt{(\mathbf{x} - \mathbf{y})^\top (\mathbf{x} - \mathbf{y})} = \sqrt{(2)(2) + (-2)(-2)} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}
+    \]</p>
+
+    <p>The lengths (or norms) of the individual vectors \( \mathbf{x} \) and \( \mathbf{y} \) are computed as follows:</p>
+
+    <p>\[
+    || \mathbf{x} || = \sqrt{\mathbf{x}^\top \mathbf{x}} = \sqrt{\begin{bmatrix} 3 & 1 \end{bmatrix} \begin{bmatrix} 3 \\ 1 \end{bmatrix}} = \sqrt{3^2 + 1^2} = \sqrt{9 + 1} = \sqrt{10}
+    \]</p>
+
+    <p>\[
+    || \mathbf{y} || = \sqrt{\mathbf{y}^\top \mathbf{y}} = \sqrt{\begin{bmatrix} 1 & 3 \end{bmatrix} \begin{bmatrix} 1 \\ 3 \end{bmatrix}} = \sqrt{1^2 + 3^2} = \sqrt{1 + 9} = \sqrt{10}
+    \]</p>
+<mf-lengths-and-distances></mf-lengths-and-distances>
 
 <h2>Angles and Orthogonality</h2>
 <p>The Cauchy-Schwarz inequality is a fundamental result in vector spaces, stating:</p>
@@ -76,7 +120,7 @@
 <h2>Orthogonal Matrices</h2>
 <p>A matrix \( \mathbf{A} \) is orthogonal if its column vectors form an orthonormal set. This implies:</p>
 <p>
-\[ \mathbf{A}^T \mathbf{A} = \mathbf{I} \quad \text{and} \quad \mathbf{A} \mathbf{A}^T = \mathbf{I} \]
+\[ \mathbf{A}^\top \mathbf{A} = \mathbf{I} \quad \text{and} \quad \mathbf{A} \mathbf{A}^\top = \mathbf{I} \]
 </p>
 <p>Here, \( \mathbf{I} \) is the identity matrix. Orthogonal matrices, as transformation matrices, preserve vector lengths and angles, making them crucial in transformations such as rotations.</p>
 
@@ -122,25 +166,25 @@
 </p>
 <p>Substituting \( \mathbf{p} = \alpha \mathbf{b} \), we get:</p>
 <p>
-\[ \mathbf{b}^T (\mathbf{x} - \alpha \mathbf{b}) = 0 \]
+\[ \mathbf{b}^\top (\mathbf{x} - \alpha \mathbf{b}) = 0 \]
 </p>
 <p>
-\[ \mathbf{b}^T \mathbf{x} - \alpha \mathbf{b}^T \mathbf{b} = 0 \]
+\[ \mathbf{b}^\top \mathbf{x} - \alpha \mathbf{b}^\top \mathbf{b} = 0 \]
 </p>
 <p>Solving for \( \alpha \):</p>
 <p>
-\[ \alpha = \frac{\mathbf{b}^T \mathbf{x}}{\mathbf{b}^T \mathbf{b}} \]
+\[ \alpha = \frac{\mathbf{b}^\top \mathbf{x}}{\mathbf{b}^\top \mathbf{b}} \]
 </p>
 
 <p>Thus, the projection \( \mathbf{p} \) can be written as:</p>
 <p>
-\[ \mathbf{p} = \alpha \mathbf{b} = \left(\frac{\mathbf{b}^T \mathbf{x}}{\mathbf{b}^T \mathbf{b}}\right) \mathbf{b} \]
+\[ \mathbf{p} = \alpha \mathbf{b} = \left(\frac{\mathbf{b}^\top \mathbf{x}}{\mathbf{b}^\top \mathbf{b}}\right) \mathbf{b} \]
 </p>
 <p>We can also express \( \mathbf{p} \) as:</p>
 <p>
-\[ \mathbf{p} = \frac{\mathbf{b} \mathbf{b}^T}{\mathbf{b}^T \mathbf{b}} \mathbf{x} = \mathbf{P} \mathbf{x} \]
+\[ \mathbf{p} = \frac{\mathbf{b} \mathbf{b}^\top}{\mathbf{b}^\top \mathbf{b}} \mathbf{x} = \mathbf{P} \mathbf{x} \]
 </p>
-<p>Here, \( \mathbf{P} = \frac{\mathbf{b} \mathbf{b}^T}{\mathbf{b}^T \mathbf{b}} \) is the <strong>projection matrix</strong> that projects any vector onto the one-dimensional subspace spanned by \( \mathbf{b} \).</p>
+<p>Here, \( \mathbf{P} = \frac{\mathbf{b} \mathbf{b}^\top}{\mathbf{b}^\top \mathbf{b}} \) is the <strong>projection matrix</strong> that projects any vector onto the one-dimensional subspace spanned by \( \mathbf{b} \).</p>
 
 <h3>Projection onto a Subspace</h3>
 
@@ -152,25 +196,25 @@
 
 <p>For the projection to be orthogonal, the difference \( \mathbf{p} - \mathbf{x} \) must be orthogonal to all basis vectors \( \mathbf{b}_i \) for \( i=1,2,...,k \). This condition is expressed as:</p>
 <p>
-\[ \mathbf{B}^T (\mathbf{x} - \mathbf{p}) = \mathbf{0} \]
+\[ \mathbf{B}^\top (\mathbf{x} - \mathbf{p}) = \mathbf{0} \]
 </p>
 <p>Substituting \( \mathbf{p} = \mathbf{B} \mathbf{\alpha} \) gives:</p>
 <p>
-\[ \mathbf{B}^T \mathbf{x} - \mathbf{B}^T \mathbf{B} \mathbf{\alpha} = \mathbf{0} \]
+\[ \mathbf{B}^\top \mathbf{x} - \mathbf{B}^\top \mathbf{B} \mathbf{\alpha} = \mathbf{0} \]
 </p>
 <p>Solving for \( \mathbf{\alpha} \):</p>
 <p>
-\[ \mathbf{\alpha} = (\mathbf{B}^T \mathbf{B})^{-1} \mathbf{B}^T \mathbf{x} \]
+\[ \mathbf{\alpha} = (\mathbf{B}^\top \mathbf{B})^{-1} \mathbf{B}^\top \mathbf{x} \]
 </p>
 
 <p>Therefore, the projection \( \mathbf{p} \) onto the subspace \( \mathbf{U} \) can be written as:</p>
 <p>
-\[ \mathbf{p} = \mathbf{B} \mathbf{\alpha} = \mathbf{B} (\mathbf{B}^T \mathbf{B})^{-1} \mathbf{B}^T \mathbf{x} \]
+\[ \mathbf{p} = \mathbf{B} \mathbf{\alpha} = \mathbf{B} (\mathbf{B}^\top \mathbf{B})^{-1} \mathbf{B}^\top \mathbf{x} \]
 </p>
 
 <p>The corresponding <strong>projection matrix</strong> is:</p>
 <p>
-\[ \mathbf{P} = \mathbf{B} (\mathbf{B}^T \mathbf{B})^{-1} \mathbf{B}^T \]
+\[ \mathbf{P} = \mathbf{B} (\mathbf{B}^\top \mathbf{B})^{-1} \mathbf{B}^\top \]
 </p>
 <p>Thus, the projection of \( \mathbf{x} \) onto the subspace \( \mathbf{U} \) is given by:</p>
 <p>
@@ -179,7 +223,7 @@
 
 <h3>Pseudo-inverse of \( \mathbf{B} \)</h3>
 
-<p>The matrix \((\mathbf{B}^T \mathbf{B})^{-1} \mathbf{B}^T \) is also called the pseudo-inverse of \(\mathbf{B}\) and it can be computed for all matrices provided that \(\mathbf{B}^T \mathbf{B}\) is invertible.</p>
+<p>The matrix \((\mathbf{B}^\top \mathbf{B})^{-1} \mathbf{B}^\top \) is also called the pseudo-inverse of \(\mathbf{B}\) and it can be computed for all matrices provided that \(\mathbf{B}^\top \mathbf{B}\) is invertible.</p>
 
 
 <h2>Gram-Schmidt Orthogonalization</h2>
@@ -198,20 +242,20 @@
     \[ \mathbf{u}_1 = \frac{\mathbf{b}_1}{|| \mathbf{b}_1 ||} \]
     </p>
     <li><strong>Orthogonalize the Second Vector:</strong> To obtain the next basis vector \( \mathbf{u}_2 \), we need to make \( \mathbf{b}_2 \) orthogonal to \( \mathbf{u}_1 \). This is done by subtracting the projection of \( \mathbf{b}_2 \) onto \( \mathbf{u}_1 \) from \( \mathbf{b}_2 \):</li>
-    <p>\[ \text{Projection of } \mathbf{b}_2 \text{ onto } \mathbf{u}_1 = \left(\frac{\mathbf{u}_1^T \mathbf{b}_2}{\mathbf{u}_1^T \mathbf{u}_1}\right) \mathbf{u}_1 \]</p>
+    <p>\[ \text{Projection of } \mathbf{b}_2 \text{ onto } \mathbf{u}_1 = \left(\frac{\mathbf{u}_1^\top \mathbf{b}_2}{\mathbf{u}_1^\top \mathbf{u}_1}\right) \mathbf{u}_1 \]</p>
     <p>The vector orthogonal to \( \mathbf{u}_1 \) is then:</p>
-    <p>\[ \mathbf{v}_2 = \mathbf{b}_2 - \left(\frac{\mathbf{u}_1^T \mathbf{b}_2}{\mathbf{u}_1^T \mathbf{u}_1}\right) \mathbf{u}_1 \]</p>
+    <p>\[ \mathbf{v}_2 = \mathbf{b}_2 - \left(\frac{\mathbf{u}_1^\top \mathbf{b}_2}{\mathbf{u}_1^\top \mathbf{u}_1}\right) \mathbf{u}_1 \]</p>
 
     <p>Finally, normalize \( \mathbf{v}_2 \) to obtain \( \mathbf{u}_2 \):</p>
     <p>\[ \mathbf{u}_2 = \frac{\mathbf{v}_2}{|| \mathbf{v}_2 ||} \]</p>
 
     <li><strong>Orthogonalize the Third Vector:</strong> For the third basis vector \( \mathbf{u}_3 \), we find a vector orthogonal to both \( \mathbf{u}_1 \) and \( \mathbf{u}_2 \). This is done by subtracting the projections of \( \mathbf{b}_3 \) onto both \( \mathbf{u}_1 \) and \( \mathbf{u}_2 \):</li>
-    <p>\[ \mathbf{v}_3 = \mathbf{b}_3 - \left(\frac{\mathbf{u}_1^T \mathbf{b}_3}{\mathbf{u}_1^T \mathbf{u}_1}\right) \mathbf{u}_1 - \left(\frac{\mathbf{u}_2^T \mathbf{b}_3}{\mathbf{u}_2^T \mathbf{u}_2}\right) \mathbf{u}_2 \]</p>
+    <p>\[ \mathbf{v}_3 = \mathbf{b}_3 - \left(\frac{\mathbf{u}_1^\top \mathbf{b}_3}{\mathbf{u}_1^\top \mathbf{u}_1}\right) \mathbf{u}_1 - \left(\frac{\mathbf{u}_2^\top \mathbf{b}_3}{\mathbf{u}_2^\top \mathbf{u}_2}\right) \mathbf{u}_2 \]</p>
     <p>Normalize \( \mathbf{v}_3 \) to obtain \( \mathbf{u}_3 \):</p>
     <p>\[ \mathbf{u}_3 = \frac{\mathbf{v}_3}{|| \mathbf{v}_3 ||} \]</p>
 
     <li><strong>Generalizing to the \( n^{th} \) Vector:</strong> The process continues similarly for each subsequent vector. For the \( k^{th} \) vector \( \mathbf{u}_k \), we subtract the projections of \( \mathbf{b}_k \) onto all previously obtained vectors \( \mathbf{u}_1, \mathbf{u}_2, \dots, \mathbf{u}_{k-1} \):</li>
-    <p>\[ \mathbf{v}_k = \mathbf{b}_k - \sum_{i=1}^{k-1} \left(\frac{\mathbf{u}_i^T \mathbf{b}_k}{\mathbf{u}_i^T \mathbf{u}_i}\right) \mathbf{u}_i \]</p>
+    <p>\[ \mathbf{v}_k = \mathbf{b}_k - \sum_{i=1}^{k-1} \left(\frac{\mathbf{u}_i^\top \mathbf{b}_k}{\mathbf{u}_i^\top \mathbf{u}_i}\right) \mathbf{u}_i \]</p>
     <p>Finally, normalize \( \mathbf{v}_k \) to obtain \( \mathbf{u}_k \):</p>
     <p>\[ \mathbf{u}_k = \frac{\mathbf{v}_k}{|| \mathbf{v}_k ||} \]</p>
 </ol>
