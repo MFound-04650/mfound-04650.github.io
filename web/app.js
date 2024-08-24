@@ -22,5 +22,4 @@ function handleHashChange(){
             MathJax.typeset();
         }))
     }
-    MathJax.typeset();
 }
