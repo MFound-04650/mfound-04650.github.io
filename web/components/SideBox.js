@@ -11,7 +11,7 @@ const allTopics = [
     // {"Solving Systems of Linear Equations": []},
     // {"Linear Independence, Basis and Rank":[]},
     // {"Linear Mappings and Affine Spaces":[]},
-    {"Orthogonality": []},
+    // {"Orthogonality": []},
     // {"Determinant and Trace": []},
     // {"Eigenvalues and Eigenvectors": []},
     // {"Eigendecomposition and Diagonalization": []},
