@@ -70,10 +70,10 @@ const equations2D = String.raw`
             <input type="radio" id="2d" name="dimension" value="dim2d" checked/>
             <label for="dim2d">2D</label>
         </div>
-        <div class="equation-choice-val">
+        <!--<div class="equation-choice-val">
             <input type="radio" id="3d" name="dimension" value="dim3d"/>
             <label for="dim3d">3D</label>
-        </div>
+        </div>-->
     </div>
 
     <div id="equations-2d" class="equations-actual">
