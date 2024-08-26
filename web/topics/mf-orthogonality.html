@@ -50,6 +50,37 @@
 </p>
 <p>If \( \mathbf{x}^\top \mathbf{A} \mathbf{x} \geq 0 \), then \( \mathbf{A} \) is positive semidefinite. Symmetric, positive definite matrices are important in various mathematical contexts, including defining inner products and optimization problems.</p>
 
+<p><strong>Example</strong>: Let \( \mathbf{A} \) be a matrix defined as:</p>
+
+    <p>\[
+    \mathbf{A} = \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix}
+    \]</p>
+
+    <p>The matrix \( \mathbf{A} \) is symmetric since \( \mathbf{A} = \mathbf{A}^\top \), meaning it is equal to its transpose. The transpose of \( \mathbf{A} \) is:</p>
+
+    <p>\[
+    \mathbf{A}^\top = \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix}
+    \]</p>
+
+    <p>To check if \( \mathbf{A} \) is positive definite, we need to verify that for any non-zero vector \( \mathbf{x} \in \mathbb{R}^2 \), \( \mathbf{x}^\top \mathbf{A} \mathbf{x} \gt 0\).</p>
+
+    <p>Let's consider a non-zero vector \( \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \). Then:</p>
+
+    <p>\[
+    \mathbf{x}^\top \mathbf{A} \mathbf{x} = \begin{bmatrix} x_1 & x_2 \end{bmatrix} \begin{bmatrix} 2 & 1 \\ 1 & 3 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+    \]</p>
+
+    <p>\[
+    \mathbf{x}^\top \mathbf{A} \mathbf{x} = 2x_1^2 + 2x_1x_2 + 3x_2^2
+    \]</p>
+
+    <p>We need to determine if this expression is positive for all non-zero \( \mathbf{x} \).</p>
+    <p>\( 2x_1^2 \) and \( 3x_2^2 \) are always non-negative because of the squares. However \(2x_1x_2 \) can be positive, negative or zero depending on the values of \(x_1\) and \(x_2\). Since \(2x_1^2+3x_2^2 \gt 2x_1x_2\) then \(2x_1^2+2x_1x_2+3x_2^2 \gt 0\)</p>
+    
+
+    <p>Since \( \mathbf{x}^\top \mathbf{A} \mathbf{x} > 0 \) for all non-zero vectors \( \mathbf{x} \), the matrix \( \mathbf{A} \) is positive definite.</p>
+
+
 <h2>Inner Product and Its Generalization</h2>
 <p>The inner product generalizes the concept of the dot product to more abstract vector spaces. Given a vector space \( \mathbf{V} \) with an ordered basis \( \mathbf{B} \) and vectors \( \mathbf{x}, \mathbf{y} \in \mathbf{V} \), the inner product \( \langle \mathbf{x}, \mathbf{y} \rangle \) is defined using a symmetric, positive definite matrix \( \mathbf{A} \in \mathbb{R}^{n \times n} \) as follows:</p>
 <p>
@@ -58,6 +89,62 @@
 <p>Where \(\hat{\mathbf{x}}\), and \(\hat{\mathbf{y}}\) are the coordinates of \(x\) and \(y\) with respect to the basis, \(\mathbf{B}\).</p>
 <p>When \( \mathbf{B} \) is the standard basis and \( \mathbf{A} \) is the identity matrix, the inner product simplifies to the dot product.</p>
 \[\langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^\top \mathbf{y}\]
+
+<p><strong>Example</strong>: Consider a 2-dimensional vector space \( \mathbf{V} \) with the standard basis \( \mathbf{B} = \{ \mathbf{e}_1, \mathbf{e}_2 \} \), where:</p>
+
+    <p>\[
+    \mathbf{e}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \quad \mathbf{e}_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+    \]</p>
+
+    <p>Let the vectors \( \mathbf{x}, \mathbf{y} \in \mathbf{V} \) be given as:</p>
+
+    <p>\[
+    \mathbf{x} = \begin{bmatrix} 2 \\ 3 \end{bmatrix}, \quad \mathbf{y} = \begin{bmatrix} 4 \\ 1 \end{bmatrix}
+    \]</p>
+
+    <p>The coordinates of \( \mathbf{x} \) and \( \mathbf{y} \) with respect to the basis \( \mathbf{B} \) (which is the standard basis in this case) are simply:</p>
+
+    <p>\[
+    \hat{\mathbf{x}} = \begin{bmatrix} 2 \\ 3 \end{bmatrix}, \quad \hat{\mathbf{y}} = \begin{bmatrix} 4 \\ 1 \end{bmatrix}
+    \]</p>
+
+    <p>Now, let's define the inner product using a symmetric, positive definite matrix \( \mathbf{A} \):</p>
+
+    <p>\[
+    \text{If} \mathbf{A} = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}
+    \]</p>
+
+    <p>The inner product \( \langle \mathbf{x}, \mathbf{y} \rangle \) is given by:</p>
+
+    <p>\[
+    \langle \mathbf{x}, \mathbf{y} \rangle = \hat{\mathbf{x}}^\top \mathbf{A} \hat{\mathbf{y}}
+    \]</p>
+
+    <p>\[
+    \langle \mathbf{x}, \mathbf{y} \rangle = \begin{bmatrix} 2 & 3 \end{bmatrix} \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix} \begin{bmatrix} 4 \\ 1 \end{bmatrix}
+    =  \begin{bmatrix} 2 & 3 \end{bmatrix} \begin{bmatrix} 9 \\ 6 \end{bmatrix}
+    \]</p>
+
+    <p>\[
+    \langle \mathbf{x}, \mathbf{y} \rangle = \begin{bmatrix} 2 & 3 \end{bmatrix} \begin{bmatrix} 9 \\ 6 \end{bmatrix} = 2(9) + 3(6) = 18 + 18 = 36
+    \]</p>
+
+    <p>Thus, the inner product \( \langle \mathbf{x}, \mathbf{y} \rangle \) is 36.</p>
+
+    <p>If we consider the case where \( \mathbf{A} \) is the identity matrix \( \mathbf{I} \):</p>
+
+    <p>\[
+    \mathbf{A} = \mathbf{I} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+    \]</p>
+
+    <p>The inner product is then calculated as:</p>
+
+    <p>\[
+    \langle \mathbf{x}, \mathbf{y} \rangle = \hat{\mathbf{x}}^\top \mathbf{I} \hat{\mathbf{y}} = \begin{bmatrix} 2 & 3 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 4 \\ 1 \end{bmatrix} = \begin{bmatrix} 2 & 3 \end{bmatrix} \begin{bmatrix} 4 \\ 1 \end{bmatrix} = 2(4) + 3(1) = 8 + 3 = 11
+    \]</p>
+
+    <p>This is the same as the standard dot product \(\mathbf{x}^\top\mathbf{y}\) since \(\mathbf{B}\) is the standard basis and \(\mathbf{A}\) is the identity matrix</p>
+
 <h2>Lengths and Distances in Vector Spaces</h2>
 <p>The length (or norm) of a vector \( \mathbf{x} \) can be interpreted through its inner product with itself:</p>
 <p>
@@ -88,17 +175,17 @@
     <p>Thus, the norm can be expressed as:</p>
 
     <p>\[
-    || \mathbf{x} - \mathbf{y} || = \sqrt{(\mathbf{x} - \mathbf{y})^\top (\mathbf{x} - \mathbf{y})} = \sqrt{(2)(2) + (-2)(-2)} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}
+    || \mathbf{x} - \mathbf{y} || = \sqrt{(\mathbf{x} - \mathbf{y})^\top (\mathbf{x} - \mathbf{y})} = \sqrt{(2)(2) + (-2)(-2)} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2} = 2.83
     \]</p>
 
     <p>The lengths (or norms) of the individual vectors \( \mathbf{x} \) and \( \mathbf{y} \) are computed as follows:</p>
 
     <p>\[
-    || \mathbf{x} || = \sqrt{\mathbf{x}^\top \mathbf{x}} = \sqrt{\begin{bmatrix} 3 & 1 \end{bmatrix} \begin{bmatrix} 3 \\ 1 \end{bmatrix}} = \sqrt{3^2 + 1^2} = \sqrt{9 + 1} = \sqrt{10}
+    || \mathbf{x} || = \sqrt{\mathbf{x}^\top \mathbf{x}} = \sqrt{\begin{bmatrix} 3 & 1 \end{bmatrix} \begin{bmatrix} 3 \\ 1 \end{bmatrix}} = \sqrt{3^2 + 1^2} = \sqrt{9 + 1} = \sqrt{10} = 3.16
     \]</p>
 
     <p>\[
-    || \mathbf{y} || = \sqrt{\mathbf{y}^\top \mathbf{y}} = \sqrt{\begin{bmatrix} 1 & 3 \end{bmatrix} \begin{bmatrix} 1 \\ 3 \end{bmatrix}} = \sqrt{1^2 + 3^2} = \sqrt{1 + 9} = \sqrt{10}
+    || \mathbf{y} || = \sqrt{\mathbf{y}^\top \mathbf{y}} = \sqrt{\begin{bmatrix} 1 & 3 \end{bmatrix} \begin{bmatrix} 1 \\ 3 \end{bmatrix}} = \sqrt{1^2 + 3^2} = \sqrt{1 + 9} = \sqrt{10} = 3.16
     \]</p>
 <mf-lengths-and-distances></mf-lengths-and-distances>
 
@@ -111,11 +198,50 @@
 <p>
 \[ \cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{|| \mathbf{x} || \, || \mathbf{y} ||} \]
 </p>
-<p>Vectors \( \mathbf{x} \) and \( \mathbf{y} \) are <strong>orthogonal</strong> if \( \theta = \frac{\pi}{2} \), implying:</p>
+<p>Vectors \( \mathbf{x} \) and \( \mathbf{y} \) are <strong>orthogonal</strong> if \( \theta = \frac{\pi}{2} \) or \(90^o\), implying:</p>
 <p>
 \[ \langle \mathbf{x}, \mathbf{y} \rangle = 0 \]
 </p>
 <p>They are <strong>orthonormal</strong> if in addition to being orthogonal, they both have unit length, i.e., \( || \mathbf{x} || = || \mathbf{y} || = 1 \).</p>
+
+    <p><strong>Example: </strong>Given Vectors,</p>
+    <p>Let \( \mathbf{x} = \begin{bmatrix} 3 \\ 4 \end{bmatrix} \) and \( \mathbf{y} = \begin{bmatrix} -4 \\ 3 \end{bmatrix} \).</p>
+
+    <p>The inner product of \( \mathbf{x} \) and \( \mathbf{y} \) is calculated using the dot product:</p>
+    <p>\[
+    \langle \mathbf{x}, \mathbf{y} \rangle = \mathbf{x}^\top\mathbf{y} = 3 \cdot 4 + (-4) \cdot 3 = 12 - 12 = 0
+    \]</p>
+
+    <p>The norm of \( \mathbf{x} \) is:</p>
+    <p>\[
+    ||\mathbf{x}|| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5
+    \]</p>
+    <p>The norm of \( \mathbf{y} \) is:</p>
+    <p>\[
+    ||\mathbf{y}|| = \sqrt{(-4)^2 + 3^2} = \sqrt{16 + 9} = \sqrt{25} = 5
+    \]</p>
+
+    <p>According to the Cauchy-Schwarz inequality:</p>
+    <p>\[
+    | \langle \mathbf{x}, \mathbf{y} \rangle | \leq ||\mathbf{x}|| \cdot ||\mathbf{y}||
+    \]</p>
+    <p>Substituting the values:</p>
+    <p>\[
+    |0| \leq 5 \cdot 5 \quad \Rightarrow \quad 0 \leq 25
+    \]</p>
+    <p>This inequality holds.</p>
+
+    <p>The cosine of the angle \( \theta \) between \( \mathbf{x} \) and \( \mathbf{y} \) is given by:</p>
+    <p>\[
+    \cos \theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{||\mathbf{x}|| \cdot ||\mathbf{y}||} = \frac{0}{5 \cdot 5} = 0
+    \]</p>
+    <p>Thus, \( \cos \theta = 0 \), which implies \( \theta = \frac{\pi}{2} \) or 90°.</p>
+
+        <p>Since \( \langle \mathbf{x}, \mathbf{y} \rangle = 0 \), the vectors \( \mathbf{x} \) and \( \mathbf{y} \) are orthogonal.</p>
+        <p>For \( \mathbf{x} \) and \( \mathbf{y} \) to be orthonormal, they must be orthogonal and have unit norms. Here, \( ||\mathbf{x}|| = 5 \) and \( ||\mathbf{y}|| = 5 \), so they are not orthonormal.</p>
+
+
+<mf-angles-and-orthogonality></mf-angles-and-orthogonality>
 
 <h2>Orthogonal Matrices</h2>
 <p>A matrix \( \mathbf{A} \) is orthogonal if its column vectors form an orthonormal set. This implies:</p>
@@ -124,6 +250,8 @@
 </p>
 <p>Here, \( \mathbf{I} \) is the identity matrix. Orthogonal matrices, as transformation matrices, preserve vector lengths and angles, making them crucial in transformations such as rotations.</p>
 
+<p><strong>Example</strong>: Consider the matrix \(\mathbf{A} = \begin{bmatrix}0 & 1 \\ -1 & 0\end{bmatrix}\)</p>
+<p>\[\mathbf{A}^\top\mathbf{A} = \begin{bmatrix}0 & -1 \\ 1 & 0\end{bmatrix} \begin{bmatrix}0 & 1 \\ -1 & 0\end{bmatrix} = \begin{bmatrix}1 & 0 \\ 0 & 1\end{bmatrix} = \mathbf{I}\]</p>
 <h2>Orthonormal Basis</h2>
 <p>An orthonormal basis in a vector space \( \mathbf{V} \) is a basis consisting of orthonormal vectors. If \( \mathbf{B} = \{\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_n\} \) is an orthonormal basis, then:</p>
 <p>
@@ -132,6 +260,13 @@
 <p>
 \[ \langle \mathbf{b}_i, \mathbf{b}_i \rangle = 1 \]
 </p>
+
+<p><strong>Example</strong>: Consider the standard basis in \(\mathbb{R}^2\), \(\mathbf{B} = \{\mathbf{e}_1, \mathbf{e}_2\}\)</p>
+<p>\[\mathbf{e}_1 = \begin{bmatrix}1 \\ 0\end{bmatrix}, \mathbf{e}_2 = \begin{bmatrix}0 \\ 1\end{bmatrix}\]</p>
+<p>\[\langle \mathbf{e}_1, \mathbf{e}_2 \rangle = \mathbf{e}_1^\top\mathbf{e}_2 = \begin{bmatrix}1 & 0\end{bmatrix}\begin{bmatrix}0 \\ 1\end{bmatrix} = 1*0 + 0*1 = 0\]</p>
+<p>\[\langle \mathbf{e}_1, \mathbf{e}_1 \rangle = \mathbf{e}_1^\top\mathbf{e}_1 = \begin{bmatrix}1 & 0\end{bmatrix}\begin{bmatrix}1 \\ 0\end{bmatrix} = 1*1 + 0*0 = 1\]</p>
+<p>\[\langle \mathbf{e}_2, \mathbf{e}_2 \rangle = \mathbf{e}_2^\top\mathbf{e}_2 = \begin{bmatrix}0 & 1\end{bmatrix}\begin{bmatrix}0 \\ 1\end{bmatrix} = 0*0 + 1*1 = 1\]</p>
+<p>\(\mathbf{B} = \{\mathbf{e}_1, \mathbf{e}_2\}\) is an orthonormal basis</p>
 
 <h2>Orthogonal Complement</h2>
 <p>In a vector space \( \mathbf{V} \), the orthogonal complement of a subspace \( \mathbf{U} \) is the set of all vectors in \( \mathbf{V} \) that are orthogonal to every vector in \( \mathbf{U} \). Denote this complement as \( \mathbf{U}' \). It satisfies:</p>
@@ -145,7 +280,7 @@
 <h2>Orthogonal Projections</h2>
 <p>An orthogonal projection maps a vector onto a subspace such that the difference between the vector and its projection is orthogonal to the subspace.</p>
 
-<p>An orthogonal projection is a fundamental concept in linear algebra. It is a linear mapping that projects a vector from its original vector space onto a subspace, with the key property that applying the projection multiple times is equivalent to applying it once. This means that the projection operation is idempotent.</p>
+<p>It is a linear mapping that projects a vector from its original vector space onto a subspace, with the key property that applying the projection multiple times is equivalent to applying it once.</p>
 
 <h3>Projection Matrix</h3>
 <p>The projection operation can be represented by a matrix, known as the <strong>projection matrix</strong>. This matrix transforms any vector in the vector space to its corresponding projection in the subspace.</p>
@@ -154,6 +289,7 @@
 
 <p>Consider a one-dimensional subspace \( \mathbf{U} \) with a basis vector \( \mathbf{b} \). Any vector \( \mathbf{x} \) in the vector space can be projected onto this subspace \( \mathbf{U} \). The projection of \( \mathbf{x} \) onto \( \mathbf{U} \) is the vector \( \mathbf{p} \in \mathbf{U} \) that is closest to \( \mathbf{x} \).</p>
 
+<mf-projection-on-line></mf-projection-on-line>
 <p>Since the projection \( \mathbf{p} \) lies in \( \mathbf{U} \), it can be expressed as a scalar multiple of the basis vector \( \mathbf{b} \):</p>
 <p>
 \[ \mathbf{p} = \alpha \mathbf{b} \]

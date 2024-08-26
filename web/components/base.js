@@ -11,6 +11,8 @@ import LineVectorSpace from "./topics/LinearIndendenceBasisRank/LineVectorSpace.
 import Manhattan from "./topics/orthogonality/Manhattan.js";
 import Euclidean from "./topics/orthogonality/Euclidean.js";
 import LengthsAndDistances from "./topics/orthogonality/LengthsAndDistances.js";
+import AnglesAndOrthogonality from "./topics/orthogonality/AnglesAndOrthogonality.js";
+import ProjectionOnLine from "./topics/orthogonality/ProjectionOnLine.js";
 
 const __ = null;
 export default __;
