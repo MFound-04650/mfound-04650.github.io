@@ -3,7 +3,7 @@ import { createSVGElement, createText } from "../../../utils/svg.js";
 
 
 
-export default class LengthsAndDistances extends HTMLElement{
+export default class AnglesAndOrthogonality extends HTMLElement{
     constructor(){
         super();
     }
@@ -81,12 +81,12 @@ export default class LengthsAndDistances extends HTMLElement{
         header.style.textAlign = "center";
         figure.append(svg);
         const figcaption = document.createElement("figcaption")
-        figcaption.innerHTML = String.raw`This figure displays the lenghts of vectors <span style="color:red;">x</span> and <span style="color:blue;">y</span> and the distance between them. You can drag the vectors to reposition them and observe their lengths and distance.`;
+        figcaption.innerHTML = String.raw`This figure displays the angle between vectors <span style="color:red;">x</span> and <span style="color:blue;">y</span> and the distance between them. You can drag the vectors to reposition them and observe the angle between them.`;
         figure.append(figcaption);
         this.append(figure);
 
-        const vec1 = [1, 3];
-        const vec2 = [3, 1];
+        const vec1 = [3, 4];
+        const vec2 = [-4, 3];
 
         const vectorText1 = createSVGElement("text", {"x":midX+vec1[0]*cellSize+5,"y":midY-(vec1[1]*cellSize+5)});
         const vectorText11 = createSVGElement("text", {"x":midX+vec1[0]*cellSize/2+5,"y":midY-(vec1[1]*cellSize/2+5), "fill":"red"});
@@ -102,11 +102,12 @@ export default class LengthsAndDistances extends HTMLElement{
         vectorText2.textContent = `[${vec2[0].toFixed(1)}, ${vec2[1].toFixed(1)}]`;
         vectorText22.textContent = `y`;
 
+        const angle = ((Math.acos(parseFloat((vec2[0]*vec1[0] + vec2[1]*vec1[1]).toFixed(2))/(parseFloat(Math.sqrt(Math.pow(vec1[0],2) + Math.pow(vec1[1],2)).toFixed(2))*Math.sqrt(Math.pow(vec2[0],2) + Math.pow(vec2[1],2)).toFixed(2))))/Math.PI)*180
         header.innerHTML = String.raw`
-        <span style="color:red;">||x||</span> = ${Math.sqrt(Math.pow(vec1[0],2) + Math.pow(vec1[1],2)).toFixed(2)}, <span style="color:blue">||y||</span> = ${Math.sqrt(Math.pow(vec2[0],2) + Math.pow(vec2[1],2)).toFixed(2)}, <span style="color:green">||x-y||</span> = ${Math.sqrt(Math.pow(vec2[0]-vec1[0],2) + Math.pow(vec2[1]-vec1[1],2)).toFixed(2)}
-        `;
+    <span style="color:red;">||x||</span> = ${Math.sqrt(Math.pow(vec1[0],2) + Math.pow(vec1[1],2)).toFixed(2)}, <span style="color:blue">||y||</span> = ${Math.sqrt(Math.pow(vec2[0],2) + Math.pow(vec2[1],2)).toFixed(2)}, <span>&#x27E8;x, y&#x27E9;</span> = ${(vec2[0]*vec1[0] + vec2[1]*vec1[1]).toFixed(2)}, angle = ${angle.toFixed(2)}°
+    `;
 
-        const diffLine = createSVGElement("line", {"x1":midX+vec1[0]*cellSize,"y1":midY-vec1[1]*cellSize,"x2":midX+vec2[0]*cellSize,"y2":midY-vec2[1]*cellSize,"stroke":"green"});
+        // const diffLine = createSVGElement("line", {"x1":midX+vec1[0]*cellSize,"y1":midY-vec1[1]*cellSize,"x2":midX+vec2[0]*cellSize,"y2":midY-vec2[1]*cellSize,"stroke":"green"});
 
         svg.append(vectorText1);
         svg.append(vectorText11);
@@ -118,7 +119,7 @@ export default class LengthsAndDistances extends HTMLElement{
         svg.append(vectorPoint2);
         svg.append(vectorLine2);
 
-        svg.append(diffLine);
+        // svg.append(diffLine);
 
         function updateVectors(){
             
@@ -142,35 +143,34 @@ export default class LengthsAndDistances extends HTMLElement{
             vectorLine2.setAttribute("x2",midX + vec2[0]*cellSize);
             vectorLine2.setAttribute("y2",midY - vec2[1]*cellSize);
 
-            diffLine.setAttribute("x1", midX + vec1[0]*cellSize);
-            diffLine.setAttribute("y1", midY - vec1[1]*cellSize);
-            diffLine.setAttribute("x2", midX + vec2[0]*cellSize);
-            diffLine.setAttribute("y2", midY - vec2[1]*cellSize);
+            // diffLine.setAttribute("x1", midX + vec1[0]*cellSize);
+            // diffLine.setAttribute("y1", midY - vec1[1]*cellSize);
+            // diffLine.setAttribute("x2", midX + vec2[0]*cellSize);
+            // diffLine.setAttribute("y2", midY - vec2[1]*cellSize);
 
+            const angle = ((Math.acos(parseFloat((vec2[0]*vec1[0] + vec2[1]*vec1[1]).toFixed(2))/(parseFloat(Math.sqrt(Math.pow(vec1[0],2) + Math.pow(vec1[1],2)).toFixed(2))*Math.sqrt(Math.pow(vec2[0],2) + Math.pow(vec2[1],2)).toFixed(2))))/Math.PI)*180
             header.innerHTML = String.raw`
-            <span style="color:red;">||x||</span> = ${Math.sqrt(Math.pow(vec1[0],2) + Math.pow(vec1[1],2)).toFixed(2)}, <span style="color:blue">||y||</span> = ${Math.sqrt(Math.pow(vec2[0],2) + Math.pow(vec2[1],2)).toFixed(2)}, <span style="color:green">||x-y||</span> = ${Math.sqrt(Math.pow(vec2[0]-vec1[0],2) + Math.pow(vec2[1]-vec1[1],2)).toFixed(2)}
-            `;
+        <span style="color:red;">||x||</span> = ${Math.sqrt(Math.pow(vec1[0],2) + Math.pow(vec1[1],2)).toFixed(2)}, <span style="color:blue">||y||</span> = ${Math.sqrt(Math.pow(vec2[0],2) + Math.pow(vec2[1],2)).toFixed(2)}, <span>&#x27E8;x, y&#x27E9;</span> = ${(vec2[0]*vec1[0] + vec2[1]*vec1[1]).toFixed(2)}, angle = ${angle.toFixed(2)}°
+        `;
            
         }
+        
 
         let mouseX, mouseY, startMove, targetVec;
         svg.addEventListener("mousemove", e=>{
             if(startMove){
                 const x = (e.offsetX-midX)/cellSize;
-                const y = (midY-e.offsetY)/cellSize;
-                
-                // vec1[0] = Math.min(Math.max(vec1[0] + (x-mouseX)*0.01, -midX/cellSize), midX/cellSize);
-                // vec1[1] = Math.min(Math.max(vec1[1] + (x-mouseX)*0.01, -midY/cellSize), midY/cellSize);
-                
+                const y = (midY-e.offsetY)/cellSize
+
                 if (targetVec == "vec1"){
-                    vec1[0] = Math.min(Math.max(x, -midX/cellSize), midX/cellSize);
-                    vec1[1] = Math.min(Math.max(y, -midY/cellSize), midY/cellSize);
+                    vec1[0] = parseFloat(Math.min(Math.max(x, -midX/cellSize), midX/cellSize).toFixed(1));
+                    vec1[1] = parseFloat(Math.min(Math.max(y, -midY/cellSize), midY/cellSize).toFixed(1));
                 }    
                 else if(targetVec == "vec2"){
-                    vec2[0] = Math.min(Math.max(x, -midX/cellSize), midX/cellSize);
-                    vec2[1] = Math.min(Math.max(y, -midY/cellSize), midY/cellSize);
+                    vec2[0] = parseFloat(Math.min(Math.max(x, -midX/cellSize), midX/cellSize).toFixed(1));
+                    vec2[1] = parseFloat(Math.min(Math.max(y, -midY/cellSize), midY/cellSize).toFixed(1));
                 }
-                // console.log(x-mouseX);
+                
                 updateVectors()
             }
             
@@ -212,4 +212,4 @@ export default class LengthsAndDistances extends HTMLElement{
 }
 
 
-customElements.define("mf-lengths-and-distances", LengthsAndDistances);
+customElements.define("mf-angles-and-orthogonality", AnglesAndOrthogonality);
