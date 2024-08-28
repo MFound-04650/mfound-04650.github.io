@@ -1,5 +1,6 @@
 export const topicsMap = {
     "Systems of Linear Equations and Matrices": "mf-syslineareqnsmat",
+    "Solving Systems of Linear Equations": "mf-solving-systems-of-linear-equations",
     "Linear Mappings and Affine Spaces": "mf-linearmappings",
     "Linear Independence, Basis and Rank":"mf-linearindpbasisandrank",
     "Orthogonality":"mf-orthogonality",

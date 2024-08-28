@@ -1,0 +1,370 @@
+
+<h1>Solving Systems of Linear Equations</h1>
+
+<p>A <strong>system of linear equations</strong> is a collection of linear equations involving the same set of variables. For example, consider the following system of two linear equations in two variables \( x_1 \) and \( x_2 \):</p>
+
+\[
+\begin{aligned}
+2x_1 + 3x_2 &= 5 \\
+4x_1 + 6x_2 &= 10
+\end{aligned}
+\]
+
+<p>This system can be represented in a more compact form using matrix notation:</p>
+
+\[
+\mathbf{A} \mathbf{x} = \mathbf{b}
+\]
+
+<p>where:</p>
+<ul>
+    <li>\(\mathbf{A}\) is an \(m \times n\) matrix,</li>
+    <li>\(\mathbf{x}\) is the column vector of variables, \(\mathbf{x} \in \mathbb{R}^n\)</li>
+    <li>\(\mathbf{b}\) is the column vector of constants. \(\mathbf{b} \in \mathbb{R}^m\)</li>
+</ul>
+
+<p>For the example above:</p>
+
+\[
+\mathbf{A} = \begin{bmatrix} 2 & 3 \\ 4 & 6 \end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix} 5 \\ 10 \end{bmatrix}
+\]
+
+<h2>1. Elementary Transformations</h2>
+<p>The key to solving a system of linear equations is to simplify it using <strong>elementary row transformations</strong>. These transformations are operations that can be performed on the rows of a matrix to convert it into a simpler form, without changing the solution set of the system.</p>
+
+<p>The elementary row transformations include:</p>
+<ol>
+    <li><strong>Row Exchange</strong>: Swapping two rows in the matrix.</li>
+    <li><strong>Scalar Multiplication</strong>: Multiplying all entries of a row by a non-zero constant \(\lambda \in \mathbb{R}\).</li>
+    <li><strong>Row Addition</strong>: Adding a multiple of one row to another row.</li>
+</ol>
+
+<p>These operations are applied not only to the coefficient matrix \(\mathbf{A}\) but also to the augmented matrix \([\mathbf{A}|\mathbf{b}]\), which includes both \(\mathbf{A}\) and the vector \(\mathbf{b}\).</p>
+
+<h2>2. Pivots and Rank</h2>
+<p>After applying elementary row transformations, the first non-zero entry in each row of the matrix is called a <strong>pivot</strong>. The pivot is crucial because it helps determine the <strong>rank</strong> of the matrix.</p>
+
+<ul>
+    <li>The <strong>rank</strong> of a matrix is the number of linearly independent rows or columns. It is also equal to the number of pivots in the matrix.</li>
+</ul>
+
+<p>For example, consider the matrix:</p>
+
+\[
+\mathbf{A} = \begin{bmatrix} 1 & -2 & 0 \\ 0 & 5 & 7 \\ 0 & 0 & 3 \end{bmatrix}
+\]
+
+<p>Here, the pivots are 1, 5, and 3. Therefore, the rank of \(\mathbf{A}\) is 3.</p>
+
+<p>For the matrix:</p>
+
+\[
+\mathbf{A} = \begin{bmatrix} 1 & -2 & 0 &  6 \\ 0 & 5 & 7 & 1 \\ 0 & 0 & 0 & 0 \end{bmatrix}
+\]
+
+<p>The rank is 2 since the pivots are 1 and 5.</p>
+
+<h2>3. Row-Echelon Form</h2>
+<p>A matrix is in <strong>row-echelon form</strong> if:</p>
+<ol>
+    <li>All rows consisting entirely of zeros are at the bottom.</li>
+    <li>The pivot of each non-zero row is to the right of the pivot in the row above it.</li>
+</ol>
+
+<p>Examples of matrices in row-echelon form are:</p>
+
+\[
+\begin{bmatrix}
+1 & 2 & 3 \\
+0 & 4 & 5 \\
+0 & 0 & 6
+\end{bmatrix},\begin{bmatrix}
+1 & 4 & 3 \\
+0 & 2 & 1 \\
+0 & 0 & 1 \\
+0 & 0 & 0
+\end{bmatrix}, \begin{bmatrix}
+3 & 1 & 2 & 1\\
+0 & 7 & 2 & 3\\
+0 & 0 & 3 & 4
+\end{bmatrix}
+\]
+
+<h2>4. Reduced Row-Echelon Form</h2>
+<p>A matrix is in <strong>reduced row-echelon form</strong> if:</p>
+<ol>
+    <li>It is in row-echelon form.</li>
+    <li>Each pivot is 1, and it is the only non-zero entry in its column.</li>
+</ol>
+
+<p>Examples are:</p>
+
+\[
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix},\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0
+\end{bmatrix},\begin{bmatrix}
+1 & 0 & 0 & 1\\
+0 & 1 & 0 & 5\\
+0 & 0 & 1 & 2
+\end{bmatrix}
+\]
+
+<h2>5. Gaussian Elimination</h2>
+<p><strong>Gaussian Elimination</strong> is an algorithm used to solve systems of linear equations. It involves applying a series of elementary row transformations to convert the augmented matrix \([\mathbf{A}|\mathbf{b}]\) into reduced row-echelon form. Once in this form, the solution to the system can be easily obtained.</p>
+
+<p>Consider the compact form of a system of linear equations:</p>
+
+\[
+\mathbf{A} \mathbf{x} = \mathbf{b}
+\]
+
+<p>where:</p>
+
+\[
+\mathbf{A} = \begin{bmatrix} 1 & 3 & 1 \\ 2 & 2 & 1 \\ 1 & 5 & 7 \end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix} 2 \\ 6 \\ 3 \end{bmatrix}
+\]
+
+<p>The augmented matrix \([\mathbf{A}|\mathbf{b}]\) is:</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 1 & 2 \\
+2 & 2 & 1 & 6 \\
+1 & 5 & 7 & 3
+\end{array}\right]
+\]
+
+<p>The matrix can be simplified using elementary row transformations:</p>
+
+<p>\(\text{R2} \rightarrow \text{R2} - 2\text{R1}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 1 & 2 \\
+0 & -4 & -1 & 2 \\
+1 & 5 & 7 & 3
+\end{array}\right]
+\]
+
+<p>\(\text{R3} \rightarrow \text{R3} - \text{R1}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 1 & 2 \\
+0 & -4 & -1 & 2 \\
+0 & 2 & 6 & 1
+\end{array}\right]
+\]
+
+<p>\(\text{R3} \rightarrow \text{R3} + \frac{1}{2}\text{R2}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 1 & 2 \\
+0 & -4 & -1 & 2 \\
+0 & 0 & \frac{5}{2} & 2
+\end{array}\right]
+\]
+
+<p>Now the matrix is in row-echelon form. We can proceed to reduced row-echelon form.</p>
+
+<p>\(\text{R3} \rightarrow \frac{2}{5} \text{R3}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 1 & 2 \\
+0 & -4 & -1 & 2 \\
+0 & 0 & 1 & \frac{4}{5}
+\end{array}\right]
+\]
+
+<p>\(\text{R2} \rightarrow \text{R2} + \text{R3}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 1 & 2 \\
+0 & -4 & 0 & \frac{14}{5} \\
+0 & 0 & 1 & \frac{4}{5}
+\end{array}\right]
+\]
+
+<p>\(\text{R2} \rightarrow -\frac{5}{4}\text{Row 2}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 1 & 2 \\
+0 & 1 & 0 & -\frac{7}{10} \\
+0 & 0 & 1 & \frac{4}{5}
+\end{array}\right]
+\]
+
+<p>\(\text{R1} \rightarrow \text{R1} - \text{R3}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 0 & \frac{6}{5} \\
+0 & 1 & 0 & -\frac{7}{10} \\
+0 & 0 & 1 & \frac{4}{5}
+\end{array}\right]
+\]
+
+<p>\(\text{R1} \rightarrow \text{R1} - 3\text{R2}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 0 & 0 & \frac{27}{10} \\
+0 & 1 & 0 & -\frac{7}{10} \\
+0 & 0 & 1 & \frac{4}{5}
+\end{array}\right]
+\]
+
+<p>Now the matrix is in reduced row-echelon form, and the solution is:</p>
+
+\[
+x_1 = \frac{27}{10}, \quad x_2 = -\frac{7}{10}, \quad x_3 = \frac{4}{5}
+\]
+
+\[
+\mathbf{x} = \begin{bmatrix}
+    \frac{27}{10} \\ -\frac{7}{10} \\ \frac{4}{5}
+\end{bmatrix}
+\]
+
+<h2>6. Number of Solutions</h2>
+<p>Given a system represented as \(\mathbf{A} \mathbf{x} = \mathbf{b}\), the number of solutions can be determined by the rank of \(\mathbf{A}\) and the augmented matrix \([\mathbf{A}|\mathbf{b}]\):</p>
+
+<ul>
+    <li><strong>One Unique Solution</strong>: If \(m \geq n\), the rank of \(\mathbf{A}\) is \(n\), and the rank of \([\mathbf{A}|\mathbf{b}]\) is also \(n\).</li>
+    <li><strong>Infinitely Many Solutions</strong>: If \(\text{rank}(\mathbf{A}) = \text{rank}([\mathbf{A}|\mathbf{b}]) = r\) and 1.) \(r \le n\) and \(n < m\) or 2.) \(r \leq m\) and \( m < n\).</li>
+    <li><strong>No Solution</strong>: If \(\text{rank}(\mathbf{A}) < \text{rank}([\mathbf{A}|\mathbf{b}])\).</li>
+</ul>
+
+<h2>7. Particular and General Solutions</h2>
+<p>When a solution exists for \(\mathbf{A} \mathbf{x} = \mathbf{b}\), the solution can be expressed as:</p>
+
+<ul>
+    <li><strong>Particular Solution</strong>: A specific solution to the system.</li>
+    <li><strong>General Solution</strong>: The sum of the particular solution and the solution to the homogeneous equation \(\mathbf{A} \mathbf{x}' = 0\).</li>
+</ul>
+
+<p>If \( \mathbf{A} \mathbf{x} = \mathbf{b} \) has a solution, then:</p>
+
+\[
+\mathbf{A} (\mathbf{x} + \mathbf{x}') = \mathbf{b} \quad \text{where} \quad \mathbf{A} \mathbf{x}' = 0
+\]
+
+<p>This equation represents the <strong>general solution</strong>. If the system has only one solution, the general solution is the same as the particular solution, with \(\mathbf{x}' = \mathbf{0}\). If the system has infinitely many solutions, \(\mathbf{x}' \neq \mathbf{0}\).</p>
+
+<p>Consider the compact form of a system of linear equations:</p>
+
+\[
+\mathbf{A} \mathbf{x} = \mathbf{b}
+\]
+
+<p>where:</p>
+
+\[
+\mathbf{A} = \begin{bmatrix} 1 & 3 & 4 \\ 2 & 2 & 4 \\ 1 & 5 & 6 \end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix} 2 \\ 6 \\ 1 \end{bmatrix}
+\]
+
+<p>The augmented matrix \([\mathbf{A}|\mathbf{b}]\) is:</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 4 & 2 \\
+2 & 2 & 4 & 6 \\
+1 & 5 & 6 & 1
+\end{array}\right]
+\]
+
+<p>The matrix can be simplified using elementary row transformations:</p>
+
+<p>\(\text{R2} \rightarrow \text{R2} - 2\text{R1}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 4 & 2 \\
+0 & -4 & -4 & 2 \\
+1 & 5 & 6 & 1
+\end{array}\right]
+\]
+
+<p>\(\text{R3} \rightarrow \text{R3} - \text{R1}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 4 & 2 \\
+0 & -4 & -4 & 2 \\
+0 & 2 & 2 & -1
+\end{array}\right]
+\]
+
+<p>\(\text{R3} \rightarrow \text{R3} + \frac{1}{2}\text{R2}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 3 & 4 & 2 \\
+0 & -4 & -4 & 2 \\
+0 & 0 & 0 & 0
+\end{array}\right]
+\]
+
+<p>Now the matrix is in row-echelon form. We can proceed to reduced row-echelon form.</p>
+
+<p>\(\text{R1} \rightarrow \text{R1} + \frac{3}{4}\text{R2}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 0 & 1 & \frac{7}{2} \\
+0 & -4 & -4 & 2 \\
+0 & 0 & 0 & 0
+\end{array}\right]
+\]
+
+<p>\(\text{R2} \rightarrow -\frac{1}{4}\text{Row 2}\)</p>
+
+\[
+\left[\begin{array}{ccc|c}
+1 & 0 & 1 & \frac{7}{2} \\
+0 & 1 & 1 & -\frac{1}{2} \\
+0 & 0 & 0 & 0
+\end{array}\right]
+\]
+
+<p>Now the matrix is in reduced row-echelon form.</p>
+<ul>
+    <li><strong>Particular solution</strong>: We can obtain a particular solution as \[x_1 = \frac{7}{2}, \quad x_2 = -\frac{1}{2}, \quad x_3=0\]</li>
+\[x = \begin{bmatrix}
+    \frac{7}{2} \\ -\frac{1}{2} \\ 0
+\end{bmatrix}\]
+    <li><strong>General solution</strong>: For the homogeneous \(\mathbf{A}\mathbf{x}' = \mathbf{0}\), the augmented matrix in reduced row-echelon form is:</li>
+\[
+\left[\begin{array}{ccc|c}
+1 & 0 & 1 & 0 \\
+0 & 1 & 1 & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right]
+\]
+
+<p>For the solution, \(\mathbf{x}' \neq \begin{bmatrix} 0\\0\\0 \end{bmatrix}\)</p>
+
+<p>One solution is \(\mathbf{x}' = \begin{bmatrix} 1 \\ 1 \\ -1 \end{bmatrix}\)</p>
+
+<p>and for all \(\lambda \in R\), \(\mathbf{x}' = \lambda\begin{bmatrix} 1\\1\\-1 \end{bmatrix}\) is also a solution.</p>
+
+<p>Hence, the general solution is:</p>
+
+<p>\(\mathbf{x} = \begin{bmatrix} \frac{7}{2} \\ -\frac{1}{2} \\ 0 \end{bmatrix} + \lambda\begin{bmatrix} 1 \\ 1 \\ -1 \end{bmatrix}\), for all \(\lambda \in \mathbb{R}\)</p>
+</ul>
+
+
+<h2>8. References</h2>
+<p>M. P. Deisenroth, A. A. Faisal, and C. S. Ong, ‘Mathematics for Machine Learning’. Cambridge University Press,  2020, pp. 19–26. Accessed: Jun. 26, 2024. [Online]. Available: https://mml-book.github.io/book/mml-book.pdf
+</p>

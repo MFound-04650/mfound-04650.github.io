@@ -264,13 +264,15 @@ export function draw3dGrid(scene){
 }
 
 export function createPlane(x, y, z, c, color, {width=6, height=6, opacity=0.2}){
+ 
     const geometry = new THREE.PlaneGeometry(width, height);
     const material = new THREE.MeshBasicMaterial({ color: color, side: THREE.DoubleSide, transparent: true, opacity: opacity });
     const plane = new THREE.Mesh(geometry, material);
     const normal = new THREE.Vector3(x, y, z).normalize();
     plane.lookAt(normal);
-    console.log(normal.x);
-    plane.position.set(normal.x * c, normal.y * c, normal.z * c);
+    plane.position.set(normal.x , normal.y, normal.z );
+    // const plan = new THREE.Plane(new THREE.Vector3(0, 1, 2), 3)
+   
     return plane;
 }
 

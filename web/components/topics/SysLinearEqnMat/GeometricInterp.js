@@ -302,7 +302,7 @@ export default class GeometricInterp extends HTMLElement{
         scene.add(axesHelper);
         camera.position.z = 5;
         camera.position.x = 1;
-        camera.position.set(0, 2, 5);
+        camera.position.set(0, 2, 20);
         orbit.update();
 
         draw3dGrid(scene);
