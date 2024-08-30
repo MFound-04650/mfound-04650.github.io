@@ -205,6 +205,37 @@ $$
     [Include Animation / Interactive Visualization]
 
 </p> -->
+<p>
+
+For example, consider two matrices \(\mathbf{A}\) and \(\mathbf{B}\) as follows:
+
+\[
+\mathbf{A} = \begin{bmatrix}
+1 & 3 \\
+2 & 4
+\end{bmatrix}, \quad \mathbf{B} = \begin{bmatrix}
+5 & 7 \\
+6 & 8
+\end{bmatrix}
+\]
+\begin{align*}
+\mathbf{A} + \mathbf{B} &= \begin{bmatrix}
+1 & 3 \\
+2 & 4
+\end{bmatrix} + \begin{bmatrix}
+5 & 7 \\
+6 & 8
+\end{bmatrix} \\
+&= \begin{bmatrix}
+1 + 5 & 3 + 7 \\
+2 + 6 & 4 + 8 
+\end{bmatrix}\\
+&= \begin{bmatrix}
+6 & 10 \\
+8 & 12
+\end{bmatrix}
+\end{align*}
+</p>
 
 <h4>5.2 Matrix-vector Multiplication</h4>
 <p>
@@ -246,6 +277,34 @@ au_1 + bv_1 \\ au_2 + bv_2 \\ au_3 + bv_3
 \end{align*}
 
 </p>
+
+<p>
+    For example, let \(\mathbf{u}\) and \(\mathbf{v}\) be two vectors in \(\mathbb{R}^3\), and let \(a\) and \(b\) be scalar coefficients. Consider:
+    
+    \[
+    \mathbf{u} = \begin{bmatrix}
+    2 \\ 1 \\ 3
+    \end{bmatrix}, \quad \mathbf{v} = \begin{bmatrix}
+    4 \\ -2 \\ 5
+    \end{bmatrix}, \quad a = 3, \quad b = -2
+    \]
+    The linear combination \(a\mathbf{u} + b\mathbf{v}\) is computed as follows:
+    
+    \begin{align*}
+        a\mathbf{u} + b\mathbf{v} &= 3\begin{bmatrix}
+        2 \\ 1 \\ 3
+        \end{bmatrix}- 2\begin{bmatrix}
+        4 \\ -2 \\ 5
+        \end{bmatrix} \\
+        &= \begin{bmatrix}
+            6\\3\\9
+        \end{bmatrix} + \begin{bmatrix}
+            -8\\4\\-10
+        \end{bmatrix}\\
+        &= \begin{bmatrix}
+            -2\\7\\-1
+        \end{bmatrix}
+    \end{align*}</p>
 
 
 <p>
@@ -289,6 +348,34 @@ au_1 + bv_1 \\ au_2 + bv_2 \\ au_3 + bv_3
 </p>
 
 <p>
+
+    Consider the matrix \(\mathbf{A}\) and the vector \(\mathbf{v}\) as follows:
+    
+    \[
+    \mathbf{A} = \begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+    \end{bmatrix}, \quad \mathbf{v} = \begin{bmatrix}
+    2 \\ 1 \\ 3
+    \end{bmatrix}
+    \]
+    \begin{align*}
+        \mathbf{A}\mathbf{v} &= \begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+    \end{bmatrix} \begin{bmatrix}
+    2 \\ 1 \\ 3
+    \end{bmatrix} \\
+    &= 2\begin{bmatrix} 1 \\ 4 \\ 7 \end{bmatrix} + 1\begin{bmatrix} 2 \\ 5 \\ 8 \end{bmatrix} + 3\begin{bmatrix} 3 \\ 6 \\ 9 \end{bmatrix} \\
+    &= \begin{bmatrix} 2 \\ 8 \\ 14 \end{bmatrix} + \begin{bmatrix} 2 \\ 5 \\ 8 \end{bmatrix} + \begin{bmatrix} 9 \\ 18 \\ 27 \end{bmatrix} \\
+    &= \begin{bmatrix}
+        13\\31\\49
+    \end{bmatrix}
+    \end{align*}</p>
+
+<p>
     <strong>Linear combination of the row vectors of a matrix</strong>: Matrix-vector multiplication can also be seen as the linear combination of the rows of a matrix when a row vector is involved.
 </p>
 
@@ -323,6 +410,20 @@ au_1 + bv_1 \\ au_2 + bv_2 \\ au_3 + bv_3
     \end{bmatrix}
     \end{align*} 
 </p>
+
+<p>
+    For example, consider the row vector \(\mathbf{w}\) and the matrix \(\mathbf{A}\) as follows:
+    
+    \[
+    \mathbf{w} = \begin{bmatrix} 2 & 1 & 3 \end{bmatrix}, \quad \mathbf{A} = \begin{bmatrix} 1 & 4 & 7 \\ 2 & 5 & 8 \\ 3 & 6 & 9 \end{bmatrix}
+    \]
+    
+    \begin{align*}
+        \mathbf{w}\mathbf{A} &= 2\begin{bmatrix} 1 & 4 & 7 \end{bmatrix} + 1\begin{bmatrix} 2 & 5 & 8 \end{bmatrix} + 3\begin{bmatrix} 3 & 6 & 9 \end{bmatrix}\\
+        &= \begin{bmatrix} 2 & 8 & 14 \end{bmatrix} + \begin{bmatrix} 2 & 5 & 8 \end{bmatrix} + \begin{bmatrix} 9 & 18 & 27 \end{bmatrix} \\
+        &= \begin{bmatrix} 2+2+9 & 8+5+18 & 14+8+27 \end{bmatrix} \\
+        &= \begin{bmatrix} 13 & 31 & 49 \end{bmatrix}
+    \end{align*}</p>
 
 
 <h4>5.3 Matrix-Matrix Multiplication</h4>
@@ -403,12 +504,219 @@ a_{31}b_{11} + a_{32}b_{21} + a_{33}b_{31} & a_{31}b_{12} + a_{32}b_{22} + a_{33
 </p>
 
 <p>
+    For example, consider the matrices \(\mathbf{A}\) and \(\mathbf{B}\) as follows:
+
+\[
+\mathbf{A} = \begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}, \quad \mathbf{B} = \begin{bmatrix}
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 9
+\end{bmatrix}
+\]
+
+\begin{align*}
+    \begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix} \begin{bmatrix}
+1 \\ 2 \\ 3
+\end{bmatrix} = \begin{bmatrix}
+1(1) + 2(2) + 3(3) \\
+4(1) + 5(2) + 6(3) \\
+7(1) + 8(2) + 9(3)
+\end{bmatrix} = \begin{bmatrix}
+14 \\ 32 \\ 50
+\end{bmatrix}\\
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix} \begin{bmatrix}
+4 \\ 5 \\ 6
+\end{bmatrix} = \begin{bmatrix}
+1(4) + 2(5) + 3(6) \\
+4(4) + 5(5) + 6(6) \\
+7(4) + 8(5) + 9(6)
+\end{bmatrix} = \begin{bmatrix}
+32 \\ 77 \\ 122
+\end{bmatrix}\\
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix} \begin{bmatrix}
+7 \\ 8 \\ 9
+\end{bmatrix} = \begin{bmatrix}
+1(7) + 2(8) + 3(9) \\
+4(7) + 5(8) + 6(9) \\
+7(7) + 8(8) + 9(9)
+\end{bmatrix} = \begin{bmatrix}
+50 \\ 122 \\ 194
+\end{bmatrix}
+\end{align*}
+\[
+\mathbf{A}\mathbf{B} = \begin{bmatrix}
+14 & 32 & 50 \\
+32 & 77 & 122 \\
+50 & 122 & 194
+\end{bmatrix}
+\]
+</p>
+<p>
     <strong>Linear combination of rows</strong>: The second method involves linear combinations of the rows of the second matrix. It is similar to the first method, but instead of combining the columns of the first matrix, \(\mathbf{A}\), we combine the rows of the second matrix, \(\mathbf{B}\).
 
+</p>
+<p>
+
+For example, for the matrices \(\mathbf{A}\) and \(\mathbf{B}\) as follows:
+
+\[
+\mathbf{A} = \begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}, \quad \mathbf{B} = \begin{bmatrix}
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 9
+\end{bmatrix}
+\]
+
+\begin{align*}
+\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix} \begin{bmatrix}
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 9
+\end{bmatrix} &= 1\begin{bmatrix}
+1 & 4 & 7
+\end{bmatrix} + 2 \begin{bmatrix}
+    2&5&8
+\end{bmatrix}+3\begin{bmatrix}
+    3&6&9
+\end{bmatrix} = \begin{bmatrix}
+14 & 32 & 50
+\end{bmatrix}\\
+\begin{bmatrix}
+4 & 5 & 6
+\end{bmatrix} \begin{bmatrix}
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 9
+\end{bmatrix} &= 4\begin{bmatrix}
+1 & 4 & 7
+\end{bmatrix} + 5\begin{bmatrix}
+    2&5&8
+\end{bmatrix}+6\begin{bmatrix}
+    3&6&9
+\end{bmatrix} = \begin{bmatrix}
+32 & 77 & 122
+\end{bmatrix}\\
+\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix} \begin{bmatrix}
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 9
+\end{bmatrix} &= 7\begin{bmatrix}
+1 & 4 & 7
+\end{bmatrix} + 8 \begin{bmatrix}
+    2&5&8
+\end{bmatrix}+9\begin{bmatrix}
+    3&6&9
+\end{bmatrix} = \begin{bmatrix}
+50 & 122 & 194
+\end{bmatrix}\\
+\end{align*}
+\[
+\mathbf{A}\mathbf{B} = \begin{bmatrix}
+14 & 32 & 50 \\
+32 & 77 & 122 \\
+50 & 122 & 194
+\end{bmatrix}
+\]
 </p>
 
 <p>
     <strong>row vector vs column vector</strong>: The last method is the conventional method that we are all familiar with. We add the element-wise multiplication of the rows of \(\mathbf{A}\) and the columns of \(\mathbf{B}\).
+</p>
+<p>
+
+For example, for the matrices \(\mathbf{A}\) and \(\mathbf{B}\) as follows:
+
+\[
+\mathbf{A} = \begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}, \quad \mathbf{B} = \begin{bmatrix}
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 9
+\end{bmatrix}
+\]
+
+\begin{align*}
+    \textbf{row1,column1} = \begin{bmatrix}
+        1&2&3
+    \end{bmatrix}\begin{bmatrix}
+        1 \\2\\3
+    \end{bmatrix} = 14\\
+    \textbf{row1,column2} = \begin{bmatrix}
+        1&2&3
+    \end{bmatrix}\begin{bmatrix}
+        4 \\5\\6
+    \end{bmatrix} = 32\\
+    \textbf{row1,column1} = \begin{bmatrix}
+        1&2&3
+    \end{bmatrix}\begin{bmatrix}
+        7 \\8\\9
+    \end{bmatrix} = 50\\
+    \textbf{row2,column1} = \begin{bmatrix}
+        4&5&6
+    \end{bmatrix}\begin{bmatrix}
+        1 \\2\\3
+    \end{bmatrix} = 32\\
+    \textbf{row2,column2} = \begin{bmatrix}
+        4&5&6
+    \end{bmatrix}\begin{bmatrix}
+        4 \\5\\6
+    \end{bmatrix} = 77\\
+    \textbf{row2,column3} = \begin{bmatrix}
+        4&5&6
+    \end{bmatrix}\begin{bmatrix}
+        7 \\8\\9
+    \end{bmatrix} = 122\\
+    \textbf{row3,column1} = \begin{bmatrix}
+        7&8&9
+    \end{bmatrix}\begin{bmatrix}
+        1 \\2\\3
+    \end{bmatrix} = 50\\
+    \textbf{row3,column2} = \begin{bmatrix}
+        7&8&9
+    \end{bmatrix}\begin{bmatrix}
+        2 \\5\\8
+    \end{bmatrix} = 122\\
+    \textbf{row3,column3} = \begin{bmatrix}
+        7&8&9
+    \end{bmatrix}\begin{bmatrix}
+        7 \\8\\9
+    \end{bmatrix} = 194\\
+\end{align*}
+
+\[
+\mathbf{A}\mathbf{B} = \begin{bmatrix}
+14 & 32 & 50 \\
+32 & 77 & 122 \\
+50 & 122 & 194
+\end{bmatrix}
+\]
 </p>
 
 <!-- oo -->
@@ -435,6 +743,19 @@ a_{31}b_{11} + a_{32}b_{21} + a_{33}b_{31} & a_{31}b_{12} + a_{32}b_{22} + a_{33
             \mathbf{A} = \begin{bmatrix} a & b \\ c & d \end{bmatrix}, \quad \mathbf{A}^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}
         \]
     </p>
+    <p>
+        For example, the inverse of the matrix \(\begin{bmatrix}
+    2&1\\1&1
+\end{bmatrix}\) is \(\begin{bmatrix}
+    1&-1\\-1&2
+\end{bmatrix}\)
+
+and the inverse of the matrix \(\begin{bmatrix}
+    2&0\\0&2
+\end{bmatrix}\) is \(\begin{bmatrix}
+    \frac{1}{2}&0\\ 0&\frac{1}{2}
+\end{bmatrix}\)
+    </p>
     
     <h4>5.5 Transpose of a Matrix</h4>
     <p>
@@ -445,6 +766,15 @@ a_{31}b_{11} + a_{32}b_{21} + a_{33}b_{31} & a_{31}b_{12} + a_{32}b_{22} + a_{33
         \[
             \mathbf{A}^{\text{T}}_{ij} = \mathbf{A}_{ji}
         \]
+    </p>
+    <p>
+        
+For example, the transpose of the matrix \(\begin{bmatrix}
+2&5\\7&1
+\end{bmatrix}\) is \(\begin{bmatrix}
+2&7\\5&1
+\end{bmatrix}
+\)
     </p>
     <p>
         
@@ -472,6 +802,18 @@ a_{31}b_{11} + a_{32}b_{21} + a_{33}b_{31} & a_{31}b_{12} + a_{32}b_{22} + a_{33
         \[
             \mathbf{A} = \mathbf{A}^{\text{T}}
         \]
+    </p>
+    <p>
+        For example the matrix, \(\mathbf{A} = \begin{bmatrix}
+    1&3&4\\
+    3&2&7\\
+    4&7&5
+\end{bmatrix}\) is symmetric because \(\mathbf{A}^\top = \begin{bmatrix}
+    1&3&4\\
+    3&2&7\\
+    4&7&5
+\end{bmatrix}\)
+
     </p>
     
     

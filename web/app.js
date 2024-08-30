@@ -12,7 +12,7 @@ function main(){
 
 function handleHashChange(){
     const hash = window.location.hash;
-    const mainContent = document.querySelector(".main-content-container");
+    const mainContent = document.querySelector(".main-content");
 
     mainContent.innerHTML = "";
     if(hash.length > 1){
