@@ -176,11 +176,16 @@ p {
     padding-top: 10px;
     padding-left: 20px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     overflow: auto;
     padding-bottom: 100px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.main-content-container {
+    width: 100%;
+    overflow-y: auto;
 }
 
 .main-content-choices {
