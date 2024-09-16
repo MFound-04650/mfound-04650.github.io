@@ -8,9 +8,9 @@ const sideBoxContent = `
 
 const allTopics = [
     {"Systems of Linear Equations and Matrices": ["System of Linear Equations", "Matrices"]},
-    // {"Solving Systems of Linear Equations": []},
-    // {"Linear Independence, Basis and Rank":[]},
-    // {"Linear Mappings and Affine Spaces":[]},
+    {"Solving Systems of Linear Equations": []},
+    {"Linear Independence, Basis and Rank":[]},
+    {"Linear Mappings and Affine Spaces":[]},
     // {"Orthogonality": []},
     // {"Determinant and Trace": []},
     // {"Eigenvalues and Eigenvectors": []},

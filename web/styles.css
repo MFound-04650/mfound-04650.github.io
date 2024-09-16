@@ -78,7 +78,7 @@ p {
 
 .side-box {
     width: 250px;
-    height: 90%;
+    height: 100%;
     /* height: 100px; */
     background-color: #fff;
     position: relative;
@@ -124,10 +124,10 @@ p {
 }
 
 .topic {
-    height: 50px;
+    height: 100px;
     width: 100%;
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 50px;
     /* border: 2px solid blue; */
     border-radius: 2px;
     padding: 10px;

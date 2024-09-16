@@ -36,15 +36,28 @@ export default class SameVectorSpaceSameBases2 extends HTMLElement{
         this.svg2.append(...this.getBasesGrid(), ...this.getBases());
         this.transMat.innerHTML = this.transformMatElement();
         
-        this.container.style.marginBottom = "20px";
-        this.container.style.display = "flex";
-        this.container.style.alignItems = "center";
+        const div = document.createElement("div");
+        div.style.marginBottom = "20px";
+        div.style.display = "flex";
+        div.style.alignItems = "center";
+        div.style.width = "1020px";
+        this.container.style.width = "1020px";
+        this.container.style.marginBottom = "50px";
         this.transMat.style.display = "flex";
         this.transMat.style.flexDirection = "column";
         this.transMat.style.alignItems = "center";
         this.transMat.style.justifyContent = "center";
-        this.container.append(this.svg1, this.transMat, this.svg2);
-        this.append(this.container);
+
+        
+        div.append(this.svg1, this.transMat, this.svg2);
+        this.container.style.border = "2px solid black";
+
+        const caption = document.createElement("p");
+        caption.innerHTML = "This shows the effect of applying a 2x2 transformation matrix on a set of vectors represented as colored dots";
+        
+        this.container.append(div, caption);
+        this.append(this.container)
+        
 
         this.addListenersForInputs();
         this.updateVectors();

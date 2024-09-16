@@ -17,14 +17,15 @@ function handleHashChange(){
     mainContent.innerHTML = "";
     if(hash.length > 1){
         const topicMarkup = `topics/${hash.slice(1)}.html`;
-        // const topicsSVGOpen = document.querySelector("#topics-svg-open");
-        // const topicsSVGClose = document.querySelector("#topics-svg-close");
-        // const sideBoxObject = document.querySelector(".side-box");
+        
+        const topicsSVGOpen = document.querySelector("#topics-svg-open");
+        const topicsSVGClose = document.querySelector("#topics-svg-close");
+        const sideBoxObject = document.querySelector(".side-box");
 
-        // state.toolBar.isTopicsExpanded = false;
-        // topicsSVGClose.style.display = "none";
-        // topicsSVGOpen.style.display = "block";
-        // sideBoxObject.style.display = "none";
+        state.toolBar.isTopicsExpanded = false;
+        topicsSVGClose.style.display = "none";
+        topicsSVGOpen.style.display = "block";
+        sideBoxObject.style.display = "none";
 
         fetch(topicMarkup).then(res => res.text().then(res => {
             mainContent.innerHTML = res;
