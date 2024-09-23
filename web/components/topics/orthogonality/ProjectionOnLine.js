@@ -184,7 +184,7 @@ export default class ProjectionOnLine extends HTMLElement{
                     vec2[1] = parseFloat(Math.min(Math.max(y, -midY/cellSize), midY/cellSize).toFixed(1));
                 }
                 
-                updateVectors()
+                // updateVectors()
             }
             
         });
