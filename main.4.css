@@ -11,7 +11,9 @@ b {
 code {
     font-size: 65%;
 }
-
+ul,ol{
+    list-style: none;
+}
 .header {
     position: fixed;
     -webkit-box-orient: horizontal;

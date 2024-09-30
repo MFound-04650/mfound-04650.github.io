@@ -16,6 +16,7 @@ h1, h2 {
     color: #333;
 }
 
+
 p, math, .MathJax, pre, code {
     font-family: 'Roboto Mono', monospace;
 }
