@@ -10,4 +10,5 @@ export const topicsMap = {
     "Singular Value Decomposition":"mf-singular-value-decomposition",
     "Symmetric Matrix":"mf-symmetric-matrix",
     "PCA": "mf-pca",
+    "intro to vector calculus": "mf-intro-to-vector-calculus",
 }
